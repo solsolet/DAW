@@ -14,7 +14,7 @@ html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
 }
 
 body{
-    min-width: 380px;
+    min-width: 420px;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     text-align: center;    
@@ -24,6 +24,7 @@ body{
         color: white;
         background-color: var(--rosa);
         padding: 0.1em;
+        box-shadow: 0 4px 8px 0 rgba(255, 174, 174, 0.5);
     }
         body > header > nav > ul{
             display: inline-flex; /*centrat*/ /* float: left; */
@@ -42,7 +43,12 @@ body{
     body > section{
         padding: 1em; /* q no estiga tot apegat */
     }
-        body > section > article{
+
+    body > section > p {
+        margin: 40px;
+        text-align: justify;
+    }
+        body > section > article, .foto{
             display: inline-block; /* mirar de fevo d'altra manera */
             margin: 0.5em;
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -50,93 +56,130 @@ body{
                 width:auto;
                 border-radius: 10px;   
         }
-        body > section > article:hover {
+        body > section > article:hover, .foto{
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         }
             body > section > article > a > img {
                 border-radius: 5px 5px 0 0;
             }
+
+            body > section > article > form{
+                width: 75%;
+            }
+            
+            fieldset {
+                border-color:rgba(255, 174, 174, 0.5);
+                width: auto;
+                display: grid;
+            }
         
-        body > section > form {
+        form {
             background-color: rgba(255, 174, 174, 0.5);
             display: grid;
             text-align: left;
             padding: 2em;
             border-radius: 5px;
+            width: 40%; 
+            margin: 1em auto;
+            box-shadow: 0 4px 8px 0  rgba(255, 174, 174, 0.5);
         }
 
-        input {
+        div {
+            display: inline;
+        }
+
+        input, select {
+            font-family: 'Poppins', serif;
             padding: 0.25em;
-            border-radius:10px;
+            border-radius: 10px;
+            margin: 0 0 1em 0;
+            border: 3px solid var(--gris);
+            
         }
 
         label {
             position: relative;
+            top: 5%;
+        }
+
+        table {
+            border-collapse: collapse;  
+            margin: 0.5px;
+            width: 100%;
+            margin-bottom: 10px;
+          }
+          /*clasificació*/
+          th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #DDD;
+          }
+          tr:hover { background-color: var(--roig);
+            color: var(--blau);
+        }
+    
+        .album{display: inline;
+        }
+    
+        article{
+            padding: 2em;
         }
 
         .btn {
-            display: flex;
             height: auto;
             color: #fff;
             background-color: var(--blau);
             border: 1px solid;
             border-radius: 6px;
             display: inline-block;
-            font-weight: 300;
             transition: background-color .3s;
-            position: relative;
-            left: 30px;
+            margin: 0px 0px 14px 17px;
         }
         .btn:hover{
             color: var(--blau);
             background-color: #fff;
         }
 
-        .label{}
-
         .label-usu{
             display: inline-block;
-            position: relative;
-            left: 1px; 
+            margin: 0px 0.7px 14px 0.6em
         }
 
         .label-pass{
             display: inline-block;
-            position: relative;
-            left: 20px;
+            margin: 0px 0.7px 14px 0.6em
+        }
+        
+        .foto{
+            margin: 1em;
         }
 
-        .index-fs{
-            width: auto;
-            text-align: center;
-            display: inline-flex;
-            border: 0px;    
-            border-radius: 5px;
-            justify-content: center;
-            padding: 1em;
-            position: relative;
-            /* max-width: 600px;
-            margin-left: auto;
-            margin-right: auto; */
+        .estiqui{
+            position: sticky;
+            top: 20px;
         }
 
-@media all and (max-width: 680px){    
-    .label-usu{
-        display: flex;
-    }
-    
-    .label-pass{
-        display: flex;  
-        position: relative;
-        left: 0px;  
-    }
 
-    .btn{
-        position: relative;
-        left: 0px;
-        top: 5px;
+@media screen and (max-width: 480px){
+    body > header > nav > ul{
+        
+        list-style-type: none;
     }
-
+    body > header > nav > ul > li> a > label{
+        display:none;
+    }
+    form{
+        width: 75%;
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 800px){
+    form {
+        width: 75%;
+    }
 }
 
-      
+@media screen and (max-width: 1220px){
+    .estiqui{
+        position: relative;
+    }
+}
