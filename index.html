@@ -25,19 +25,29 @@
                 <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i><label>Registro</label></a></li>
             </ul>
         </nav>
-    </header>
+    </header>   
+
+<!--Modal-->
+<section id="mlogin" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="post" action="index2.html">
+        <header>
+            <h2>Login</h2>
+            <a href="#" class="closebtn">×</a>
+        </header>
+        <fieldset>
+            <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" required class="label label-usu">
+            <label for="clave">Contraseña:</label> <input type="password" name="clave" id="clave" required class="label label-pass">
+            <input type="submit" value="Entrar" class="btn">
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
 
     <section>
-        <form method="post" action="index2.html">
-            <fieldset>
-                <legend>Login:</legend>
-                <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" required class="label label-usu">
-                <label for="clave">Contraseña:</label> <input type="password" name="clave" id="clave" required class="label label-pass">
-                <input type="submit" value="Entrar" class="btn">
-            </fieldset>
-        </form>
-    </section>
-    <section>
+        <a href="#mlogin" class="btn">Loguearse</a> <!-- modal login -->
         <h2>Las últimas fotos</h2>
 	    <!-- En la práctica usad cinco imágenes diferentes, no repetir la misma -->
         <article class="carta"><a href="aviso.html"><img src="imagenes/rashito.jpeg" alt="El Rasho Macuin FIAUUUUUUUUU" width="272" height="108"></a>

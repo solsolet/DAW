@@ -1,3 +1,5 @@
+@import url(modal.css);
+
 html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
     --c1: #ffaeae; /*rosa*/
     --c2: #56baec; /* blau */
@@ -72,15 +74,9 @@ body{
                 width: 75%;
             }
 
-i{
-    margin: 0 0.4em 0 0;
-}
+i{ margin: 0 0.4em 0 0; }
             
-fieldset {
-    border-color:var(--sc1);
-    display: grid;
-    width: auto;
-}
+fieldset { border-color:var(--sc1); }
 
 form {
     background-color: var(--sc1);
@@ -130,6 +126,7 @@ tr:hover { background-color: var(--sc1);
     color: var(--b);
     display: inline-block;
     font-size: inherit;
+    padding: 0.5em;
     transition: background-color .3s;
 }
 .btn:hover{
@@ -142,6 +139,17 @@ tr:hover { background-color: var(--sc1);
     top: 20px;
 }
 
+#login{
+    width: 90%;
+    padding: inherit;
+}
+
+#login > fieldset{
+    display: flex;
+}
+#login > fieldset > input {
+    margin: auto;
+}
 
 @media screen and (max-width: 480px){
     body > header > nav > ul{
