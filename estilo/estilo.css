@@ -139,18 +139,6 @@ tr:hover { background-color: var(--sc1);
     top: 20px;
 }
 
-#login{
-    width: 90%;
-    padding: inherit;
-}
-
-#login > fieldset{
-    display: flex;
-}
-#login > fieldset > input {
-    margin: auto;
-}
-
 @media screen and (max-width: 480px){
     body > header > nav > ul{
         list-style-type: none;
@@ -158,9 +146,7 @@ tr:hover { background-color: var(--sc1);
     body > header > nav > ul > li> a > label{
         display:none;
     }
-    form{
-        width: 75%;
-    }
+    form{ width: 75%; }
 }
 @media screen and (min-width: 480px) and (max-width: 800px){
     form { width: 75%; }
