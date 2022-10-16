@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud álbum</title>
+    <!-- después quitar y hacer con css, es temporal -->
+    <style>
+        table, tr, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>PI - Pictures &amp; Images</h1>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index2.html">Inicio</a></li>
+                <li><a href="busquedar.html">Buscar</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="index.html">Salir</a></li>  
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Solicitud de inpresión de álbum</h2>
+        <p>Mediante esta opción se puede solicitar la impresión y envío de uno de tus álbumes todo a color, toda resoulución.<br>
+        Aquí mostramos una tabla con las tarifas de impresión por página para que se pueda tener una idea del dinero que 
+        se quiere gastar. Después de tenerlo claro, para continuar con la solicitud, se deberá completar un formulario 
+        para realizar el pedido final.</p>
+        <article>
+            <h3>Tarifas</h3>
+            <table>
+                <tr>
+                    <th>Concepto</th>
+                    <th>Tarifa</th>
+                </tr>
+                <tr>
+                    <td>&lt;5 páginas</td>
+                    <td>0.10 &euro; por pág.</td>
+                </tr>
+                <tr>
+                    <td>entre 5 y 11 páginas</td>
+                    <td>0.08 &euro; por pág.</td>
+                </tr>
+                <tr>
+                    <td>&gt;11 páginas</td>
+                    <td>0.07 &euro; por pág.</td>
+                </tr>
+                <tr>
+                    <td>Blanco y negro</td>
+                    <td>0 &euro;</td>
+                </tr>
+                <tr>
+                    <td>Color</td>
+                    <td>0.05 &euro; por foto</td>
+                </tr>
+                <tr>
+                    <td>resolución &gt; 300 dpi</td>
+                    <td>0.02 &euro; por foto</td>
+                </tr>
+            </table>
+        </article>
+        <article>
+	    <h3>Formulario de solicitud</h3>
+            <p>Rellena el siguiente formulario aportando todos los detalles para confeccionar tu álbum</p>
+            <p>Todos los campos con un * son obligatorios</p>
+            <form method="post" action="ralbum.html">
+                <fieldset>
+                    <label for="nombre">Nombre:</label> <input type="text" name="nombre" id="nombre" placeholder="Juanico banana" maxlength="200" required><label for="nombre">*</label><br>
+                    <label for="titulo">Título:</label> <input type="text" name="titulo" id="titulo" placeholder="Hola Presidente" maxlength="200" required><label for="titulo">*</label><br>
+                    <label for="t_adicional">Texto adicional:</label> <input type="text" name="t_adicional" id="t_adicional" placeholder="Para Serafín..." maxlength="4000"><br>
+                    <label for="email">Email:</label> <input type="email" name="email" id="email" placeholder="juan@email.com" maxlength="200" required><label for="email">*</label><br>
+                    <!-- dirección formato para hacer los campor (calle nº, piso, puerta, cod postal, localidad, provincia y país)-->
+                    <fieldset>
+                        <legend>Dirección</legend>
+                        <label for="calle">Calle:</label> <input type="text" name="calle" id="calle" placeholder="Lillojuan" maxlength="200" required><label for="calle">*</label><br>
+                        <label for="nportal">Número:</label> <input type="number" name="nportal" id="nportal" placeholder="42" required><label for="nportal">*</label><br>
+                        <label for="piso">Piso:</label> <input type="number" name="piso" id="piso" placeholder="3º">
+                        <label for="puerta">Puerta:</label> <input type="text" name="puerta" id="puerta" placeholder="A" maxlength="10"><br>
+                        <label for="cp">Código postal:</label> <input type="number" name="cp" id="cp" placeholder="03570" required><label for="cp">*</label><br>
+                        <label for="localidad">Localidad:</label> <input type="text" name="localidad" id="localidad" placeholder="La Vila Joiosa" maxlength="200" required><label for="localidad">*</label><br>
+                        <label for="provincia">Província:</label> <input type="text" name="provincia" id="provincia" placeholder="Alacant" maxlength="200" required><label for="provincia">*</label><br>
+                        <label for="pais">País</label>
+                        <select name="pais" id="pais">
+                            <option value="Alemania">Alemania</option>
+                            <option value="Austria">Austria</option>
+                            <option value="China">China</option>
+                            <option value="España">España</option>
+                            <option value="EEUU">EEUU</option>
+                            <option value="Francia">Francia</option>
+                            <option value="Inglaterra">Inglaterra</option>
+                            <option value="Italia">Italia</option>
+                            <option value="Rusia">Rusia</option>                   
+                            <option value="Venezuela">Venezuela</option>
+                        </select><br>
+                    </fieldset>
+                    
+                    <label for="telf">Teléfono:</label> <input type="tel" name="telf" id="telf" placeholder="123123123"><br>
+                    <!-- selector de color mirar-->
+                    <label for="color">Color de la portada:</label> <input type="color" name="color" id="color" value="#000000" disabled><br>
+                    <label for="ncopias">Número de copias:</label> <input type="number" name="ncopias" id="ncopias" value="1" min="1"><br>
+                    <label for="resolucion">Resolución:</label> <input type="number" name="resolucion" id="resolucion" value="150" min="150" max="900" step="150"><br>
+                    <!-- elegir album -->
+                    <label>Selecciona un álbum:</label> 
+                        <input type="radio" id="album1" name="albumes" value="Verano 2010">
+                            <label for="album1">Verano 2010</label>
+                        <input type="radio" id="album2" name="albumes" value="Barcelona">
+                            <label for="album2">Barcelona</label> 
+                        <input type="radio" id="album3" name="albumes" value="Boda Juan">
+                            <label for="album3">Boda Juan</label><label>*</label><br>
+                    <label for="frecepcion">Fecha de recepción:</label> <input type="date" name="frecepcion" id="frecepcion"><br>
+                    <label>Impresión a color:</label> 
+                        <input type="radio" id="byn" name="impresion" value="Blanco y negro">
+                            <label for="byn">Blanco y negro</label>
+                        <input type="radio" id="acolor" name="impresion" value="A color">
+                            <label for="acolor">A color</label><br>
+
+                    <input type="submit" value="Enviar">
+                </fieldset>    
+            </form>
+        </article>
+    </section>
+
+    <footer>
+        <p>&copy; Gemma Sellés y Sebastian Cadavid <time datetime="2022-09">2022</time></p>
+    </footer>
+</body>
+</html>
