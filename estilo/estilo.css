@@ -1,30 +1,33 @@
 html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
-    --groc: #ffec94;
-    --rosa: #ffaeae;
-    --groc2: #fff0aa;
-    --verd: #b0e57c;
-    --gris: #b4d8e7;
-    --blau: #56baec;
+    --c1: #ffaeae; /*rosa*/
+    --c2: #56baec; /* blau */
+    --c3: #b4d8e7; /*gris*/
+    --c4: #ffec94;
+    --c5: #fff0aa;
+    --c6: #b0e57c;
+    --b: #fff;
+    --s: rgba(255, 255, 255, 0.5); /* sombra */
+    --sc1: rgba(255, 174, 174, 0.5);/*sombra rosa*/
 }
 
 *{
-    /* box-sizing: border-box; */ /*te en compte el borde i tmb el padding*/
-    text-decoration: none;
+    box-sizing: border-box; /*te en compte el borde i tmb el padding*/
     scroll-behavior: smooth;
+    text-decoration: none;
 }
 
 body{
-    min-width: 420px;
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    min-width: 420px;
     text-align: center;    
 }
     body > header, body > footer{
-        font-family: 'Lora', serif;
+        background-color: var(--c1);
+        box-shadow: 0 4px 8px 0 var(--sc1);
         color: white;
-        background-color: var(--rosa);
+        font-family: 'Lora', serif;
         padding: 0.1em;
-        box-shadow: 0 4px 8px 0 rgba(255, 174, 174, 0.5);
     }
         body > header > nav > ul{
             display: inline-flex; /*centrat*/ /* float: left; */
@@ -36,8 +39,8 @@ body{
                 text-align: center;
             }
             body > header > nav > ul > li > a:hover {
-                background-color: rgba(255, 255, 255, 0.5);
-                color: var(--blau);
+                background-color: var(--s);
+                color: var(--c2);
                 transition: 0.3s;
             }
     body > section{
@@ -48,121 +51,100 @@ body{
         margin: 40px;
         text-align: justify;
     }
-        body > section > article, .foto{
+        body > section > article{
+            border-radius: 10px;   
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             display: inline-block; /* mirar de fevo d'altra manera */
             margin: 0.5em;
-                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-                transition: 0.3s;
-                width:auto;
-                border-radius: 10px;   
+            padding: 2em;
+            transition: 0.3s;
+            width:auto;
         }
-        body > section > article:hover, .foto{
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        body > section > article:hover{
+            box-shadow: 0 0 1.5em 0.15em var(--c5);
         }
+        .carta{ padding: 0; } /* cartetes d'index */
+
             body > section > article > a > img {
                 border-radius: 5px 5px 0 0;
             }
-
             body > section > article > form{
                 width: 75%;
             }
+
+i{
+    margin: 0 0.4em 0 0;
+}
             
-            fieldset {
-                border-color:rgba(255, 174, 174, 0.5);
-                width: auto;
-                display: grid;
-            }
-        
-        form {
-            background-color: rgba(255, 174, 174, 0.5);
-            display: grid;
-            text-align: left;
-            padding: 2em;
-            border-radius: 5px;
-            width: 40%; 
-            margin: 1em auto;
-            box-shadow: 0 4px 8px 0  rgba(255, 174, 174, 0.5);
-        }
+fieldset {
+    border-color:var(--sc1);
+    display: grid;
+    width: auto;
+}
 
-        div {
-            display: inline;
-        }
+form {
+    background-color: var(--sc1);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0  var(--sc1);
+    display: grid;
+    margin: 1em auto;
+    padding: 2em;
+    text-align: left;
+    width: 40%; 
+}
 
-        input, select {
-            font-family: 'Poppins', serif;
-            padding: 0.25em;
-            border-radius: 10px;
-            margin: 0 0 1em 0;
-            border: 3px solid var(--gris);
-            
-        }
+div { display: inline; }
 
-        label {
-            position: relative;
-            top: 5%;
-        }
+input, select {
+    border-radius: 10px;
+    border: 3px solid var(--c3);
+    font-family: 'Poppins', serif;
+    margin: 0 0 1em 0;
+    padding: 0.25em;
+}
 
-        table {
-            border-collapse: collapse;  
-            margin: 0.5px;
-            width: 100%;
-            margin-bottom: 10px;
-          }
-          /*clasificació*/
-          th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #DDD;
-          }
-          tr:hover { background-color: var(--roig);
-            color: var(--blau);
-        }
-    
-        .album{display: inline;
-        }
-    
-        article{
-            padding: 2em;
-        }
+/* Tarifas */
+table {
+    border-collapse: collapse;  
+    margin: 0.5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid var(--c3);
+}
+th{
+    background-color: var(--c2);
+    color: var(--b);
+}
+tr:hover { background-color: var(--sc1);
+    color: var(--c2);
+}
 
-        .btn {
-            height: auto;
-            color: #fff;
-            background-color: var(--blau);
-            border: 1px solid;
-            border-radius: 6px;
-            display: inline-block;
-            transition: background-color .3s;
-            margin: 0px 0px 14px 17px;
-        }
-        .btn:hover{
-            color: var(--blau);
-            background-color: #fff;
-        }
+.btn {
+    background-color: var(--c2);
+    border: 0;
+    border-radius: 6px;
+    color: var(--b);
+    display: inline-block;
+    font-size: inherit;
+    transition: background-color .3s;
+}
+.btn:hover{
+    background-color: #fff;
+    color: var(--c2);
+}
 
-        .label-usu{
-            display: inline-block;
-            margin: 0px 0.7px 14px 0.6em
-        }
-
-        .label-pass{
-            display: inline-block;
-            margin: 0px 0.7px 14px 0.6em
-        }
-        
-        .foto{
-            margin: 1em;
-        }
-
-        .estiqui{
-            position: sticky;
-            top: 20px;
-        }
+.estiqui{
+    position: sticky;
+    top: 20px;
+}
 
 
 @media screen and (max-width: 480px){
     body > header > nav > ul{
-        
         list-style-type: none;
     }
     body > header > nav > ul > li> a > label{
@@ -173,13 +155,12 @@ body{
     }
 }
 @media screen and (min-width: 480px) and (max-width: 800px){
-    form {
-        width: 75%;
-    }
+    form { width: 75%; }
 }
 
 @media screen and (max-width: 1220px){
     .estiqui{
         position: relative;
+        top: 0;
     }
 }
