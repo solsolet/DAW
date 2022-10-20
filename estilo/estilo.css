@@ -1,6 +1,3 @@
-@import url(modal.css);
-@import url(grid.css);
-
 html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
     --c1: #ffaeae; /*rosa*/
     --c2: #56baec; /* blau */
@@ -9,151 +6,22 @@ html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
     --c5: #fff0aa;
     --c6: #b0e57c;
     --b: #fff;
+    --t: #2c2c2c;
     --s: rgba(255, 255, 255, 0.5); /* sombra */
     --sc1: rgba(255, 174, 174, 0.5);/*sombra rosa*/
 }
 
-*{
-    box-sizing: border-box; /*te en compte el borde i tmb el padding*/
-    scroll-behavior: smooth;
-    text-decoration: none;
-}
-
-body{
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    min-width: 420px;
-    text-align: center;    
-}
     body > header, body > footer{
-        background-color: var(--c1);
         box-shadow: 0 4px 8px 0 var(--sc1);
-        color: white;
-        font-family: 'Lora', serif;
-        padding: 0.1em;
-    }
-        body > header > nav > ul{
-            display: inline-flex; /*centrat*/ /* float: left; */
-            list-style-type: none;
-        }
-            body > header > nav > ul > li > a{
-                color: white;
-                padding: 1em;
-                text-align: center;
-            }
-            body > header > nav > ul > li > a:hover {
-                background-color: var(--s);
-                color: var(--c2);
-                transition: 0.3s;
-            }
-    body > section{ 
-        padding: 1em; /* q no estiga tot apegat */
     }
 
-    body > section > p {
-        margin: 40px;
-        text-align: justify;
-    }
         body > section > div > article{
-            border-radius: 10px;   
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            /* display: inline-block; */ /* mirar de fevo d'altra manera */
-            margin: 0.5em;
-            padding: 2em;
-            transition: 0.3s;
-            width:auto;
         }
-        body > section > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--c5); }
-
-        .carta{ padding: 0; } /* cartetes d'index */
-
-            body > section > div > article > a > img { border-radius: 5px 5px 0 0; }
-            body > section > article > form{ width: 75%; }
-
-i{ margin: 0 0.4em 0 0; }
+        body > section > div > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--c5); }
             
 fieldset { border-color:var(--sc1); }
 
-form {
-    background-color: var(--sc1);
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0  var(--sc1);
-    display: grid;
-    margin: 1em auto;
-    padding: 2em;
-    text-align: left;
-    width: 40%; 
-}
+form { box-shadow: 0 4px 8px 0  var(--sc1); }
 
-div { display: inline; }
-
-input, select {
-    border-radius: 10px;
-    border: 3px solid var(--c3);
-    font-family: 'Poppins', serif;
-    margin: 0 0 1em 0;
-    padding: 0.25em;
-}
-
-/* Tarifas */
-table {
-    border-collapse: collapse;  
-    margin: 0.5px;
-    width: 100%;
-    margin-bottom: 10px;
-}
-th, td {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid var(--c3);
-}
-th{
-    background-color: var(--c2);
-    color: var(--b);
-}
-tr:hover { background-color: var(--sc1);
-    color: var(--c2);
-}
-
-.btn {
-    background-color: var(--c2);
-    border: 0;
-    border-radius: 6px;
-    color: var(--b);
-    display: inline-block;
-    font-size: inherit;
-    padding: 0.5em;
-    transition: background-color .3s;
-}
-.btn:hover{
-    background-color: #fff;
-    color: var(--c2);
-}
-
-.estiqui{
-    position: sticky;
-    top: 20px;
-}
-
-@media screen and (max-width: 480px){
-    body > header > nav > ul{ list-style-type: none; }
-
-    body > header > nav > ul > li> a > label{ display:none; }
-
-    form{ width: 75%; }
-
-    .image-grid { --num-cols: 1; }
-}
-@media screen and (min-width: 480px) and (max-width: 800px){
-    form { width: 75%; }
-
-    .image-grid { --num-cols: 2; }
-}
-
-@media screen and (min-width: 801px) and (max-width: 1220px){
-    .estiqui{
-        position: relative;
-        top: 0;
-    }
-    .image-grid { --num-cols: 3; }
-}
+.btn { color: var(--b); }

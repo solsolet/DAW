@@ -1,0 +1,31 @@
+html{
+    --c1: #ffaeae; /*rosa*/
+    --c2: #56baec; /* blau */
+    --c3: #b4d8e7; /*gris*/
+    --c4: #797979;
+    --c5: #fff0aa;
+    --c6: #b0e57c;
+    --b: #5c5c5c;
+    --t: #fff;
+    --s: rgba(255, 255, 255, 0.5); /* sombra */
+    --sc1: rgba(255, 174, 174, 0.5);/*sombra rosa*/
+    --sc2: rgba(255, 174, 174, 0.7);
+}
+
+body > section > div > article:hover{
+    background-color: var(--sc2);
+    transition: 0.3s;
+}
+
+.carta{ background-color: var(--sc1); }
+.btn { color: var(--t); }
+
+/* body {
+  --primary-color: #ffaeae;
+  --primary-lighter-color: #ffe7e7;
+  --primary-darker-color: #ff9494;
+
+body {
+  --accent-color: #797979;
+  --accent-lighter-color: #d7d7d7;
+  --accent-darker-color #5c5c5c;} */
