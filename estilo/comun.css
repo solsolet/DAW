@@ -59,7 +59,7 @@ body{
 
 i{ margin: 0 0.4em 0 0; }
             
-fieldset { border-color:var(--sc1); }
+fieldset { border-color:var(--sc1); display: grid;}
 
 form {
     background-color: var(--sc1);
@@ -125,12 +125,12 @@ tr:hover { background-color: var(--sc1);
 
     body > header > nav > ul > li> a > label{ display:none; }
 
-    form{ width: 75%; }
+    form { width: 75%; }
 
     .image-grid { --num-cols: 1; }
 }
 @media screen and (min-width: 480px) and (max-width: 800px){
-    form { width: 75%; }
+    form{ width: 75%; }
 
     .image-grid { --num-cols: 2; }
 }
@@ -141,4 +141,10 @@ tr:hover { background-color: var(--sc1);
         top: 0;
     }
     .image-grid { --num-cols: 3; }
+}
+
+@media screen and (max-width: 1300px){
+    .estiqui{
+        position: relative;
+    }
 }

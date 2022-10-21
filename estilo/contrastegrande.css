@@ -1,3 +1,6 @@
+@import url(alt_cont.css);
+@import url(grande.css);
+
 html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
     --c1: #E02E5F; /*rosa*/
     --c2: #1633D8; /* blau */
@@ -10,14 +13,3 @@ html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
     --s: rgba(255, 255, 255, 0.5); /* sombra */
     --sc1: rgba(255, 174, 174, 0.5);/*sombra rosa*/
 }
-
-.btn { color: var(--b); }
-form > fieldset > .btn { background-color: var(--b); color: var(--c2); }
-form > .btn { background-color: var(--b); color: var(--c2); }
-
-body > section > div > article{
-    background-color: var(--c1);
-    color: var(--b);
-}
-form { background-color: var(--c1);
-    color: var(--b); }
