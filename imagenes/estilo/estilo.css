@@ -1,0 +1,58 @@
+html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
+    --groc: #ffec94;
+    --rosa: #ffaeae;
+    --groc2: #fff0aa;
+    --verd: #b0e57c;
+    --gris: #b4d8e7;
+    --blau: #56baec;
+}
+
+*{
+    box-sizing: border-box; /*te en compte el borde i tmb el padding*/
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+body{
+    min-width: 380px;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    text-align: center;    
+}
+    body > header, body > footer{
+        font-family: 'Lora', serif;
+        color: white;
+        background-color: var(--rosa);
+        padding: 0.1em;
+    }
+        body > header > nav > ul{
+            display: inline-flex; /*centrat*/ /* float: left; */
+            list-style-type: none;
+        }
+            body > header > nav > ul > li > a{
+                color: white;
+                padding: 1em;
+                text-align: center;
+            }
+            body > header > nav > ul > li > a:hover {
+                background-color: rgba(255, 255, 255, 0.5);
+                color: var(--blau);
+                transition: 0.3s;
+            }
+    body > section{
+        padding: 1em; /* q no estiga tot apegat */
+    }
+        body > section > article{
+            display: inline-block; /* mirar de fevo d'altra manera */
+            margin: 0.5em;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                width:auto;
+                border-radius: 5px;   
+        }
+        body > section > article:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+            body > section > article > a > img {
+                border-radius: 5px 5px 0 0;
+            }

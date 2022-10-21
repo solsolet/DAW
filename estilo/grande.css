@@ -1,0 +1,68 @@
+html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
+    --c1: #ffaeae; /*rosa*/
+    --c2: #56baec; /* blau */
+    --c3: #b4d8e7; /*gris*/
+    --c4: #ffec94;
+    --c5: #fff0aa;
+    --c6: #b0e57c;
+    --b: #fff;
+    --t: #2c2c2c;
+    --s: rgba(255, 255, 255, 0.5); /* sombra */
+    --sc1: rgba(255, 174, 174, 0.5);/*sombra rosa*/
+}
+*{
+    box-sizing: border-box; /*te en compte el borde i tmb el padding*/
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+body{
+    /* font-family: 'Poppins', sans-serif; */
+    margin: 0;
+    font-size: 1.5em;
+}
+    body > header, body > footer{
+        box-shadow: 0 4px 8px 0 var(--sc1);
+    }
+
+input, select {
+    padding: 0.5em;
+    font-size: initial;
+    
+}
+input :not(input[type=radio]){
+    width: 100%;
+}
+
+.btn {
+    font-size: inherit;
+}
+
+        body > section > div > article{
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+        body > section > div > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--c5); }
+            
+fieldset {
+    border-color:var(--sc1);
+    display: grid;
+}
+
+form { 
+    box-shadow: 0 4px 8px 0  var(--sc1);
+
+}
+
+.btn { color: var(--b); }
+
+@media screen and (max-width: 480px){
+    form { width: 90%; }
+
+}
+@media screen and (min-width: 481px) and (max-width: 800px){
+    form { width: 85%; }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1220px){
+    form { width: 80%; }
+}

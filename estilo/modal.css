@@ -1,0 +1,71 @@
+/*Modal login*/
+
+/* Add animation (Chrome, Safari, Opera) */
+@-webkit-keyframes example {
+  from { top:-100px; opacity: 0; }
+  to { top:0px; opacity:1; }
+}
+
+/* Add animation (Standard syntax) */
+@keyframes example {
+  from { top:-100px; opacity: 0; }
+  to { top:0px; opacity:1; }
+}
+
+/* The modal's background */
+.modal {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  height: 100%;
+  overflow: auto;
+  top: 0;
+  width: 100%;
+}
+
+/* Display the modal when targeted */
+.modal:target {
+  display: table;
+  position: fixed;
+}
+
+/* The modal box */
+.modal-dialog {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* The modal's content */
+.modal-dialog .modal-content {
+  /* Add animation */
+  -webkit-animation-name: example; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 0.5s; /* Chrome, Safari, Opera */
+  animation-name: example;
+  animation-duration: 0.5s;
+}
+
+.modal-content > form { background-color: var(--c1); }
+
+.modal-content > form > fieldset{ 
+  display: grid;
+  color: var(--b);
+  border-radius: 11px;
+  border: solid var(--c7);
+}
+
+.modal-content > form > header{
+  color: var(--b);
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.closebtn {
+  float: right;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--b);
+}
+
+.closebtn:hover, .closebtn:focus {
+  color: var(--c2);
+  cursor: pointer;
+}

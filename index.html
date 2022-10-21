@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Gemma Sellés Lloret y Sebastián Cadavid Piñero">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="color-scheme" content="dark light"> --> <!-- posa el mode oscur si l'usuari el te posat a l'ordi -->
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Poppins&display=swap" rel="stylesheet">
+    <title>Index</title>
+    <link rel="stylesheet" href="estilo/comun.css" media="screen"> <!-- important: sempre va a emplear-se -->
+    <link rel="stylesheet" href="estilo/estilo.css" title="Modo principal">
+    <link rel="alternate stylesheet" href="estilo/oscuro.css" title="Modo oscuro"> <!-- posar sempre un Title -->
+    <link rel="alternate stylesheet" href="estilo/alt_cont.css" title="Alto Contraste">
+    <link rel="alternate stylesheet" href="estilo/grande.css" title="Letra Grande">
+    <link rel="alternate stylesheet" href="estilo/contrastegrande.css" title="Contraste Grande">
+    <link rel="stylesheet" href="estilo/impreso.css" media="print">
+</head>
+<body>
+    <header>
+        <h1>PI - Pictures &amp; Images</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
+                <li><a href="busqueda.html"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
+                <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i><label>Registro</label></a></li>
+            </ul>
+        </nav>
+    </header>   
+
+<!--Modal-->
+<section id="mlogin" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="post" action="index2.html">
+        <header>
+            <h2>Login</h2>
+            <a href="#" class="closebtn">×</a>
+        </header>
+        <fieldset>
+            <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" required class="label label-usu">
+            <label for="clave">Contraseña:</label> <input type="password" name="clave" id="clave" required class="label label-pass">
+            <input type="submit" value="Entrar" class="btn">
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
+
+    <section>
+        <a href="#mlogin" class="btn" id="log">Loguearse</a> <!-- modal login -->
+        <h2>Las últimas fotos</h2>
+        <div class="image-grid"> <!-- podriem llevalo posant per damunt un main o algo del section-->
+            <!-- En la práctica usad cinco imágenes diferentes, no repetir la misma -->
+            <article class="carta"><a href="aviso.html"><img src="imagenes/rashito.jpeg" alt="El Rasho Macuin FIAUUUUUUUUU" ></a>
+                <h3>Rayo Mqueen</h3>
+                <p>01-11-2020</p>
+                <p>EEUU</p>
+            </article>
+            <article class="carta"><a href="aviso.html"><img src="imagenes/Mate_-_Cars_2.webp" alt="EL MATE FIAUUUUUUUUU"></a>
+                <h3>Mate</h3>
+                <p>04-12-1999</p>
+                <p>EEUU</p>    
+            </article>
+            <article class="carta"><a href="aviso.html"><img src="imagenes/sally.jpg" alt="LA SALLY FIAUUUUUUUUUU"></a>
+                <h3>Sally</h3>
+                <p>21-12-2021</p>
+                <p>EEUU</p>
+            </article>                       
+            <article class="carta"><a href="aviso.html"><img src="imagenes/copapiston.jpg" alt="LA COPA PISTÓN FIAUUUUUUUUU"></a>
+                <h3>Copa Pistón</h3>
+                <p>31-02-2007</p>
+                <p>Internacional</p>
+            </article>
+            <article class="carta"><a href="aviso.html"><img src="imagenes/francesco.jpg" alt="La Maquina Mas Blos, de TOTE ITALE FIAUUUUU"></a>
+                <h3>Francesco Virgoarticleni</h3>
+                <p>08-04-2014</p>
+                <p>Italia</p>
+            </article>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; Gemma Sellés y Sebastian Cadavid <time datetime="2022-09">2022</time></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Gemma Sellés Lloret y Sebastián Cadavid Piñero">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Poppins&display=swap" rel="stylesheet">
+    <title>Registro</title>
+    <link rel="stylesheet" href="estilo/comun.css" media="screen"> <!-- important: sempre va a emplear-se -->
+    <link rel="stylesheet" href="estilo/estilo.css" title="Modo principal">
+    <link rel="alternate stylesheet" href="estilo/oscuro.css" title="Modo oscuro"> <!-- posar sempre un Title -->
+    <link rel="alternate stylesheet" href="estilo/alt_cont.css" title="Alto Contraste">
+    <link rel="alternate stylesheet" href="estilo/grande.css" title="Letra Grande">
+    <link rel="alternate stylesheet" href="estilo/contrastegrande.css" title="Contraste Grande">
+    <link rel="stylesheet" href="estilo/impreso.css" media="print">
+</head>
+<body>
+    <header>
+        <h1>PI - Pictures &amp; Images</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
+                <li><a href="busqueda.html"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Registro</h2>
+        <form method="post" action="index2.html">
+                <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" required>
+                <label for="clave">Contraseña:</label> <input type="password" name="clave" id="clave" required>
+                <label for="clave2">Repetir contraseña:</label> <input type="password" name="clave2" id="clave2" required>
+                <label for="email">Email:</label> <input type="email" name="email" id="email" required>
+                <div>
+                    <label>G&eacute;nero:</label> <br>
+                    <input type="radio" id="generoh" name="genero" value="Hombre">
+                        <label for="generoh">Hombre</label>
+                    <input type="radio" id="generom" name="genero" value="Mujer">
+                        <label for="generom">Mujer</label> 
+                    <input type="radio" id="generoo" name="genero" value="Otro">
+                        <label for="generoo">Otro</label>
+                </div>
+
+                <label for="fdn">Fecha de nacimiento:</label> <input type="date" name="fdn" id="fdn" required>
+                <label for="ciudad">Ciudad:</label> <input type="text" name="ciudad" id="ciudad" required>
+                <label for="pais">Pa&iacute;s</label>
+                    <select name="pais" id="pais">
+                        <option value="Alemania">Alemania</option>
+                        <option value="Austria">Austria</option>
+                        <option value="China">China</option>
+                        <option value="España">España</option>
+                        <option value="EEUU">EEUU</option>
+                        <option value="Francia">Francia</option>
+                        <option value="Inglaterra">Inglaterra</option>
+                        <option value="Italia">Italia</option>
+                        <option value="Rusia">Rusia</option>                   
+                        <option value="Venezuela">Venezuela</option>
+                    </select>
+                    <!--Aquí debería haber un required 👍-->
+                    <label for="img">Foto:</label>
+                <label for="img" class="file">Elige una foto</label> <input type="file" id="img" name="img" accept="image/*" required>
+            
+                <input type="submit" value="Registrar" class="btn">   
+        </form>
+    </section>
+        
+    <footer>
+        <p>&copy; Gemma Sellés y Sebastian Cadavid <time datetime="2022-09">2022</time></p>
+    </footer>
+</body>
+</html>

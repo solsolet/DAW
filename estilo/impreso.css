@@ -1,0 +1,153 @@
+html{
+    --g: #808080;
+}
+
+a:after{
+    content:attr(href);
+}
+
+body{
+    filter: grayscale();
+    text-align: center; 
+}
+    body > header, body > footer{        
+        font-family: 'Lora', serif;
+        padding: 0.1em;
+    }
+nav{ display: none; }
+
+    body > section{ 
+        padding: 1em; /* q no estiga tot apegat */
+    }
+        
+            body > section > p {
+                margin: 40px;
+                text-align: justify;
+            }
+                body > section > div > article{
+                    border-radius: 10px;
+                    margin: 0.5em;
+                    padding: 2em;
+                    transition: 0.3s;
+                    width:auto;
+                }
+        
+                .carta{ padding: 0;
+                } /* cartetes d'index */
+        
+                    body > section > div > article > a > img { border-radius: 5px 5px 0 0; }
+                    body > section > article > form{ width: 75%; }
+
+                    body > header, body > footer{
+                        box-shadow: 0 4px 8px 0 var(--s);
+                    }
+                
+                        body > section > div > article{
+                            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                        }
+                        body > section > div > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--c5); }
+                            
+                fieldset { border-color:var(--s); }
+                
+                form { box-shadow: 0 4px 8px 0  var(--g); }
+        
+form {
+    background-color: var(--s);
+    border-radius: 5px;
+    display: grid;
+    margin: 1em auto;
+    padding: 2em;
+    text-align: left;
+    width: 92%; 
+}
+#log{display:none;}
+.closebtn {display:none;}
+
+div { display: inline; margin: 0px 0px 0.5em 0; }
+div br { display:block; }
+
+input, select {
+    border-radius: 10px;
+    border: 3px solid var(--g);
+    font-family: 'Poppins', serif;
+    margin: 0 0 1em 0;
+    padding: 0.25em;
+}
+
+input[type=file], input[type=color]{
+    background-color: var(--s);
+}
+
+/* Tarifas */
+table {
+    border-collapse: collapse;  
+    margin: 0.5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid var(--g);
+}
+th{
+    background-color: var(--c2);
+    color: var(--s);
+}
+tr:hover { background-color: var(--sg);
+    color: var(--c2);
+}
+
+.image-grid {
+	--gap: 16px;
+	--num-cols: 4;
+
+	display: grid;
+
+	gap: var(--gap);
+	grid-template-columns: repeat(var(--num-cols), 1fr);
+	padding: var(--gap);
+}
+
+.image-grid > article {
+	width: 100%;
+	height: 92%;
+}
+
+.image-grid > article > a > img {
+	width: 100%; /* s'ajusta al tamany del article */
+	height: 10em; /* altura fixa */
+    object-fit: cover; /* s'ajusta al contenedor i es veu com en xicotet */
+    filter: grayscale(100%);
+}
+
+.btn {
+    border: 0;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: inherit;
+    padding: 0.5em;
+    transition: background-color .3s;
+}
+.btn:hover{
+    background-color: var(--s);
+    color: var(--c2);
+}
+
+.estiqui{
+    position: sticky;
+    top: 20px;
+    margin: 0px 0px 2.2em 0;
+}
+
+
+
+#log {
+	display:none;
+}
+
+#mlogin {
+    margin: -10px 0 -35px 0;
+}
+
+
