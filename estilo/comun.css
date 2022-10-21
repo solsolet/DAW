@@ -43,7 +43,6 @@ body{
         margin: 40px;
         text-align: justify;
     }
-<<<<<<< HEAD
         body > section > article{
             display: inline-block; /* mirar de fevo d'altra manera */
             margin: 0.5em;
@@ -53,8 +52,6 @@ body{
             border-radius: 10px;   
             padding: 2em;
         }
-=======
->>>>>>> 33895d43e24918c2020ec8930ac055aa5528903b
         body > section > div > article{
             border-radius: 10px;
             margin: 0.5em;
@@ -83,14 +80,10 @@ form {
     width: 40%; 
 }
 
-<<<<<<< HEAD
 div { 
     display: inline;    
     margin: 0px 0px 0.5em 0;  
 } 
-=======
-div { display: inline; }
->>>>>>> 33895d43e24918c2020ec8930ac055aa5528903b
 
 input, select {
     border-radius: 10px;
@@ -100,7 +93,6 @@ input, select {
     padding: 0.25em;
 }
 
-<<<<<<< HEAD
 input[type=file], input[type=color]{
     background-color: var(--b);
 }
@@ -111,8 +103,6 @@ input[type="file"] {
     opacity: 0;
   }
 
-=======
->>>>>>> 33895d43e24918c2020ec8930ac055aa5528903b
 /* Tarifas */
 table {
     border-collapse: collapse;  
@@ -133,7 +123,6 @@ tr:hover { background-color: var(--sc1);
     color: var(--c2);
 }
 
-<<<<<<< HEAD
 .file {
     border-radius: 10px;
     border: 3px solid var(--c3);
@@ -152,8 +141,6 @@ tr:hover { background-color: var(--sc1);
     border: 3px solid var(--c2);
 }
 
-=======
->>>>>>> 33895d43e24918c2020ec8930ac055aa5528903b
 .btn {
     background-color: var(--c2);
     border: 0;
@@ -171,10 +158,7 @@ tr:hover { background-color: var(--sc1);
 .estiqui{
     position: sticky;
     top: 20px;
-<<<<<<< HEAD
     margin: 0px 3em 0 0;
-=======
->>>>>>> 33895d43e24918c2020ec8930ac055aa5528903b
 }
 
 @media screen and (max-width: 480px){
@@ -196,24 +180,15 @@ tr:hover { background-color: var(--sc1);
     .estiqui{
         position: relative;
         top: 0;
-<<<<<<< HEAD
         margin: 0px 0 1.5em 0;
         
-=======
->>>>>>> 33895d43e24918c2020ec8930ac055aa5528903b
     }
     .image-grid { --num-cols: 3; }
 }
 
-<<<<<<< HEAD
 @media screen and (min-width: 1220px) and (max-width: 1300px){
     .estiqui{
         
         margin: 0 0 0 0;
-=======
-@media screen and (max-width: 1300px){
-    .estiqui{
-        position: relative;
->>>>>>> 33895d43e24918c2020ec8930ac055aa5528903b
     }
 }

@@ -45,7 +45,6 @@
 
 .modal-content > form { background-color: var(--c1); }
 
-<<<<<<< HEAD
 .modal-content > form > fieldset{ 
   display: grid;
   color: var(--b);
@@ -57,14 +56,6 @@
   color: var(--b);
   display: inline-flex;
   justify-content: space-between;
-=======
-.modal-content > form > fieldset{ display: grid; }
-
-.modal-content > form > header{
-    color: var(--b);
-    display: inline-flex;
-    justify-content: space-between;
->>>>>>> 33895d43e24918c2020ec8930ac055aa5528903b
 }
 
 .closebtn {
