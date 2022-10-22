@@ -78,7 +78,6 @@ input[type=file], input[type=color]{
     background-color: var(--s);
 }
 
-/* Tarifas */
 table {
     border-collapse: collapse;  
     margin: 0.5px;

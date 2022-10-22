@@ -26,8 +26,8 @@ body{
             list-style-type: none;
         }
             body > header > nav > ul > li > a{
-                color: var(--b);
-                padding: 1em;
+                color: var(--b2);
+                padding: 1em 1.5em 1em 1.5em;
                 text-align: center;
             }
             body > header > nav > ul > li > a:hover {
@@ -60,8 +60,7 @@ body{
             width:auto;
         }
 
-        .carta{ padding: 0;
-        } /* cartetes d'index */
+        .carta{ padding: 0;} /* cartetes d'index */
 
             body > section > div > article > a > img { border-radius: 5px 5px 0 0; }
             body > section > article > form{ width: 75%; }
@@ -91,10 +90,11 @@ input, select {
     font-family: 'Poppins', serif;
     margin: 0 0 1em 0;
     padding: 0.25em;
+    
 }
 
-input[type=file], input[type=color]{
-    background-color: var(--b);
+input[type="file"], input[type="color"]{
+    background-color: var(--b2);
 }
 
 input[type="file"] {
@@ -109,6 +109,7 @@ table {
     margin: 0.5px;
     width: 100%;
     margin-bottom: 10px;
+    border-radius: 5px;
 }
 th, td {
     padding: 8px;
@@ -117,7 +118,7 @@ th, td {
 }
 th{
     background-color: var(--c2);
-    color: var(--b);
+    color: var(--b2);
 }
 tr:hover { background-color: var(--sc1);
     color: var(--c2);
@@ -129,36 +130,42 @@ tr:hover { background-color: var(--sc1);
     font-family: 'Poppins', serif;
     margin: 0 0 1em 0;
     padding: 0.15em;
-    background-color: var(--b);
+    background-color: var(--b2);
     text-align: center;
     transition: background-color .3s;
+    color: var(--c2);
     
 }
 
 .file:hover{
     background-color: var(--c2);
-    color: var(--b);
+    color: var(--b2);
     border: 3px solid var(--c2);
 }
 
 .btn {
     background-color: var(--c2);
-    border: 0;
     border-radius: 6px;
     display: inline-block;
     font-size: inherit;
     padding: 0.5em;
     transition: background-color .3s;
+    border: 1px solid var(--c2);
 }
 .btn:hover{
     background-color: var(--b);
     color: var(--c2);
+    border: 1px solid var(--c2);
 }
 
 .estiqui{
     position: sticky;
     top: 20px;
     margin: 0px 3em 0 0;
+}
+
+.fa-house:before{
+    margin: 0 0 0 -1.2em;
 }
 
 @media screen and (max-width: 480px){
@@ -187,8 +194,5 @@ tr:hover { background-color: var(--sc1);
 }
 
 @media screen and (min-width: 1220px) and (max-width: 1300px){
-    .estiqui{
-        
-        margin: 0 0 0 0;
-    }
+    .estiqui{ margin: 0 0 0 0; }
 }

@@ -47,13 +47,13 @@
 
 .modal-content > form > fieldset{ 
   display: grid;
-  color: var(--b);
+  color: var(--b2);
   border-radius: 11px;
   border: solid var(--c7);
 }
 
 .modal-content > form > header{
-  color: var(--b);
+  color: var(--b2);
   display: inline-flex;
   justify-content: space-between;
 }
@@ -62,7 +62,7 @@
   float: right;
   font-size: 2.5em;
   font-weight: bold;
-  color: var(--b);
+  color: var(--b2);
 }
 
 .closebtn:hover, .closebtn:focus {

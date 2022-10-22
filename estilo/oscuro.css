@@ -1,24 +1,50 @@
 html{
-    --c1: #ffaeae; /*rosa*/
+    --c1: #EC95A3; /*rosa*/
     --c2: #56baec; /* blau */
     --c3: #b4d8e7; /*gris*/
     --c4: #797979;
     --c5: #fff0aa;
     --c6: #b0e57c;
+    --c7: #5c5c5c; /*rosa claro*/
     --b: #5c5c5c;
+    --b2: #fff;
     --t: #fff;
     --s: rgba(255, 255, 255, 0.5); /* sombra */
-    --sc1: rgba(255, 174, 174, 0.5);/*sombra rosa*/
-    --sc2: rgba(255, 174, 174, 0.7);
+    --sc1: #A8646B;/*sombra rosa*/ 
+    --sc3: #511B28;
 }
 
 body > section > div > article:hover{
-    background-color: var(--sc2);
+    background-color: var(--c1);
     transition: 0.3s;
 }
 
-.carta{ background-color: var(--sc1); }
-.btn { color: var(--t); }
+body > section { background-color: var(--sc3);}
+
+body > header, body > footer{ color: var(--t); }
+
+input, select{ border: 3px solid var(--b);}
+
+tr{ background-color: var(--c1);}
+
+tr:hover{ color: var(--t)}
+
+article > form { background-color: var(--c1);}
+
+.carta, section > article{ background-color: var(--sc1); }
+
+.btn { 
+  color: var(--t); 
+  border: 1px solid var(--b);
+}
+
+.file{
+  background-color: var(--t);
+}
+
+.file, .file:hover{
+  border: 3px solid var(--b);
+}
 
 /* body {
   --primary-color: #ffaeae;
