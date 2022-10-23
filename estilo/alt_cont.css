@@ -5,6 +5,7 @@ html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
     --c4: #ffec94;
     --c5: #fff0aa;
     --c6: #b0e57c;
+    --c7: rgba(44, 44, 44, 0.7);
     --b: #fff; 
     --b2: #fff;
     --t: #2c2c2c;
@@ -12,9 +13,11 @@ html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
     --sc1: #E02E5F;/*sombra rosa*/
 }
 
+.btn { background-color: var(--c2); color: var(--b); }
 
-form > fieldset > .btn { background-color: var(--b); color: var(--c2); }
-form > .btn { background-color: var(--c2); color: var(--b); }
+fieldset{
+    border: 2px solid var(--c7);
+}
 
 body > section > div > article{
     background-color: var(--c1);
@@ -30,8 +33,7 @@ input,select{
 
 .file {
     border: 3px solid var(--c2);
-    background-color: var(--b);
-    
+    background-color: var(--b);    
 }
 
 .file:hover{
