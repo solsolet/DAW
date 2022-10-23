@@ -19,5 +19,7 @@ La página ha sufrido unos cuantos cambios para que la versión impresa sea más
 Para los usuarios que puedan tener problemas de visión tenemos esta versión de alto contraste para que no tengan problemas con los colores. Hemos cambiado los colores principales para que contrasten con un ratio adecuado.
 ### 🔎 Modo Letra grande
 A parte de los problemas de visión que pueden tener los usuarios con los colores, el tamaño de la fuente también puede serlo. Para facilitarle la lectura a estos usuarios, implementamos un estilo con una fueste más grande que la que viene por defecto.
-### 🔲🔎 Modo Alto contraste y Letra grande
+### 🔲🔎 Alto contraste y Letra grande
 Para los usuarios que padezcan de las 2 dificultades anteriores, tenemos un estilo combinado con la fuente más grande y un alto contraste de color.
+
+## P6 - JS
