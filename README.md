@@ -23,3 +23,4 @@ A parte de los problemas de visión que pueden tener los usuarios con los colore
 Para los usuarios que padezcan de las 2 dificultades anteriores, tenemos un estilo combinado con la fuente más grande y un alto contraste de color.
 
 ## P6 - JS
+Introducimos JavaScript a nuestra página. Con éste, manejaremos el DOM de una página web para manipular su contenido y validaremos un formulario sin las funciones de HTML.
