@@ -22,8 +22,6 @@ html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
         }
         body > section > div > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--c5); }
             
-fieldset { border-color:var(--sc1); }
-
-form { box-shadow: 0 4px 8px 0  var(--sc1); }
+fieldset { border-color:var(--sc1);}
 
 .btn { color: var(--b); }

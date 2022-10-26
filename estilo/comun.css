@@ -67,7 +67,11 @@ body{
 
 i{ margin: 0 0.4em 0 0; }
             
-fieldset { border-color:var(--sc1); display: grid;}
+fieldset { 
+    border-color:var(--sc1);  
+    display: grid;
+    margin: 0 0 1em 0;
+}
 
 form {
     background-color: var(--sc1);
@@ -77,6 +81,7 @@ form {
     padding: 2em;
     text-align: left;
     width: 40%; 
+    box-shadow: 0 4px 8px 0  var(--sc1);
 }
 
 div { 

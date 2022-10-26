@@ -48,20 +48,16 @@ input :not(input[type=radio]){
     color: var(--b);
 }
 
-        body > section > div > article{
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        }
-        body > section > div > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--c5); }
+body > section > div > article{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+body > section > div > article:hover{ box-shadow: 0 0 1.5em 0.15em var(--c5); }
             
-fieldset {
-    border-color:var(--sc1);
-    display: grid;
-}
+fieldset { display: grid;}
 
-form { 
-    box-shadow: 0 4px 8px 0  var(--sc1);
+form { box-shadow: 0 4px 8px 0  var(--sc1);}
 
-}
+.modal-content > form, section > form { width: 60%; }
 
 .estiqui{
     position: relative;

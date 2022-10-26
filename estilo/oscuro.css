@@ -12,6 +12,7 @@ html{
     --s: rgba(255, 255, 255, 0.5); /* sombra */
     --sc1: #A8646B;/*sombra rosa*/ 
     --sc3: #511B28;
+    --sc4: rgba(236, 149, 163, 0.7);
 }
 
 body > section > div > article:hover{
@@ -19,7 +20,12 @@ body > section > div > article:hover{
     transition: 0.3s;
 }
 
-body > section { background-color: var(--sc3);}
+body{ background-color: var(--sc3);}
+
+form{
+  background-color: var(--c1);
+  box-shadow: 0 4px 8px 0  var(--sc4);
+}
 
 body > header, body > footer{ color: var(--t); }
 
@@ -28,8 +34,6 @@ input, select{ border: 3px solid var(--b);}
 tr{ background-color: var(--c1);}
 
 tr:hover{ color: var(--t)}
-
-article > form { background-color: var(--c1);}
 
 .carta, section > article{ background-color: var(--sc1); }
 
@@ -44,6 +48,14 @@ article > form { background-color: var(--c1);}
 
 .file, .file:hover{
   border: 3px solid var(--b);
+}
+
+#mlogin > form {
+  background-color: var(--sc1);
+}
+
+#mlogin > form > fieldset {
+  background-color: var(--c1);
 }
 
 /* body {
