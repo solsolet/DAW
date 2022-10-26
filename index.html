@@ -20,6 +20,7 @@
     <link rel="alternate stylesheet" href="estilo/grande.css" title="Letra Grande">
     <link rel="alternate stylesheet" href="estilo/contrastegrande.css" title="Contraste Grande">
     <link rel="stylesheet" href="estilo/impreso.css" media="print">
+    <script src="codi.js"></script>
 </head>
 <body>
     <header>
@@ -37,7 +38,7 @@
 <section id="mlogin" class="modal">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form method="post" action="index2.html">
+      <form method="post">
         <header>
             <h2>Login</h2>
             <a href="#" class="closebtn">×</a>
@@ -45,7 +46,7 @@
         <fieldset>
             <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" required class="label label-usu">
             <label for="clave">Contraseña:</label> <input type="password" name="clave" id="clave" required class="label label-pass">
-            <input type="submit" value="Entrar" class="btn">
+            <input type="button" value="Entrar" class="btn" id="pulsameLogin">
         </fieldset>
       </form>
     </div>
