@@ -7,10 +7,8 @@ window.addEventListener("load", function(){
         boton.addEventListener("click", login);
       
     else if (window.location.href.includes("registro.html"))
-         boton.addEventListener("click", registro);
-        
-    
-})
+         boton.addEventListener("click", registro);   
+});
 
 function login(){
     var usuario = document.getElementById("usuario");

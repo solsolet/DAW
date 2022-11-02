@@ -18,6 +18,7 @@ html{
 body > section > div > article:hover{
     background-color: var(--c1);
     transition: 0.3s;
+    text-decoration: no;
 }
 
 body{ background-color: var(--sc3);}
