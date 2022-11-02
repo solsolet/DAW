@@ -285,7 +285,7 @@ function precios(){
         }
         cont2 = cont1 + fotos * pfoto;
         cont3 = cont1 + fotos * pfotocolor;
-        cont4 = cont1 + fotos * (pfotocolor + pfoto); 
+        cont4 = cont1 + fotos * (pfoto + pfotocolor); 
         
         tr.innerHTML = `<td>${i}</td><td>${fotos}</td><td>${cont1.toFixed(2)}</td><td>${cont2.toFixed(2)}</td><td>${cont3.toFixed(2)}</td><td>${cont4.toFixed(2)}</td>`;
         tabla.appendChild(tr);
