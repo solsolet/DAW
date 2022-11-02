@@ -181,11 +181,23 @@ tr:hover { background-color: var(--sc1);
     form { width: 75%; }
 
     .image-grid { --num-cols: 1; }
+    .estiqui{
+        position: relative;
+        top: 0;
+        margin: 0px 0 1.5em 0;
+        
+    }
 }
 @media screen and (min-width: 480px) and (max-width: 800px){
     form{ width: 75%; }
 
     .image-grid { --num-cols: 2; }
+    .estiqui{
+        position: relative;
+        top: 0;
+        margin: 0px 0 1.5em 0;
+        
+    }
 }
 
 @media screen and (min-width: 801px) and (max-width: 1220px){
