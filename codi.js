@@ -44,7 +44,7 @@ function registro(){
     mensaje = "";
 
     if(vacio(usu) || noenglish(usu)  || usu.value.length<3 || usu.value.length>15){ //importante el .value si no no funciona
-        mensaje += "Escriba el nombre de usaurio en un formato correcto\n";
+        mensaje += "Escriba el nombre de usuario en un formato correcto\n";
         registro = false;       
     }
 
@@ -139,99 +139,106 @@ function cosasEmail(e){
 
         if(e.value.includes("@")){
             var part1 = e.value.indexOf("@");
-            
-            //parte local
-            if(part1 >= 1 && part1 <= 65){
-               
-                for(let i = 0; i < part1 && bool == false; i++){
-                    var val = e.value.charCodeAt(i);
-                                        
-                    if(val < 35)
-                        bool = true;    
-                    else
-                    if(val == 40 || val == 41)
-                        bool = true;
-                    else
-                    if(57 < val && val < 65)
-                        bool = true;
-                    else
-                    if( 90 < val && val < 97)
-                        bool = true;
-                    if(122 < val)
-                        bool = true;
+            var comprobar = e.value.lastIndexOf("@");
 
-                    if(val == 33 || val == 61 || val == 63 || (93 < val && val < 96) || (122 < val && val < 127) )
-                        bool = false; 
-                        
-                    if(bool == false && ((i==0 && val == 46) || (i==part1-1 && val == 46))){
-                        bool = true;
-                    }
+            console.log(part1 + " " +comprobar);
+            if(part1 == comprobar){
+                //parte local
+                if(part1 >= 1 && part1 <= 65){
+                
+                    for(let i = 0; i < part1 && bool == false; i++){
+                        var val = e.value.charCodeAt(i);
+                                            
+                        if(val < 35)
+                            bool = true;    
+                        else
+                        if(val == 40 || val == 41)
+                            bool = true;
+                        else
+                        if(57 < val && val < 65)
+                            bool = true;
+                        else
+                        if( 90 < val && val < 97)
+                            bool = true;
+                        if(122 < val)
+                            bool = true;
 
-                    if(bool == false && val == 46 && i < part1-1){
-                        var sig = e.value.charCodeAt(i+1);
-
-                        if (sig == 46){
+                        if(val == 33 || val == 61 || val == 63 || (93 < val && val < 96) || (122 < val && val < 127) )
+                            bool = false; 
+                            
+                        if(bool == false && ((i==0 && val == 46) || (i==part1-1 && val == 46))){
                             bool = true;
                         }
-                    }
-                }    
-            } else
-                bool = true;
 
-                console.log("bool de la parte local: " + bool);
+                        if(bool == false && val == 46 && i < part1-1){
+                            var sig = e.value.charCodeAt(i+1);
 
-            //dominio
-            if((e.value.length - part1) < 255){
-                var dominio = "";
-                console.log("part1: " + part1);
-                for(let i = part1 + 1; i < e.value.length && bool == false; i++){
-                    dominio = dominio + e.value[i];
-                    var val2 = e.value.charCodeAt(i);
-                    console.log(val2);
-
-                    if(48 > val2)
+                            if (sig == 46){
+                                bool = true;
+                            }
+                        }
+                    }    
+                } else
                     bool = true;
-                    else
-                    if(val2 > 57 && val2 < 65)
+
+                    console.log("bool de la parte local: " + bool);
+
+                //dominio
+                if((e.value.length - part1) < 255){
+                    var dominio = "";
+                    console.log("part1: " + part1);
+                    for(let i = part1 + 1; i < e.value.length && bool == false; i++){
+                        dominio = dominio + e.value[i];
+                        var val2 = e.value.charCodeAt(i);
+                        console.log(val2);
+
+                        if(48 > val2)
                         bool = true;
-                    else
-                    if( val2 > 90 && val2 < 97)
-                        bool = true;
-                    else
-                    if(val2 > 122)
-                        bool = true;
-                    
-                    if(val2 == 45 || val2 == 46)           
-                        bool  = false;   
+                        else
+                        if(val2 > 57 && val2 < 65)
+                            bool = true;
+                        else
+                        if( val2 > 90 && val2 < 97)
+                            bool = true;
+                        else
+                        if(val2 > 122)
+                            bool = true;
                         
-                        console.log(dominio);
-                }
+                        if(val2 == 45 || val2 == 46)           
+                            bool  = false;   
+                            
+                            console.log(dominio);
+                    }
 
-                if(bool == false){
-                    
-                    const subdominio = dominio.split('.');
+                    if(bool == false){
+                        
+                        const subdominio = dominio.split('.');
 
-                    for(let j = 0; j < subdominio.length && bool == false; j++){
-                        console.log("ENTRA:" + subdominio[j]);
-                        if(subdominio[j].length <= 63){
+                        for(let j = 0; j < subdominio.length && bool == false; j++){
+                            console.log("ENTRA:" + subdominio[j]);
+                            if(subdominio[j].length <= 63){
 
-                            if(subdominio[j].includes('-')){
-                                
-                                if(subdominio[j].indexOf('-') == 0 || subdominio[j].lastIndexOf('-') == subdominio[j].length)
-                                    console.log(subdominio[j].indexOf('-'));
-                                    bool = true;                                
+                                if(subdominio[j].includes('-')){
+                                    
+                                    if(subdominio[j].indexOf('-') == 0 || subdominio[j].lastIndexOf('-') == subdominio[j].length)
+                                        console.log(subdominio[j].indexOf('-'));
+                                        bool = true;                                
+                                }
                             }
                         }
                     }
-                }
-                
+                }               
             }
+            else
+                bool = true;
         }
         else
             bool = true;
 
             console.log("bool del dominio: " + bool);
     }
+
+    console.log(bool);
     return bool;
 }
 
