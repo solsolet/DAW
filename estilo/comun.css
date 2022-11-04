@@ -124,6 +124,7 @@ th, td {
 th{
     background-color: var(--c2);
     color: var(--b2);
+    text-align: center;
 }
 tr:hover { background-color: var(--sc1);
     color: var(--c2);
