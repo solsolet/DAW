@@ -270,30 +270,29 @@ function precios(){
         pfotocolor = 0.05;
         
 
-    for(let i = 1; i < 3; i++){
-        var tr = document.createElement("tr")
-
+    for(let i = 1; i < 3; i++){        
+        tr = document.createElement("tr");
         if(i == 1)
-            newContent = document.createTextNode(`<th></th>
+            tr.innerHTML += `<th></th>
                 <th></th>
                 <th colspan="2">Blanco y Negro</th>
-                <th colspan="2">Color</th>`);  
+                <th colspan="2">Color</th>`;  
         else
-            newContent = document.createTextNode(`<th>Nº de Páginas</th>
+            tr.innerHTML += `<th>Nº de Páginas</th>
                 <th>Nº de Fotos</th>
                 <th>150-300 dpi</th>
                 <th>450-900 dpi</th>
                 <th>150-300 dpi</th>
-                <th>450-900 dpi</th>`);
-        tr.appendChild(newContent);
+                <th>450-900 dpi</th>`;
+        
         tabla.appendChild(tr);
     }
 
     for(let i = 1; i < 16; i++){
         var tr = document.createElement("tr"),
-            acum,
-            cont1, cont2, cont3, cont4, //cont x columnas
-            fotos = i*3; 
+        acum,
+        cont1, cont2, cont3, cont4, //cont x columnas
+        fotos = i*3; 
 
         if(i < 5){
             ppagina = 0.1;
@@ -314,8 +313,8 @@ function precios(){
         cont4 = cont1 + fotos * (pfoto + pfotocolor); 
 
         
-        var newContent = document.createTextNode(`<td>${i}</td><td>${fotos}</td><td>${cont1.toFixed(2)}</td><td>${cont2.toFixed(2)}</td><td>${cont3.toFixed(2)}</td><td>${cont4.toFixed(2)}</td>`);
-        tr.appendChild(newContent); //añade texto al div creado;
+        tr.innerHTML +=`<td>${i}</td><td>${fotos}</td><td>${cont1.toFixed(2)}</td><td>${cont2.toFixed(2)}</td><td>${cont3.toFixed(2)}</td><td>${cont4.toFixed(2)}</td>`;
+        //añade texto al div creado;
         tabla.appendChild(tr);
     }
 }

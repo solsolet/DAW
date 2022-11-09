@@ -5,15 +5,15 @@ $htmlData1 = '<li><a href="index.php"><i class="fa-solid fa-house"></i><label>In
 ?>
 
 <?php
-$htmlData2 = '<li><a href="index2.html"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
-<li><a href="busqueda.html"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
-<li><a href="perfil.html"><i class="fa-solid fa-user"></i><label>Perfil</label></a></li> <!-- cambiamos perfil -->
-<li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i><label>Salir</label></a></li> ';
+$htmlData2 = '<li><a href="index2.php"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
+<li><a href="busqueda.php"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
+<li><a href="perfil.php"><i class="fa-solid fa-user"></i><label>Perfil</label></a></li> <!-- cambiamos perfil -->
+<li><a href="index.php"><i class="fa-solid fa-right-from-bracket"></i><label>Salir</label></a></li> ';
 ?>
 
 <?php
-$htmlData3 = '<li><a href="index.html"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
-<li><a href="busqueda.html"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> ';
+$htmlData3 = '<li><a href="index.php"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
+<li><a href="busqueda.php"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> ';
 ?>
 
 <!DOCTYPE html>
