@@ -1,4 +1,6 @@
 <?php
+    include "inc/debug.php";
+    
     $lista = 2;
     include "inc/cabecera.php"
 ?>  
@@ -11,9 +13,62 @@
         para realizar el pedido final.</p>
         
         <article>
-            <table id = "precios">
+            <table>
+               <?php                
+                $ppagina;
+                $pfoto = 0.02;
+                $pfotocolor = 0.05;
                 
+        
+            for($i = 1; $i < 3; $i++){       
+                if($i == 1)
+                    echo "<tr><th></th>
+                        <th></th>
+                        <th colspan='2'>Blanco y Negro</th>
+                        <th colspan='2'>Color</th></tr>";  
+                else
+                echo "<tr><th>Nº de Páginas</th>
+                        <th>Nº de Fotos</th>
+                        <th>150-300 dpi</th>
+                        <th>450-900 dpi</th>
+                        <th>150-300 dpi</th>
+                        <th>450-900 dpi</th>";                
+            }
+        
+            for($i = 1; $i < 16; $i++){
+                $acum;
+                $cont1; $cont2; $cont3; $cont4; //cont x columnas
+                $fotos = $i*3; 
+        
+                if($i < 5){
+                    $ppagina = 0.1;
+                    $cont1 = $i * $ppagina;    
+                }            
+                else if($i >= 5 && $i <= 11){
+                    $acum = 0.4;
+                    $ppagina = 0.08;
+                    $cont1 = ($i-4)*$ppagina+$acum;
+                }
+                else {
+                    $acum = 0.96;
+                    $ppagina = 0.07;
+                    $cont1 = ($i-11)*$ppagina+$acum;
+                }
+                $cont2 = $cont1 + $fotos * $pfoto;
+                $cont3 = $cont1 + $fotos * $pfotocolor;
+                $cont4 = $cont1 + $fotos * ($pfoto + $pfotocolor); 
+        
+                
+                echo "<tr><td>$i</td><td>$fotos</td><td>$cont1</td><td>$cont2</td><td>$cont3</td><td>$cont4</td>";
+                //añade texto al div creado;
+            }
+
+               ?> 
             </table>
+        </article><br>
+
+        <article>
+            <table id = "precios"></table>
         </article><br>
 
         <article class="estiqui" id="estiqui">
@@ -53,7 +108,7 @@
 	    <h3>Formulario de solicitud</h3>
             <p>Rellena el siguiente formulario aportando todos los detalles para confeccionar tu álbum</p>
             <p>Todos los campos con un * son obligatorios</p>
-            <form method="post" action="ralbum.html">
+            <form method="post" action="ralbum.php">
                 
                     <label for="nombre">Nombre:*</label> <input type="text" name="nombre" id="nombre" placeholder="Juanico banana" maxlength="200" required>
                     <label for="titulo">Título:*</label> <input type="text" name="titulo" id="titulo" placeholder="Hola Presidente" maxlength="200" required>
@@ -86,13 +141,13 @@
                     
                     <label for="telf">Teléfono:</label> <input type="tel" name="telf" id="telf" placeholder="123123123">
                     <!-- selector de color mirar-->
-                    <label for="color">Color de la portada:</label> <input type="color" name="color" id="color" value="#000000" disabled>
+                    <label for="color">Color de la portada:</label> <input type="color" name="color" id="color" value="#000000">
                     <label for="ncopias">Número de copias:</label> <input type="number" name="ncopias" id="ncopias" value="1" min="1">
                     <label for="resolucion">Resolución:</label> <input type="number" name="resolucion" id="resolucion" value="150" min="150" max="900" step="150">
                     <!-- elegir album -->
                     <div>
                         <label>Selecciona un álbum:*</label> <br>
-                        <input type="radio" id="album1" name="albumes" value="Verano 2010">
+                        <input type="radio" id="album1" name="albumes" value="Verano 2010" required>
                             <label for="album1">Verano 2010</label>
                         <input type="radio" id="album2" name="albumes" value="Barcelona">
                             <label for="album2">Barcelona</label> 
@@ -107,8 +162,7 @@
                             <label for="byn">Blanco y negro</label>
                         <input type="radio" id="acolor" name="impresion" value="A color">
                             <label for="acolor">A color</label>
-                    </div>
-                    
+                    </div>                   
 
                     <input type="submit" value="Enviar" class="btn">
                     

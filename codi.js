@@ -1,4 +1,4 @@
-window.addEventListener("load", function(){
+/* window.addEventListener("load", function(){
     
     boton = document.getElementById("pulsame");
         console.log(boton);
@@ -261,7 +261,7 @@ function tiene18(a, m, d){
         }
     }
     return losTiene;
-}
+} */
 
 function precios(){
     var tabla = document.getElementById("precios"),

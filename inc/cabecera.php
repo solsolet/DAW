@@ -55,7 +55,6 @@ $htmlData3 = '<li><a href="index.php"><i class="fa-solid fa-house"></i><label>In
                     else if($lista == 3){
                         echo $htmlData3;
                     }
-                
                 ?>
             </ul>
         </nav>

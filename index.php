@@ -7,15 +7,15 @@
 <section id="mlogin" class="modal">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form method="post">
+    <form action="acceso.php" method="post">
         <header>
             <h2>Login</h2>
             <a href="#" class="closebtn">×</a>
         </header>
         <fieldset>
             <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" required class="label label-usu">
-            <label for="clave">Contraseña:</label> <input type="password" name="clave" id="clave" required class="label label-pass">
-            <input type="button" value="Entrar" class="btn" id="pulsame">
+            <label for="clave">Contraseña:</label> <input type="password" name="contra" id="clave" required class="label label-pass">
+            <input type="submit" value="Entrar" class="btn" id="pulsame">
         </fieldset>
       </form>
     </div>
@@ -58,3 +58,4 @@
 <?php
     include "inc/footer.php"
 ?>
+
