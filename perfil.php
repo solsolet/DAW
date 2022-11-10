@@ -1,6 +1,13 @@
 <?php
-    session_start(); // this NEEDS TO BE AT THE TOP of the page before any output etc
-
+    if($_GET) // this NEEDS TO BE AT THE TOP of the page before any output etc
+        $usu = $_GET['usu'];
+    else{
+        $host = $_SERVER['HTTP_HOST'];
+        $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        $extra = 'index.php';
+        header("Location: http://$host$uri/$extra");
+        exit;
+    }
     $lista = 2;
     include "inc/cabecera.php"
 ?>  
@@ -9,8 +16,8 @@
         <h2>Las últimas fotos</h2>
         <div> <!-- podriem llevalo posant per damunt un main o algo del section-->
             <!-- En la práctica usad cinco imágenes diferentes, no repetir la misma -->
-            <article class="carta"><a href="aviso.html"></a>
-                <h3><?php echo $_SESSION['usuario'];?></h3>
+            <article class="carta">
+                <h3><?=$usu?></h3>
                 <p>04-12-1999</p>
                 <p>EEUU</p>    
             </article>

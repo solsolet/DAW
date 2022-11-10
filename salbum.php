@@ -11,7 +11,7 @@
         Aquí mostramos una tabla con las tarifas de impresión por página para que se pueda tener una idea del dinero que 
         se quiere gastar. Después de tenerlo claro, para continuar con la solicitud, se deberá completar un formulario 
         para realizar el pedido final.</p>
-        
+        <h3>Tabla de PHP</h3>
         <article>
             <table>
                <?php                
@@ -67,6 +67,7 @@
             </table>
         </article><br>
 
+        <h3>Tabla de JavaScript</h3>
         <article>
             <table id = "precios"></table>
         </article><br>

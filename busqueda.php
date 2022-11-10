@@ -5,12 +5,13 @@
 
     <section>
         <h2>Búsqueda</h2>
-        <form method="post" action="resultado.html">
+        <form method="post" action="resultado.php">
             <fieldset>
                 <label for="titulo">Título:</label> <input type="text" name="titulo" id="titulo"><br>
                 <label for="fecha">Fecha:</label> <input type="date" name="fecha" id="fecha"><br>
-                <label for="pais">Pa&iacute;s:</label>
+                <label for="pais">País:</label>
                     <select name="pais" id="pais">
+                        <option value="vacio">Vacío</option><!--quedaria mejor un espacio en blanco-->
                         <option value="Alemania">Alemania</option>
                         <option value="Austria">Austria</option>
                         <option value="China">China</option>
@@ -27,6 +28,6 @@
         </form>
     </section>
     
-    <?php
+<?php
     include "inc/footer.php"
 ?>

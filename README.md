@@ -24,3 +24,6 @@ Para los usuarios que padezcan de las 2 dificultades anteriores, tenemos un esti
 
 ## P6 - JS
 Introducimos JavaScript a nuestra página. Con éste, manejaremos el DOM de una página web para manipular su contenido y validaremos un formulario sin las funciones de HTML.
+
+## P7 -PHP
+Introducimos PHP. Cambiamos todas las pàginas HTML por _.php_ y validamos todos los parámetros de los formularios con php.
