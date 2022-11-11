@@ -1,4 +1,5 @@
-<?php    
+<?php 
+
     include "inc/debug.php";
     $bool = false;
 
