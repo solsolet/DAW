@@ -5,7 +5,7 @@
 
     <section>
         <h2>Álbumes</h2>
-        <p>(información)</p>
+        <p class = "aviso">(información)</p>
     </section>
     
     <?php

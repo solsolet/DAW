@@ -24,7 +24,7 @@
 ?>      
         <h3>Reultados:</h3>
         <div class="image-grid">
-            <article class="carta"><a href="foto?id=1"><img src="imagenes/rashito.jpeg" alt="El Rasho Macuin FIAUUUUUUUUU" width="272" height="108"></a>
+            <article class="carta"><a href="foto/1"><img src="imagenes/rashito.jpeg" alt="El Rasho Macuin FIAUUUUUUUUU" width="272" height="108"></a>
                 <h3>Rayo Mqueen</h3>
                 <p>01-11-2020</p>
                 <p>EEUU</p>

@@ -1,5 +1,5 @@
 <?php    
-    include "debug.php";
+    include "inc/debug.php";
     $bool = false;
 
     $host = $_SERVER['HTTP_HOST'];

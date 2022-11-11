@@ -1,6 +1,6 @@
 <?php
     $bool = false;
-    include "debug.php";
+    include "inc/debug.php";
     if(isset($_GET['pasado']))
         $pasado = $_GET['pasado'];
     else
