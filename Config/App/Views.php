@@ -11,8 +11,7 @@
             else {
                 $vista = 'Views/'.$controlador . '/' . $vista.'.php';
             }
-            
-            $id = 2;            
+                        
             require $vista;
         }
     }
