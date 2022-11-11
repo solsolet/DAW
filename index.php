@@ -15,18 +15,26 @@ if(!empty($array[1])){
         $parametro = trim($parametro,",");
     }
 }
+
 require_once 'Config/App/autoload.php';
 
 $diController = "Controllers/".$controller.".php";
+$diView = "Views/".$metodo.".php";
 
 if(file_exists($diController)){
     require_once $diController;
     $controller = new $controller();
-    if(method_exists($controller, 'principal')){
-        $controller->principal($metodo,$parametro);
-    }
-    else{
-        echo "No existe el método";
+    if(file_exists(($diView))){
+        if(method_exists($controller, 'principal')){
+            $controller->principal($metodo,$parametro);
+        }
+        else{
+            echo "No existe el método";
+        }
+    }else{
+        if(method_exists($controller, 'principal')){
+            $controller->principal('principal','');
+        }
     }
 }
 else{
