@@ -1,15 +1,12 @@
 <?php    
-    include "inc/debug.php";
+    include "debug.php";
     $bool = false;
 
-    function removeqsvar($url, $varname) {
-        list($urlpart, $qspart) = array_pad(explode('?', $url), 2, '');
-        parse_str($qspart, $qsvars);
-        unset($qsvars[$varname]);
-        $newqs = http_build_query($qsvars);
-        return $urlpart . '?' . $newqs;
-    }
-    if($_GET){
+    $host = $_SERVER['HTTP_HOST'];
+        $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+
+        debug($host.",".$uri);
+    if(isset($_GET['mensaje'])){
         $bool = true; 
     }   
 
@@ -34,7 +31,7 @@ if($bool == true){
 
     <section>
         <h2>Registro</h2>
-        <form method="post" action="regnuevo.php?pasado=true">
+        <form method="post" action="regnuevo?pasado=true">
                 <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" <?php if($bool == true && isset($_GET['usu'])) echo"value = {$_GET['usu']}"?>>
                 <label for="clave">Contraseña:</label> <input type="password" name="clave" id="clave" <?php if($bool == true && isset($_GET['clv'])) echo"value = {$_GET['clv']}"?>>
                 <label for="clave2">Repetir contraseña:</label> <input type="password" name="clave2" id="clave2" <?php if($bool == true && isset($_GET['clv2'])) echo"value = {$_GET['clv2']}"?>>
@@ -53,6 +50,7 @@ if($bool == true){
                 <label for="ciudad">Ciudad:</label> <input type="text" name="ciudad" id="ciudad"  <?php if($bool == true && isset($_GET['ciu'])) echo"value = {$_GET['ciu']}"?>>
                 <label for="pais">Pa&iacute;s</label>
                     <select name="pais" id="pais">
+                        <option value="vacio">Vacío</option>
                         <option value="Alemania" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"Alemania") == 0) echo"selected = 'selected'"?>>Alemania</option>
                         <option value="Austria" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"Austria") == 0) echo"selected = 'selected'"?>>Austria</option>
                         <option value="China" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"China") == 0) echo"selected = 'selected'"?>>China</option>

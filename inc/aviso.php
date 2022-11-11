@@ -4,7 +4,7 @@
 ?>  
     <section>                
         <h2>¡Aviso!</h2>
-        <p><b>Debe registrarse antes de poder acceder al contenido de las imágenes</b></p>
+        <p class="aviso"><b>Error 404</b> - Página no encontrada</p>
     </section> 
        
     <?php

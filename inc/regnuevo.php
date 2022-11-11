@@ -1,9 +1,11 @@
 <?php
     $bool = false;
-    if($_GET)
+    include "debug.php";
+    if(isset($_GET['pasado']))
         $pasado = $_GET['pasado'];
     else
         $pasado;
+    
     global $mensaje;
     $lista = 2;
     global $usuario; global $clave; global $clave2; global $email; global $genero; global $fecha; global $ciudad; global $pais;   
@@ -22,11 +24,11 @@
         $bool = true;
         $mensaje = $mensaje."Las contraseñas tienen que coincidir.";
     }
-
+    
     if($bool == true && $pasado == true){
-        $extra = 'registro.php?mensaje='.$mensaje;
+        $extra = 'registro?mensaje='.$mensaje;
         if (isset($_POST["usuario"]))
-            $extra = $extra."&usu=".$_POST["usuario"];
+        $extra = $extra."&usu=".$_POST["usuario"];
 
         if (isset($_POST["clave"])) 
         $extra = $extra."&clv=".$_POST["clave"];
@@ -80,7 +82,7 @@ echo "<br>Fecha de nacimiento: <b>{$_POST["fdn"]}</b>";
 if(strcmp($_POST["ciudad"],"") != 0){
 echo "<br>Ciudad: <b>{$_POST["ciudad"]}</b>";
 }
-if(strcmp($_POST["pais"],"") != 0){
+if(isset($_POST['pais']) && strcmp($_POST['pais'],"vacio")!=0){
 echo "<br>País: <b>{$_POST["pais"]}</b>";
 }
     echo "</p></section>";

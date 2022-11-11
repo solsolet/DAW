@@ -1,6 +1,6 @@
 <?php
 
-    abstract Class BaseController {
+    Class Controller {
         public function render($file) {
             include '../' . $file .'.php';
         }

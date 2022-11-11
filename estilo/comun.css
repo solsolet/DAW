@@ -130,6 +130,10 @@ tr:hover { background-color: var(--sc1);
     color: var(--c2);
 }
 
+.aviso {
+    text-align: center;
+}
+
 .file {
     border-radius: 10px;
     border: 3px solid var(--c3);

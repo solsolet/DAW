@@ -1,19 +1,19 @@
 <?php
-$htmlData1 = '<li><a href="index.php"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
-<li><a href="busqueda.php"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
-<li><a href="registro.php"><i class="fa-solid fa-user-plus"></i><label>Registro</label></a></li>';
+$htmlData1 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
+<li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
+<li><a href="registro"><i class="fa-solid fa-user-plus"></i><label>Registro</label></a></li>';
 ?>
 
 <?php
-$htmlData2 = '<li><a href="index2.php"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
-<li><a href="busqueda.php"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
-<li><a href="perfil.php"><i class="fa-solid fa-user"></i><label>Perfil</label></a></li> <!-- cambiamos perfil -->
-<li><a href="index.php"><i class="fa-solid fa-right-from-bracket"></i><label>Salir</label></a></li> ';
+$htmlData2 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
+<li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
+<li><a href="perfil"><i class="fa-solid fa-user"></i><label>Perfil</label></a></li> <!-- cambiamos perfil -->
+<li><a href="principal"><i class="fa-solid fa-right-from-bracket"></i><label>Salir</label></a></li> ';
 ?>
 
 <?php
-$htmlData3 = '<li><a href="index.php"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
-<li><a href="busqueda.php"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> ';
+$htmlData3 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
+<li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> ';
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +27,7 @@ $htmlData3 = '<li><a href="index.php"><i class="fa-solid fa-house"></i><label>In
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/27260d853d.js" crossorigin="anonymous"></script>
     <!-- Google fonts -->
+    <base href="/daw/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Poppins&display=swap" rel="stylesheet">
@@ -38,7 +39,7 @@ $htmlData3 = '<li><a href="index.php"><i class="fa-solid fa-house"></i><label>In
     <link rel="alternate stylesheet" href="estilo/grande.css" title="Letra Grande">
     <link rel="alternate stylesheet" href="estilo/contrastegrande.css" title="Contraste Grande">
     <link rel="stylesheet" href="estilo/impreso.css" media="print">
-    <script src="codi.js"></script>
+    <script src="inc/codi.js"></script>
 </head>
 <body>
     <header>

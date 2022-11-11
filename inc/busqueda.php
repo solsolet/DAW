@@ -5,7 +5,7 @@
 
     <section>
         <h2>Búsqueda</h2>
-        <form method="post" action="resultado.php">
+        <form method="post" action="resultado">
             <fieldset>
                 <label for="titulo">Título:</label> <input type="text" name="titulo" id="titulo"><br>
                 <label for="fecha">Fecha:</label> <input type="date" name="fecha" id="fecha"><br>

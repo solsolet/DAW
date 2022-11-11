@@ -109,7 +109,7 @@
 	    <h3>Formulario de solicitud</h3>
             <p>Rellena el siguiente formulario aportando todos los detalles para confeccionar tu álbum</p>
             <p>Todos los campos con un * son obligatorios</p>
-            <form method="post" action="ralbum.php">
+            <form method="post" action="ralbum">
                 
                     <label for="nombre">Nombre:*</label> <input type="text" name="nombre" id="nombre" placeholder="Juanico banana" maxlength="200" required>
                     <label for="titulo">Título:*</label> <input type="text" name="titulo" id="titulo" placeholder="Hola Presidente" maxlength="200" required>

@@ -8,6 +8,8 @@
     $cont1; 
     $coste; 
     $fotos = $i*3; 
+    $pfoto = 0.02;
+    $pfotocolor = 0.05;
 
     if($i < 5){
         $ppagina = 0.1;
@@ -50,13 +52,14 @@
 hereDOC;
 
 if(strcmp($_POST["piso"],"") != "0" && strcmp($_POST["puerta"],"") != "0")
-    echo "<b>piso {$_POST["piso"]}, puerta {$_POST["puerta"]}</b>";
+    echo ", piso <b>{$_POST["piso"]}º</b>, puerta <b>{$_POST["puerta"]}</b>";
 else if(strcmp($_POST["piso"],"") != "0" && strcmp($_POST["puerta"],"") == "0")
-    echo "<b>piso {$_POST["piso"]}</b>"; 
+    echo ", piso <b>{$_POST["piso"]}</b>"; 
 else if(strcmp($_POST["piso"],"") == "0" && strcmp($_POST["puerta"],"") != "0")
-    echo "<b>puerta {$_POST["puerta"]}</b>";  
+    echo ", puerta <b>{$_POST["puerta"]}</b>";  
 
-    echo ", a la localidad <b>{$_POST["localidad"]}</b>, en la provincia <b>{$_POST["provincia"]}</b>, con el código postal <b>{$_POST["cp"]}</b>, en el país <b>{$_POST["pais"]}</b>.</p>";
+    echo ", a la localidad <b>{$_POST["localidad"]}</b>, en la provincia <b>{$_POST["provincia"]}</b>, con el código postal 
+    <b>{$_POST["cp"]}</b>, en el país <b>{$_POST["pais"]}</b>.</p>";
 
     echo "<p>El precio de la operación será <b>€$coste</b>";
 
@@ -68,7 +71,7 @@ else
 
     echo " con una resolución de <b>{$_POST["resolucion"]}dpi</b> por foto.</p>";
 if(strcmp($_POST["frecepcion"],"") != "0")
-    echo "<p>La recepción de su pedido será alrededor de la fecha <b>25/08/2022</b>.</p>";
+    echo "<p>La recepción de su pedido será alrededor de la fecha <b>{$_POST["frecepcion"]}</b>.</p>";
 
    
 if(strcmp($_POST["t_adicional"],"") != 0)
@@ -82,5 +85,6 @@ hereDOC;
 if(strcmp($_POST["telf"],"") != 0)
         echo "<p>Teléfono: <b> {$_POST["telf"]}</b></p>";
 
+    echo"</section>";
     include "inc/footer.php"
 ?>
