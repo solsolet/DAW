@@ -14,7 +14,7 @@
         || (strcmp($_POST["usuario"],$usuario3) == 0 && strcmp($_POST["contra"],$contra3) == 0)  || (strcmp($_POST["usuario"],$usuario4) == 0 && strcmp($_POST["contra"],$contra4) == 0)){
         
        
-        $extra = 'perfil?usu='.$_POST["usuario"]; 
+        $extra = 'perfil/'.$_POST["usuario"]; 
         /* Redirecciona a una página diferente que se encuentra en el directorio actual */
         $host = $_SERVER['HTTP_HOST'];
         $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');

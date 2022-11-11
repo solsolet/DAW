@@ -1,13 +1,4 @@
 <?php
-    if(isset($_GET['usu'])) // this NEEDS TO BE AT THE TOP of the page before any output etc
-        $usu = $_GET['usu'];
-    else{
-        $host = $_SERVER['HTTP_HOST'];
-        $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-        $extra = 'principal';
-        header("Location: http://$host$uri/$extra");
-        exit;
-    }
     $lista = 2;
     include "inc/cabecera.php"
 ?>  

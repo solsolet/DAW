@@ -1,9 +1,8 @@
-<?php       
+<?php   
     $lista = 2;
     include "inc/cabecera.php";
 
     if($_GET){
-        $id = $_GET['id'];
         if($id%2==0){
             echo<<<hereDOC
                 <section class="foto">

@@ -6,13 +6,15 @@
             
             $controlador = get_class($controlador);
             if($controlador == 'Home'){
-                $vista = 'Views/'.$vista.'.php';
-            }
-            else {
-                $vista = 'Views/'.$controlador . '/' . $vista.'.php';
-            }
-                        
-            require $vista;
+                if($vista == 'foto') {
+                    $id = $data;
+                }
+                else if($vista == 'perfil'){
+                    $usu = $data;
+                }
+                $vista = 'Views/'.$vista.'.php';                
+            }        
+            include $vista;            
         }
     }
 ?>

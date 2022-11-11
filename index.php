@@ -15,9 +15,16 @@ if(!empty($array[1])){
         $parametro = trim($parametro,",");
     }
 }
+define("URL_BASE", "/");
+define("PATH_PAGES", __DIR__ . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR);
+$path = $_SERVER['REQUEST_URI'];
+if (substr($path, 0, strlen(URL_BASE)) == URL_BASE) {
+  $path = substr($path, strlen(URL_BASE));
+}
+$path = explode("/", rtrim($path, "/\\"));
 
 require_once 'Config/App/autoload.php';
-
+print_r($parametro);
 $diController = "Controllers/".$controller.".php";
 $diView = "Views/".$metodo.".php";
 
@@ -40,5 +47,7 @@ if(file_exists($diController)){
 else{
     echo "No existe el controlador";
 }
+
+
 
 ?>

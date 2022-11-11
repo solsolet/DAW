@@ -1,4 +1,5 @@
 <?php
+    
     $lista = 2;
     include "inc/cabecera.php"
 ?>  
