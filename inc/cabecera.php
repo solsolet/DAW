@@ -31,7 +31,7 @@ $htmlData3 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>In
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Poppins&display=swap" rel="stylesheet">
-    <title>Index</title>
+    <title><?=$titulo;?></title>
     <link rel="stylesheet" href="estilo/comun.css" media="screen"> <!-- important: sempre va a emplear-se -->
     <link rel="stylesheet" href="estilo/estilo.css" title="Modo principal">
     <link rel="alternate stylesheet" href="estilo/oscuro.css" title="Modo oscuro"> <!-- posar sempre un Title -->

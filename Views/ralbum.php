@@ -1,4 +1,5 @@
 <?php
+    $titulo = "Solicitud";
     $lista = 2; 
     include "inc/cabecera.php";
     include "inc/debug.php";

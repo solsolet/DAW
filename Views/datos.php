@@ -1,4 +1,5 @@
 <?php
+    $titulo = "Datos";
     $lista = 2;
     include "inc/cabecera.php"
 ?> 

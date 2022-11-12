@@ -10,7 +10,7 @@
     if(isset($_GET['mensaje'])){
         $bool = true; 
     }   
-
+    $titulo = "Registro";
     $lista = 3;
     include "inc/cabecera.php";
 

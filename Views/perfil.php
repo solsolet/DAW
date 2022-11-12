@@ -1,4 +1,14 @@
 <?php
+
+if(!isset($usu)){
+    $host = $_SERVER['HTTP_HOST'];
+    $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    $extra = 'principal';
+    header("Location: http://$host$uri/$extra");
+    exit;
+}
+
+    $titulo = "Perfil";
     $lista = 2;
     include "inc/cabecera.php"
 ?>  

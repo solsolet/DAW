@@ -1,4 +1,5 @@
 <?php
+    $titulo = "404";
     $lista = 1;
     include "inc/cabecera.php"
 ?>  

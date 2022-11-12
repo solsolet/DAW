@@ -7,6 +7,7 @@
         $pasado;
     
     global $mensaje;
+    $titulo = "Registro";
     $lista = 2;
     global $usuario; global $clave; global $clave2; global $email; global $genero; global $fecha; global $ciudad; global $pais;   
     

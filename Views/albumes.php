@@ -1,4 +1,5 @@
 <?php
+    $titulo = "Álbumes";
     $lista = 2;
     include "inc/cabecera.php"
 ?>  

@@ -1,7 +1,7 @@
 <?php
 
 $url = explode("/",$_SERVER['QUERY_STRING']);    
-
+    $titulo = "Principal";
     $lista = 1;
     include "inc/cabecera.php";
     
