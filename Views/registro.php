@@ -63,10 +63,9 @@ if($bool == true){
                         <option value="Rusia" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"Rusia") == 0) echo"selected = 'selected'"?>>Rusia</option>                   
                         <option value="Venezuela" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"Venezuela") == 0) echo"selected = 'selected'"?>>Venezuela</option>
                     </select>
-                    <!--Aquí debería haber un 👍-->
-                    <label for="img">Foto:</label>
+                <label for="img">Foto:</label>
                 <label for="img" class="file">Elige una foto</label> <input type="file" id="img" name="img" accept="image/*"  >
-            
+                
                 <input type="submit" value="Registrar" class="btn" id="pulsame">   
         </form>
     </section>

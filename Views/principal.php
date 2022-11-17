@@ -1,9 +1,22 @@
 <?php
 
 $url = explode("/",$_SERVER['QUERY_STRING']);    
-    $titulo = "Principal";
-    $lista = 1;
-    include "inc/cabecera.php";
+$titulo = "Principal";
+$lista = 1;
+include "inc/cabecera.php";
+
+if(isset($_POST["pulsame"])) { //en post se usa el nombre no el id entre []
+    if(!empty($_POST["remember"])){
+        setcookie("usuario_login", $_POST["usuario"], time()+ 60*60*24*90);
+        setcookie("contra", $_POST["contra"], time()+ 60*60*24*90); //hace falta la contraseña (los pibes del video lo hacen así)?
+    }
+    else { //destruye la cookie
+        if(isset($_COOKIE["usuario_login"]))
+            setcookie("usuario_login", "", time()-60*60*24*30);
+        if(isset($_COOKIE["contra"]))
+            setcookie("contra", "", time()-60*60*24*30);
+    }
+}
     
 ?>  
 
@@ -19,7 +32,10 @@ $url = explode("/",$_SERVER['QUERY_STRING']);
             <fieldset>
                 <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" required class="label label-usu">
                 <label for="clave">Contraseña:</label> <input type="password" name="contra" id="clave" required class="label label-pass">
-                <input type="submit" value="Entrar" class="btn" id="pulsame">
+                <!-- recordarme cookie -->
+                <label for="remember"> <input type="checkbox" name="remember" id="remember" <?php if(isset($_COOKIE["usuario_login"])) { ?> checked <?php } ?> > Recordarme en este equipo</label>
+            
+                <input type="submit" value="Entrar" class="btn" id="pulsame" name="pulsame">
             </fieldset>
         </form>
         </div>
