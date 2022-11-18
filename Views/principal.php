@@ -24,11 +24,7 @@ include "inc/cabecera.php";
             if(isset($_COOKIE["contra"]))
                 setcookie("contra", "", time()-60*60*24*30);
         }
-    } */
-    
-  
-    
-
+    } */   
     
 ?>  
 
@@ -44,7 +40,6 @@ include "inc/cabecera.php";
             <fieldset>
                 <?php if(!isset($_COOKIE['usuario_login'])){
                 echo<<<hereDOC
-    
                     <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" required class="label label-usu">
                     <label for="clave">Contraseña:</label> <input type="password" name="contra" id="clave" required class="label label-pass">
                     <!-- recordarme cookie -->
@@ -63,7 +58,6 @@ include "inc/cabecera.php";
                 }
                 ?>
                 
-                
             </fieldset>
         </form>
         </div>
@@ -74,7 +68,6 @@ include "inc/cabecera.php";
         <a href="#mlogin" class="btn" id="log">Loguearse</a> <!-- modal login -->
         <h2>Las últimas fotos</h2>
         <div class="image-grid"> <!-- podriem llevalo posant per damunt un main o algo del section-->
-            <!-- En la práctica usad cinco imágenes diferentes, no repetir la misma -->
             <article class="carta"><a href="foto/1"><img src="imagenes/rashito.jpeg" alt="El Rasho Macuin FIAUUUUUUUUU" ></a>
                 <h3>Rayo Mqueen</h3>
                 <p>01-11-2020</p>

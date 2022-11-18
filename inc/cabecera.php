@@ -10,7 +10,6 @@ if(isset($_COOKIE['usuario_login'])){
     <li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
     <li><a href="perfil/'.$_COOKIE["usuario_login"].'"><i class="fa-solid fa-user"></i><label>Perfil</label></a></li> <!-- cambiamos perfil -->
     <li><a href="salida"><i class="fa-solid fa-right-from-bracket"></i><label>Salir</label></a></li> ';
-    
 }
 ?>
 

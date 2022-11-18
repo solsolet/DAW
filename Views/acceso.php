@@ -46,7 +46,6 @@
                     setcookie("ultimafecha",$fecha, $tiempo);
                     setcookie("ultimahora", $hora, $tiempo);
                 }
-                
             }
 
             $extra = 'perfil/'.$_POST["usuario"]; 
@@ -73,13 +72,10 @@
     echo "<p> Contraseña: {$_POST["contra"]} </p>"; //se pone el name   $_POST es una variable super global  
 
     echo <<<hereDOC
-    
-    
 
 hereDOC;
 
  */
-
 //tiene que estar al principio de la línea, cuidado con los espacios tmabién y el tabulador
 //se crea un template
 ?>

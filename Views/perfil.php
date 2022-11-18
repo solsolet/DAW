@@ -34,11 +34,12 @@ if(!isset($usu)){
     <section>       
         <h2>Las últimas fotos</h2>
         <div> <!-- podriem llevalo posant per damunt un main o algo del section-->
-            <!-- En la práctica usad cinco imágenes diferentes, no repetir la misma -->
             <article class="carta">
                 <h3><?=$usu?></h3>
-                <p>04-12-1999</p>
-                <p>EEUU</p>    
+                <p><?=$_COOKIE["ultimahora"]?></p>
+                <p><?=$_COOKIE["ultimafecha"]?></p>
+                <!-- <p>04-12-1999</p>
+                <p>EEUU</p>  -->   
             </article>
             <article><a href="albumes"><input type="button" value="Mis álbumes" class="btn" id="pulsame"></a></article>
             <article><a href="subir"><input type="button" value="Crear álbum" class="btn" id="pulsame"></a></article>

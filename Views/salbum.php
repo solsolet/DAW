@@ -18,7 +18,6 @@
                 $ppagina;
                 $pfoto = 0.02;
                 $pfotocolor = 0.05;
-                
         
             for($i = 1; $i < 3; $i++){       
                 if($i == 1)
