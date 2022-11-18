@@ -1,4 +1,5 @@
 <?php
+    include "inc/devolver.php";
     $titulo = "Solicitud";
     $lista = 2; 
     include "inc/cabecera.php";

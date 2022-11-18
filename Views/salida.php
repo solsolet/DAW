@@ -1,11 +1,14 @@
 <?php
-
+session_start();
 if(isset($_COOKIE['usuario_login'])){
     $tiempo = -60*60*24*30;
     setcookie("usuario_login", "", $tiempo);
     setcookie("contra", "", $tiempo);
     setcookie("ultimafecha", "", $tiempo); 
-    setcookie("ultimahora", "", $tiempo);         
+    setcookie("ultimahora", "", $tiempo);   
+    setcookie("estilo","",$tiempo);  
+    session_unset();
+    session_destroy();    
 }
 
 $host = $_SERVER['HTTP_HOST'];

@@ -1,4 +1,5 @@
 <?php
+    include "inc/devolver.php";
     $titulo = "Nuevo Álbum";
     $lista = 2;
     include "inc/cabecera.php"

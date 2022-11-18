@@ -1,7 +1,6 @@
 <?php
     $titulo = "Buscar";
-    $lista = 1;
-    include "inc/cabecera.php"
+    include "inc/registrado.php";
 ?>  
 
     <section>

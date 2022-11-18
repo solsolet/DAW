@@ -1,8 +1,11 @@
 <?php
+    
     include "inc/debug.php";
     $titulo = "Solcitud";
     $lista = 2;
-    include "inc/cabecera.php"
+    include "inc/cabecera.php";
+    include "inc/devolver.php";
+
 ?>  
 
     <section>

@@ -1,12 +1,8 @@
 <?php 
-
-    include "inc/debug.php";
     $bool = false;
 
     $host = $_SERVER['HTTP_HOST'];
         $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-
-        debug($host.",".$uri);
     if(isset($_GET['mensaje'])){
         $bool = true; 
     }   

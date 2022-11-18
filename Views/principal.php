@@ -2,8 +2,15 @@
 
 $url = explode("/",$_SERVER['QUERY_STRING']);    
 $titulo = "Principal";
-$lista = 1;
-include "inc/cabecera.php";
+include "inc/registrado.php";
+
+function salir(){
+        $extra = 'salida';         
+        $host = $_SERVER['HTTP_HOST'];
+        $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');        
+        header("Location: http://$host$uri/$extra");
+        exit;
+}
 
     /* print_r("a");
     if(isset($_POST["pulsame"])) { //en post se usa el nombre no el id entre []
@@ -52,7 +59,7 @@ include "inc/cabecera.php";
                     <p class="aviso">Hola de vuelta, {$_COOKIE['usuario_login']}, su última <br>
                     visita fue el {$_COOKIE['ultimafecha']} a las {$_COOKIE['ultimahora']}</p>                    
                     <input type="submit" value="Entrar" class="btn" id="pulsame" name="pulsame">
-                    <input type="button" value="Salir" class="btn">
+                    <button value="Salir" class="btn"  formaction="salida">Salir</button>
                     
                 hereDOC;
                 }

@@ -1,7 +1,6 @@
 <?php
     $titulo = "Resultados";
-    $lista = 2;
-    include "inc/cabecera.php"
+    include "inc/registrado.php";
 ?>  
 
     <section>

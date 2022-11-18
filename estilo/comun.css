@@ -163,6 +163,7 @@ tr:hover { background-color: var(--sc1);
     padding: 0.5em;
     transition: background-color .3s;
     border: 1px solid var(--c2);
+    font-family: 'Poppins', sans-serif;
 }
 .btn:hover{
     background-color: var(--b);

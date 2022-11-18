@@ -1,9 +1,8 @@
 <?php
-    include "inc/debug.php";
-    $usuario1 = 'usu1';
-    $usuario2 = 'usu2';
-    $usuario3 = 'usu3';
-    $usuario4 = 'usu4';
+    $usuario1 = 'javi1';
+    $usuario2 = 'javi2';
+    $usuario3 = 'javi3';
+    $usuario4 = 'javi4';
 
     $contra1 = 'pass1';
     $contra2 = 'pass2';
@@ -20,11 +19,22 @@
         
         setcookie("ultimafecha",$fecha, $tiempo);
         setcookie("ultimahora", $hora, $tiempo);
-        $extra = 'perfil/'.$_COOKIE["usuario_login"]; 
+
+        if(strcmp($_POST["usuario"],$usuario1) == 0 && strcmp($_POST["contra"],$contra1) == 0)
+            $estilo = "estilo";
+        else if(strcmp($_POST["usuario"],$usuario2) == 0 && strcmp($_POST["contra"],$contra2) == 0)
+            $estilo = "alt_cont";
+        else if(strcmp($_POST["usuario"],$usuario3) == 0 && strcmp($_POST["contra"],$contra3) == 0)
+            $estilo = "grande";
+        else if(strcmp($_POST["usuario"],$usuario4) == 0 && strcmp($_POST["contra"],$contra4) == 0)
+            $estilo = "contrastegrande";
         
+        session_start();
+        $_SESSION['estilo'] = $estilo;
+
+        $extra = 'perfil/'.$_COOKIE["usuario_login"];         
         $host = $_SERVER['HTTP_HOST'];
-        $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-        
+        $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');        
         header("Location: http://$host$uri/$extra");
         exit;  
         }
@@ -32,15 +42,26 @@
     if(isset($_POST['usuario'])){
         if((strcmp($_POST["usuario"],$usuario1) == 0 && strcmp($_POST["contra"],$contra1) == 0) || (strcmp($_POST["usuario"],$usuario2) == 0 && strcmp($_POST["contra"],$contra2) == 0)
             || (strcmp($_POST["usuario"],$usuario3) == 0 && strcmp($_POST["contra"],$contra3) == 0)  || (strcmp($_POST["usuario"],$usuario4) == 0 && strcmp($_POST["contra"],$contra4) == 0)){
-            echo"<h1>hola</h1>";
+            echo"<h1>hola</h1>";            
            
             if(isset($_POST["remember"])){
-                debug("entra");
+                
                 if(!isset($_COOKIE['usuario_login'])){
                     setcookie("ultimafecha",$fecha, $tiempo);
                     setcookie("ultimahora", $hora, $tiempo);
                     setcookie("usuario_login", $_POST["usuario"], $tiempo);
                     setcookie("contra", $_POST["contra"], $tiempo); //hace falta la contraseña (los pibes del video lo hacen así)?
+                    if(strcmp($_POST["usuario"],$usuario1) == 0 && strcmp($_POST["contra"],$contra1) == 0)
+                        $estilo = "estilo";
+                    else if(strcmp($_POST["usuario"],$usuario2) == 0 && strcmp($_POST["contra"],$contra2) == 0)
+                        $estilo = "alt_cont";
+                    else if(strcmp($_POST["usuario"],$usuario3) == 0 && strcmp($_POST["contra"],$contra3) == 0)
+                        $estilo = "grande";
+                    else if(strcmp($_POST["usuario"],$usuario4) == 0 && strcmp($_POST["contra"],$contra4) == 0)
+                        $estilo = "contrastegrande";
+        
+                    session_start();
+                    $_SESSION['estilo'] = $estilo;
                 }
                 else {
                     setcookie("ultimafecha",$fecha, $tiempo);

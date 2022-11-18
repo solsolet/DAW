@@ -1,4 +1,5 @@
 <?php
+    include "inc/devolver.php";
     $bool = false;
     include "inc/debug.php";
     if(isset($_GET['pasado']))

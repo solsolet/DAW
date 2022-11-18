@@ -36,7 +36,7 @@ if(file_exists($diController)){
             $controller->principal($metodo,$parametro);
         }
         else{
-            echo "No existe el método";
+            include"views/404.php";
         }
     }else{
         if(method_exists($controller, 'principal')){

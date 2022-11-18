@@ -1,21 +1,20 @@
 <?php
+session_start();
 $htmlData1 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
 <li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
 <li><a href="registro"><i class="fa-solid fa-user-plus"></i><label>Registro</label></a></li>';
-?>
 
-<?php
 if(isset($_COOKIE['usuario_login'])){
     $htmlData2 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
     <li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
     <li><a href="perfil/'.$_COOKIE["usuario_login"].'"><i class="fa-solid fa-user"></i><label>Perfil</label></a></li> <!-- cambiamos perfil -->
     <li><a href="salida"><i class="fa-solid fa-right-from-bracket"></i><label>Salir</label></a></li> ';
 }
-?>
 
-<?php
 $htmlData3 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
 <li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> ';
+
+include "debug.php";
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +33,15 @@ $htmlData3 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>In
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Poppins&display=swap" rel="stylesheet">
     <title><?=$titulo;?></title>
-    <link rel="stylesheet" href="estilo/comun.css" media="screen"> <!-- important: sempre va a emplear-se -->
-    <link rel="stylesheet" href="estilo/estilo.css" title="Modo principal">
+    <link rel="stylesheet" href="estilo/comun.css" media="screen">
+    <?php
+        if(isset($_SESSION['estilo'])){
+            echo '<link rel="stylesheet" href="estilo/'.$_SESSION['estilo'].'.css" title="Modo principal"> <!-- important: sempre va a emplear-se -->';
+        }
+        else{
+            echo '<link rel="stylesheet" href="estilo/estilo.css" title="Modo principal"> <!-- important: sempre va a emplear-se -->';
+        }
+    ?>
     <link rel="alternate stylesheet" href="estilo/oscuro.css" title="Modo oscuro"> <!-- posar sempre un Title -->
     <link rel="alternate stylesheet" href="estilo/alt_cont.css" title="Alto Contraste">
     <link rel="alternate stylesheet" href="estilo/grande.css" title="Letra Grande">
