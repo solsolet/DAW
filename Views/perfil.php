@@ -10,7 +10,25 @@ if(!isset($usu)){
 
     $titulo = "Perfil";
     $lista = 2;
-    include "inc/cabecera.php"
+    include "inc/cabecera.php";
+
+    $manana = "12:00:00";
+    $tarde = "16:00:00";
+    $noche = "20:00:00";
+    $madrugada = "06:00:00";
+
+    if(strtotime(strtotime($_COOKIE['ultimahora'])>=strtotime($madrugada) && $_COOKIE['ultimahora'])<strtotime($manana)){
+        echo"<p>¡Buenos días, ".$_COOKIE['usuario_login']."!</p>";
+    }
+    else if (strtotime($_COOKIE['ultimahora'])>=strtotime($manana) && strtotime($_COOKIE['ultimahora'])<strtotime($tarde)){
+        echo"<p>¡Hola buenas, ".$_COOKIE['usuario_login']."!</p>";
+    }
+    else if (strtotime($_COOKIE['ultimahora'])>=strtotime($tarde) && strtotime($_COOKIE['ultimahora'])<strtotime($noche)){
+        echo"<p>¡Buenas tardes, ".$_COOKIE['usuario_login']."!</p>";
+    }
+    else if (strtotime($_COOKIE['ultimahora'])>=strtotime($noche) && strtotime($_COOKIE['ultimahora'])<strtotime($madrugada)){
+        echo"<p>¡Buenas noches, ".$_COOKIE['usuario_login']."!</p>";
+    }
 ?>  
 
     <section>       

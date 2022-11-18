@@ -5,10 +5,13 @@ $htmlData1 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>In
 ?>
 
 <?php
-$htmlData2 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
-<li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
-<li><a href="perfil"><i class="fa-solid fa-user"></i><label>Perfil</label></a></li> <!-- cambiamos perfil -->
-<li><a href="principal"><i class="fa-solid fa-right-from-bracket"></i><label>Salir</label></a></li> ';
+if(isset($_COOKIE['usuario_login'])){
+    $htmlData2 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
+    <li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
+    <li><a href="perfil/'.$_COOKIE["usuario_login"].'"><i class="fa-solid fa-user"></i><label>Perfil</label></a></li> <!-- cambiamos perfil -->
+    <li><a href="salida"><i class="fa-solid fa-right-from-bracket"></i><label>Salir</label></a></li> ';
+    
+}
 ?>
 
 <?php
