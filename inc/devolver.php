@@ -1,5 +1,6 @@
 <?php
-if(!isset($_COOKIE['usuario_login'])){
+session_start();
+if(!isset($_COOKIE['usuario_login']) && !isset($_SESSION['usuario'])){
     $host = $_SERVER['HTTP_HOST'];
     $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
     $extra = 'aviso';

@@ -1,13 +1,12 @@
 <?php
-session_start();
 $htmlData1 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
 <li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
 <li><a href="registro"><i class="fa-solid fa-user-plus"></i><label>Registro</label></a></li>';
 
-if(isset($_COOKIE['usuario_login'])){
+if(isset($_COOKIE['usuario_login']) || isset($_SESSION['usuario'])){
     $htmlData2 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
     <li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> 
-    <li><a href="perfil/'.$_COOKIE["usuario_login"].'"><i class="fa-solid fa-user"></i><label>Perfil</label></a></li> <!-- cambiamos perfil -->
+    <li><a href="perfil/'.$_SESSION["usuario"].'"><i class="fa-solid fa-user"></i><label>Perfil</label></a></li> <!-- cambiamos perfil -->
     <li><a href="salida"><i class="fa-solid fa-right-from-bracket"></i><label>Salir</label></a></li> ';
 }
 

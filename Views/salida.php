@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_COOKIE['usuario_login'])){
+if(isset($_COOKIE['usuario_login']) || isset($_SESSION['usuario'])){
     $tiempo = -60*60*24*30;
     setcookie("usuario_login", "", $tiempo);
     setcookie("contra", "", $tiempo);

@@ -10,6 +10,7 @@
     $noche = "20:00:00";
     $madrugada = "06:00:00";
 
+if(isset($_COOKIE['ultimahora'])){
     if(strtotime(strtotime($_COOKIE['ultimahora'])>=strtotime($madrugada) && $_COOKIE['ultimahora'])<strtotime($manana)){
         echo"<p>¡Buenos días, ".$_COOKIE['usuario_login']."!</p>";
     }
@@ -22,6 +23,7 @@
     else if (strtotime($_COOKIE['ultimahora'])>=strtotime($noche) && strtotime($_COOKIE['ultimahora'])<strtotime($madrugada)){
         echo"<p>¡Buenas noches, ".$_COOKIE['usuario_login']."!</p>";
     }
+}
 ?>  
 
     <section>       
@@ -29,10 +31,15 @@
         <div> <!-- podriem llevalo posant per damunt un main o algo del section-->
             <article class="carta">
                 <h3><?=$usu?></h3>
-                <p><?=$_COOKIE["ultimahora"]?></p>
-                <p><?=$_COOKIE["ultimafecha"]?></p>
+                <?php
+                if(isset($_COOKIE['ultimahora']) && isset($_COOKIE['ultimafecha']))
+                echo<<<hereDOC
+                <p>{$_COOKIE["ultimahora"]}</p>
+                <p>{$_COOKIE["ultimafecha"]}</p>
                 <!-- <p>04-12-1999</p>
-                <p>EEUU</p>  -->   
+                hereDOC;
+                ?> 
+                <p>EEUU</p>  
             </article>
             <article><a href="albumes"><input type="button" value="Mis álbumes" class="btn" id="pulsame"></a></article>
             <article><a href="subir"><input type="button" value="Crear álbum" class="btn" id="pulsame"></a></article>

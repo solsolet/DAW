@@ -63,12 +63,11 @@
                     session_start();
                     $_SESSION['estilo'] = $estilo;
                 }
-                else {
-                    setcookie("ultimafecha",$fecha, $tiempo);
-                    setcookie("ultimahora", $hora, $tiempo);
-                }
             }
 
+            session_start();
+                    $_SESSION['usuario'] = $_POST["usuario"];
+                    $_SESSION['contra'] = $_POST["contra"];
             $extra = 'perfil/'.$_POST["usuario"]; 
             
             $host = $_SERVER['HTTP_HOST'];
