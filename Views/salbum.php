@@ -1,10 +1,9 @@
 <?php
-    
-    include "inc/debug.php";
+    include "inc/devolver.php";
     $titulo = "Solcitud";
     $lista = 2;
     include "inc/cabecera.php";
-    include "inc/devolver.php";
+    
 
 ?>  
 
