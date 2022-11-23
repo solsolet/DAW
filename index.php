@@ -21,8 +21,8 @@ $path = $_SERVER['REQUEST_URI'];
 if (substr($path, 0, strlen(URL_BASE)) == URL_BASE) {
   $path = substr($path, strlen(URL_BASE));
 }
-$path = explode("/", rtrim($path, "/\\")); */
-
+$path = explode("/", rtrim($path, "/\\"));
+print_r($path); */
 require_once 'Config/App/autoload.php';
 
 $diController = "Controllers/".$controller.".php";

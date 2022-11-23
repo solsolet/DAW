@@ -19,7 +19,7 @@
                     <h3>{$fila['descripcion']}</h3>
                     <p>Fecha: {$fila['fechaformato']}</p>
                     <p>País: {$fila['nomPais']}</p>
-                    <p>Álbum: {$fila['titulo']}</p>
+                    <a href="album/{$fila['nomUsuario']}/{$fila['titulo']}"<p>Álbum: {$fila['titulo']}</p></a>
                     <p>Usuario: {$fila['nomUsuario']}</p>
                 </section>
             hereDOC;

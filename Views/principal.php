@@ -24,7 +24,6 @@ include "inc/conect.php";
                 setcookie("usuario_login", $_COOKIE["usuario_login"], time()+ 60*60*24*90);
                 setcookie("contra", $_COOKIE["contra"], time()+ 60*60*24*90); 
             }
-            
         }
         else { //destruye la cookie
             if(isset($_COOKIE["usuario_login"]))
