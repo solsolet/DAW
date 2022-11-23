@@ -126,19 +126,7 @@
                         <label for="cp">Código postal:*</label> <input type="number" name="cp" id="cp" placeholder="03570" required>
                         <label for="localidad">Localidad:*</label> <input type="text" name="localidad" id="localidad" placeholder="La Vila Joiosa" maxlength="200" required>
                         <label for="provincia">Província:*</label> <input type="text" name="provincia" id="provincia" placeholder="Alacant" maxlength="200" required>
-                        <label for="pais">País:</label>
-                        <select name="pais" id="pais">
-                            <option value="Alemania">Alemania</option>
-                            <option value="Austria">Austria</option>
-                            <option value="China">China</option>
-                            <option value="España">España</option>
-                            <option value="EEUU">EEUU</option>
-                            <option value="Francia">Francia</option>
-                            <option value="Inglaterra">Inglaterra</option>
-                            <option value="Italia">Italia</option>
-                            <option value="Rusia">Rusia</option>                   
-                            <option value="Venezuela">Venezuela</option>
-                        </select>
+                        <?php $pagina = "salbum"; include "inc/listapaises.php"; ?>
                     </fieldset>
                     
                     <label for="telf">Teléfono:</label> <input type="tel" name="telf" id="telf" placeholder="123123123">

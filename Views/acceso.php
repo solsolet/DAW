@@ -20,7 +20,7 @@
         setcookie("ultimafecha",$fecha, $tiempo);
         setcookie("ultimahora", $hora, $tiempo);
 
-        if(strcmp($_POST["usuario"],$usuario1) == 0 && strcmp($_POST["contra"],$contra1) == 0)
+        /* if(strcmp($_POST["usuario"],$usuario1) == 0 && strcmp($_POST["contra"],$contra1) == 0)
             $estilo = "estilo";
         else if(strcmp($_POST["usuario"],$usuario2) == 0 && strcmp($_POST["contra"],$contra2) == 0)
             $estilo = "oscuro";
@@ -30,7 +30,7 @@
             $estilo = "contrastegrande";
         
         session_start();
-        $_SESSION['estilo'] = $estilo;
+        $_SESSION['estilo'] = $estilo; */
 
         $extra = 'perfil/'.$_COOKIE["usuario_login"];         
         $host = $_SERVER['HTTP_HOST'];
@@ -51,7 +51,7 @@
                     setcookie("ultimahora", $hora, $tiempo);
                     setcookie("usuario_login", $_POST["usuario"], $tiempo);
                     setcookie("contra", $_POST["contra"], $tiempo); //hace falta la contraseña (los pibes del video lo hacen así)?
-                    if(strcmp($_POST["usuario"],$usuario1) == 0 && strcmp($_POST["contra"],$contra1) == 0)
+                    /* if(strcmp($_POST["usuario"],$usuario1) == 0 && strcmp($_POST["contra"],$contra1) == 0)
                         $estilo = "estilo";
                     else if(strcmp($_POST["usuario"],$usuario2) == 0 && strcmp($_POST["contra"],$contra2) == 0)
                         $estilo = "oscuro";
@@ -61,13 +61,15 @@
                         $estilo = "contrastegrande";
         
                     session_start();
-                    $_SESSION['estilo'] = $estilo;
+                    $_SESSION['estilo'] = $estilo; */
                 }
             }
 
             session_start();
-                    $_SESSION['usuario'] = $_POST["usuario"];
-                    $_SESSION['contra'] = $_POST["contra"];
+            $_SESSION['usuario'] = $_POST["usuario"];
+            $_SESSION['contra'] = $_POST["contra"];
+            $_SESSION['fecha'] = $fecha;
+            $_SESSION['hora'] = $hora;
             $extra = 'perfil/'.$_POST["usuario"]; 
             
             $host = $_SERVER['HTTP_HOST'];

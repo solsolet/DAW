@@ -71,12 +71,30 @@ function salir(){
     </div>
     </section>
 
-    <section>
+    <section>        
         <a href="#mlogin" class="btn" id="log">Loguearse</a> <!-- modal login -->
         <h2>Las últimas fotos</h2>
         <div class="image-grid"> <!-- podriem llevalo posant per damunt un main o algo del section-->
-            <article class="carta"><a href="foto/1"><img src="imagenes/rashito.jpeg" alt="El Rasho Macuin FIAUUUUUUUUU" ></a>
-                <h3>Rayo Mqueen</h3>
+        <?php
+        $sentencia = 'SELECT *, DATE_FORMAT(fecha, "%d-%m-%y") as fechaformato FROM `fotos`, `paises` WHERE pais = idPais order by fRegistro DESC';
+        include "inc/conect.php";
+        
+        $i = 0;
+        while($i < 5 && $fila = $resultado->fetch_assoc() ) {
+            echo<<<hereDOC
+
+            <article class="carta"><a href="foto/{$fila['idFotos']}"><img src={$fila['fichero']} alt={$fila['alternativo']}></a>
+                <h3>{$fila['titulo']}</h3>
+                <p>{$fila['fechaformato']}</p>
+                <p>{$fila['nomPais']}</p>
+            </article>
+            
+            hereDOC;
+            $i=$i+1;
+        }
+        ?>
+            <!-- <article class="carta"><a href="foto/1"><img src="imagenes/rashito.jpeg" alt="El Rasho Macuin FIAUUUUUUUUU" ></a>
+                <h3>Rayo Mcqueen</h3>
                 <p>01-11-2020</p>
                 <p>EEUU</p>
             </article>
@@ -99,7 +117,9 @@ function salir(){
                 <h3>Francesco Virgoarticleni</h3>
                 <p>08-04-2014</p>
                 <p>Italia</p>
-            </article>
+            </article> -->
+        
+        
         </div>
     </section>
     

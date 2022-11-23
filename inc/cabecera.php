@@ -42,7 +42,7 @@ include "debug.php";
     <link rel="stylesheet" href="estilo/comun.css" media="screen">
     <?php
         if(isset($_SESSION['estilo'])){
-            echo '<link rel="stylesheet" href="estilo/'.$_SESSION['estilo'].'.css" title="Modo principal"> <!-- important: sempre va a emplear-se -->';
+            echo '<link rel="stylesheet" href="'.$_SESSION['estilo'].'" title="Modo principal"> <!-- important: sempre va a emplear-se -->';
         }
         else{
             echo '<link rel="stylesheet" href="estilo/estilo.css" title="Modo principal"> <!-- important: sempre va a emplear-se -->';

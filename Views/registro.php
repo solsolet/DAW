@@ -45,20 +45,7 @@ if($bool == true){
 
                 <label for="fdn">Fecha de nacimiento:</label> <input type="date" name="fdn" id="fdn" <?php if($bool == true && isset($_GET['fdn'])) echo"value = {$_GET['fdn']}"?>>
                 <label for="ciudad">Ciudad:</label> <input type="text" name="ciudad" id="ciudad"  <?php if($bool == true && isset($_GET['ciu'])) echo"value = {$_GET['ciu']}"?>>
-                <label for="pais">Pa&iacute;s</label>
-                    <select name="pais" id="pais">
-                        <option value="vacio">Vacío</option>
-                        <option value="Alemania" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"Alemania") == 0) echo"selected = 'selected'"?>>Alemania</option>
-                        <option value="Austria" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"Austria") == 0) echo"selected = 'selected'"?>>Austria</option>
-                        <option value="China" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"China") == 0) echo"selected = 'selected'"?>>China</option>
-                        <option value="España" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"España") == 0) echo"selected = 'selected'"?>>España</option>
-                        <option value="EEUU" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"EEUU") == 0) echo"selected = 'selected'"?>>EEUU</option>
-                        <option value="Francia" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"Francia") == 0) echo"selected = 'selected'"?>>Francia</option>
-                        <option value="Inglaterra" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"Inglaterra") == 0) echo"selected = 'selected'"?>>Inglaterra</option>
-                        <option value="Italia" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"Italia") == 0) echo"selected = 'selected'"?>>Italia</option>
-                        <option value="Rusia" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"Rusia") == 0) echo"selected = 'selected'"?>>Rusia</option>                   
-                        <option value="Venezuela" <?php if(($bool == true && isset($_GET['pais'])) && strcmp($_GET['pais'],"Venezuela") == 0) echo"selected = 'selected'"?>>Venezuela</option>
-                    </select>
+                <?php $pagina = "registro"; include "inc/listapaises.php"; ?>
                 <label for="img">Foto:</label>
                 <label for="img" class="file">Elige una foto</label> <input type="file" id="img" name="img" accept="image/*"  >
                 
