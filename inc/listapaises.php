@@ -21,6 +21,6 @@ else if ($pagina == "salbum"){
     while($fila = $resultado->fetch_assoc()) 
     echo '<option value='.$fila["nomPais"].' >'.$fila["nomPais"].'</option>';
 }
-   include "inc/close.php"; 
+
 echo '</select>';
 ?>
