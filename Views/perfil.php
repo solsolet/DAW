@@ -1,6 +1,15 @@
 <?php
 
     include "inc/devolver.php";
+    
+    if($usu != $_SESSION['usuario']){
+        $host = $_SERVER['HTTP_HOST'];
+        $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        $extra = 'aviso';
+        header("Location: http://$host$uri/$extra");
+        exit;
+    }
+
     $titulo = "Perfil";
     $lista = 2;
     include "inc/cabecera.php";
@@ -30,13 +39,12 @@ if(isset($_COOKIE['ultimahora'])){
         <h2>Las últimas fotos</h2>
         <div> <!-- podriem llevalo posant per damunt un main o algo del section-->
             <article class="carta">
-                <h3><?=$usu?></h3>
+                <h3><?=$_SESSION['usuario']?></h3>
                 <?php
                 if(isset($_COOKIE['ultimahora']) && isset($_COOKIE['ultimafecha']))
                 echo<<<hereDOC
                 <p>{$_COOKIE["ultimahora"]}</p>
                 <p>{$_COOKIE["ultimafecha"]}</p>
-                <!-- <p>04-12-1999</p>
                 hereDOC;
                 ?> 
                 <p>EEUU</p>  

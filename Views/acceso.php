@@ -23,7 +23,7 @@
         if(strcmp($_POST["usuario"],$usuario1) == 0 && strcmp($_POST["contra"],$contra1) == 0)
             $estilo = "estilo";
         else if(strcmp($_POST["usuario"],$usuario2) == 0 && strcmp($_POST["contra"],$contra2) == 0)
-            $estilo = "alt_cont";
+            $estilo = "oscuro";
         else if(strcmp($_POST["usuario"],$usuario3) == 0 && strcmp($_POST["contra"],$contra3) == 0)
             $estilo = "grande";
         else if(strcmp($_POST["usuario"],$usuario4) == 0 && strcmp($_POST["contra"],$contra4) == 0)
@@ -54,7 +54,7 @@
                     if(strcmp($_POST["usuario"],$usuario1) == 0 && strcmp($_POST["contra"],$contra1) == 0)
                         $estilo = "estilo";
                     else if(strcmp($_POST["usuario"],$usuario2) == 0 && strcmp($_POST["contra"],$contra2) == 0)
-                        $estilo = "alt_cont";
+                        $estilo = "oscuro";
                     else if(strcmp($_POST["usuario"],$usuario3) == 0 && strcmp($_POST["contra"],$contra3) == 0)
                         $estilo = "grande";
                     else if(strcmp($_POST["usuario"],$usuario4) == 0 && strcmp($_POST["contra"],$contra4) == 0)
