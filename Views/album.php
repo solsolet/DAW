@@ -30,12 +30,8 @@
             include "inc/request.php";
             echo "<p>";
             while($fila = $resultado->fetch_assoc() ) {
-<<<<<<< HEAD
                 echo "
     {$fila['nomPais']} ";
-=======
-                echo "{$fila['nomPais']} ";
->>>>>>> 65607d9f21380f8d518b132aedc498aaf041a89d
             }
             echo "</p>"; //posar + bonico
             //muestra fotos
