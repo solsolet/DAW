@@ -15,10 +15,10 @@
         $i = 0;
         while($i < 5 && $fila = $resultado->fetch_assoc() ) {
             echo<<<hereDOC
-            <article class="carta">
+            <a href="album/{$_SESSION['usuario']}/{$fila['titulo']}"<article class="carta">
                 <h3>{$fila['titulo']}</h3>
                 <p>{$fila['descripcion']}</p>
-            </article>
+            </article></a>
             
             hereDOC;
             $i++;
