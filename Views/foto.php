@@ -5,31 +5,26 @@
     include "inc/cabecera.php";
 
     if($_GET){
-        if($id%2==0){
+        $sentencia = 'SELECT f.titulo as fitulo, a.titulo, f.fichero, p.nomPais, u.nomUsuario, f.alternativo, f.descripcion, DATE_FORMAT(f.fRegistro, "%d-%m-%Y") as fechaformato 
+                      FROM `fotos` f, `paises` p, `albumes` a, `usuarios` u 
+                      WHERE f.pais = idPais AND '.$id.' = idFotos AND album = idAlbum AND a.usuario = idUsuario';
+        include "inc/conect.php";
+        include "inc/request.php";
+        while($fila = $resultado->fetch_assoc()) {
+            /* width="272" height="108 */
             echo<<<hereDOC
                 <section class="foto">
-                    <img src="imagenes/rashito.jpeg" alt="El Rasho Macuin FIAUUUUUUUUU" width="272" height="108">
-                    <h2>Rayo Mqueen</h2>
-                    <p>01-11-2020</p>
-                    <p>EEUU</p>
-                    <p>Cars</p>
-                    <p>Usuario1</p>
+                    <img src={$fila['fichero']} alt={$fila['alternativo']} " width=30%> 
+                    <h2>{$fila['fitulo']}</h2>
+                    <h3>{$fila['descripcion']}</h3>
+                    <p>Fecha: {$fila['fechaformato']}</p>
+                    <p>País: {$fila['nomPais']}</p>
+                    <p>Álbum: {$fila['titulo']}</p>
+                    <p>Usuario: {$fila['nomUsuario']}</p>
                 </section>
-hereDOC;
+            hereDOC;
+            }
         }
-        else{
-            echo<<<hereDOC
-                <section class="foto">
-                    <img src="imagenes/francesco.jpg" alt="La Maquina Mas Blos, de TOTE ITALE FIAUUUUU" width="272" height="108"></a>
-                    <h3>Francesco Virgoarticleni</h3>
-                    <p>08-04-2014</p>
-                    <p>Italia</p>
-                    <p>Cars</p>
-                    <p>Usuario1</p>
-                </section>
-hereDOC;
-        }
-    }
-    
+    include "inc/close.php";
     include "inc/footer.php"
 ?>

@@ -13,7 +13,7 @@
     // Ejecuta una sentencia SQL
     $sentencia = 'SELECT * FROM estilos';
     include "inc/conect.php";
-
+    include "inc/request.php";
     echo '<h2>Configuración</h2><section><form method="POST"><label>Estilo</label>
         <select name="estilo" id="estilo">';   
     
@@ -28,6 +28,6 @@
     }
 echo '<input type="submit" value="Configurar" class="btn" id="pulsame">
     </select></form></section>';
-
+    include "inc/close.php";
     include "inc/footer.php"
 ?>

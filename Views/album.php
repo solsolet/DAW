@@ -1,17 +1,27 @@
 <?php
 
     include "inc/devolver.php";
-    $titulo = "Álbumes";
-    $lista = 2;
+    $titulo = "Álbum";
+    $lista = 1;
     include "inc/cabecera.php";
     include "inc/conect.php"; 
 
     echo "<section>";
-        echo "<h2>Mis álbumes</h2>";
+        echo "<h2>Ver álbum</h2>";
         
-        $sentencia = 'SELECT * FROM `albumes`, `usuarios` WHERE "'.$_SESSION['usuario'].'" = nomUsuario AND usuario=idUsuario';
+        $sentencia = 'SELECT *, DATE_FORMAT(f.fRegistro, "%d-%m-%Y") as fechaformato 
+            FROM `albumes`, `fotos` f, `paises` p, `usuarios` 
+            WHERE f.pais = idPais AND "'.$_SESSION['usuario'].'" = nomUsuario AND usuario=idUsuario';
         include "inc/request.php";
+        //muestra datos
+        $fila = $resultado->fetch_assoc();
+            echo<<<hereDOC
+                <h3>{$fila['titulo']}</h3>
+                <p>{$fila['descripcion']}</p>
+            hereDOC;
+
         
+        //muestra fotos
         $i = 0;
         while($i < 5 && $fila = $resultado->fetch_assoc() ) {
             echo<<<hereDOC

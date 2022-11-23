@@ -2,6 +2,7 @@
 // Ejecuta una sentencia SQL
 $sentencia = 'SELECT * FROM paises';
 include "inc/conect.php";
+include "inc/request.php";
 
 echo '<label for="pais">Pa&iacute;s:</label>
         <select name="pais" id="pais">
@@ -20,6 +21,6 @@ else if ($pagina == "salbum"){
     while($fila = $resultado->fetch_assoc()) 
     echo '<option value='.$fila["nomPais"].' >'.$fila["nomPais"].'</option>';
 }
-    
+   include "inc/close.php"; 
 echo '</select>';
 ?>
