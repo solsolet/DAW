@@ -9,7 +9,7 @@
         echo "<section>";
             echo "<h2>".$nombre[1]."</h2>";
             //la f.fecha es la de la foto o la de registro??
-            $sentencia = 'SELECT a.descripcion, COUNT(*) as total, MIN(f.fecha) as ultima, MAX(f.fecha) as primera
+            $sentencia = 'SELECT a.descripcion, COUNT(*) as total, MIN(DATE_FORMAT(f.fecha,"%d-%m-%Y")) as ultima, MAX(DATE_FORMAT(f.fecha,"%d-%m-%Y")) as primera
                 FROM `albumes` a, `fotos` f, `usuarios` u
                 WHERE a.titulo = "'.$nombre[1].'" AND "'.$nombre[0].'" = u.nomUsuario AND u.idUsuario = a.usuario AND a.idAlbum = f.album ';
             include "inc/request.php";

@@ -36,13 +36,12 @@ if(isset($_SESSION['hora'])){
     }
 }
 
-
-
 ?>  
 
     <section>       
         <h2>Las últimas fotos</h2>
-        <div> <!-- podriem llevalo posant per damunt un main o algo del section-->
+        <div class="par"> <!-- podriem llevalo posant per damunt un main o algo del section-->
+        
             <article class="carta">
                 <h3><?=$_SESSION['usuario']?></h3>
                 <?php
@@ -59,15 +58,16 @@ if(isset($_SESSION['hora'])){
                 hereDOC;
                 ?> 
             </article>
-        </div>
+      
         <div class="image-grid">
-            <article class="carta"><a href="albumes"><input type="button" value="Mis álbumes" class="btn" id="pulsame"></a></article>
-            <article class="carta"><a href="subir"><input type="button" value="Crear álbum" class="btn" id="pulsame"></a></article>
-            <article class="carta"><a href="salbum"><input type="button" value="Solicitar álbum" class="btn" id="pulsame"></a></article>    
-            <article class="carta"><a href="configuracion"><input type="button" value="Configuración" class="btn" id="pulsame"></a></article> 
-            <article class="carta"><a href="tusfotos"><input type="button" value="Tus Fotos" class="btn" id="pulsame"></a></article> 
-            <article class="carta"><a href="afalbum"><input type="button" value="Añadir Foto a Álbum" class="btn" id="pulsame"></a></article> 
-            <article class="carta"><a href="misdatos"><input type="button" value="Mis Datos" class="btn" id="pulsame"></a></article> 
+            <article class="carta"><a href="albumes"><input type="button" value="Mis álbumes" class="btn grandote"></a></article>
+            <article class="carta"><a href="subir"><input type="button" value="Crear álbum" class="btn grandote"></a></article>
+            <article class="carta"><a href="salbum"><input type="button" value="Solicitar álbum" class="btn grandote"></a></article>    
+            <article class="carta"><a href="configuracion"><input type="button" value="Configuración" class="btn grandote"></a></article> 
+            <article class="carta"><a href="tusfotos"><input type="button" value="Tus Fotos" class="btn grandote"></a></article> 
+            <article class="carta"><a href="afalbum"><input type="button" value="Añadir Foto a Álbum" class="btn grandote"></a></article> 
+            <article class="carta"><a href="misdatos"><input type="button" value="Mis Datos" class="btn grandote"></a></article> 
+        </div>
         </div>
     </section>
     
