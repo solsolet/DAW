@@ -17,7 +17,7 @@
             <label for="img">Foto:</label>
             <label for="img" class="file">Elige una foto</label> <input type="file" id="img" name="img" accept="image/*">
             <?php   include "inc/listalbums.php"; ?><br>
-            <label for="alternativo">Textp Alternativo:</label> <input type="text" name="alternativo" id="alternativo"><br>
+            <label for="alternativo">Texto Alternativo:</label> <input type="text" name="alternativo" id="alternativo"><br>
             <input type="submit" value="Añadir" class="btn">
         </fieldset>
     </form>

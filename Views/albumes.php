@@ -28,7 +28,7 @@
             echo "</div>";
         }
         else
-            echo "<p>No tienes álbumes, crea tu primer álbum<a href='subir'> aquí</a></p>";
+            echo "<p class='aviso'>No tienes álbumes, crea tu primer álbum<a href='subir'> aquí</a></p>";
 
     echo "</section>";  
     include "inc/close.php"; 
