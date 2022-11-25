@@ -7,7 +7,7 @@
     include "inc/conect.php"; 
     if(isset($nombre)){
         echo "<section>";
-            echo "<h2>Ver álbum</h2>";
+            echo "<h2>".$nombre[1]."</h2>";
             //la f.fecha es la de la foto o la de registro??
             $sentencia = 'SELECT a.descripcion, COUNT(*) as total, MIN(f.fecha) as ultima, MAX(f.fecha) as primera
                 FROM `albumes` a, `fotos` f, `usuarios` u
@@ -15,7 +15,13 @@
             include "inc/request.php";
             //muestra datos
             $fila = $resultado->fetch_assoc();
-            
+            if($fila['total'] == 0){
+                $extra = '404';         
+                $host = $_SERVER['HTTP_HOST'];
+                $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');        
+                header("Location: http://$host$uri/$extra");
+                exit; 
+            }
             echo<<<hereDOC
                 <h3>{$fila['total']} fotos</h3>
                 <h4>{$fila['descripcion']}</h4>
@@ -30,8 +36,7 @@
             include "inc/request.php";
             echo "<p>";
             while($fila = $resultado->fetch_assoc() ) {
-                echo "
-    {$fila['nomPais']} ";
+                echo "{$fila['nomPais']} ";
             }
             echo "</p>"; //posar + bonico
             //muestra fotos
@@ -56,7 +61,7 @@
         //si l'usuari que entra al album es el propietari
         if($nombre[0] == $_SESSION['usuario']){
             debug("printeame un botón to guapo");
-            echo '<a href="afalbum" class="btn">Añadir foto a álbum</a>';
+            echo '<a href="afalbum/'.$nombre[1].'" class="btn">Añadir foto a álbum</a>';
         }
 
         include "inc/close.php"; 

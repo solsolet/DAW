@@ -11,10 +11,13 @@
     <form method="post" action="resultado">
         <fieldset>
             <label for="titulo">Título:</label> <input type="text" name="titulo" id="titulo"><br>
+            <label for="descripcion">Descripción:</label> <input type="text" name="descripcion" id="descripcion"><br>
             <label for="fecha">Fecha:</label> <input type="date" name="fecha" id="fecha"><br>
             <?php $pagina = "salbum"; include "inc/listapaises.php"; ?><br>
             <label for="img">Foto:</label>
-                <label for="img" class="file">Elige una foto</label> <input type="file" id="img" name="img" accept="image/*">
+            <label for="img" class="file">Elige una foto</label> <input type="file" id="img" name="img" accept="image/*">
+            <?php   include "inc/listalbums.php"; ?><br>
+            <label for="alternativo">Textp Alternativo:</label> <input type="text" name="alternativo" id="alternativo"><br>
             <input type="submit" value="Añadir" class="btn">
         </fieldset>
     </form>

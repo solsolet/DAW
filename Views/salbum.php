@@ -135,15 +135,7 @@
                     <label for="ncopias">Número de copias:</label> <input type="number" name="ncopias" id="ncopias" value="1" min="1">
                     <label for="resolucion">Resolución:</label> <input type="number" name="resolucion" id="resolucion" value="150" min="150" max="900" step="150">
                     <!-- elegir album -->
-                    <div>
-                        <label>Selecciona un álbum:*</label> <br>
-                        <input type="radio" id="album1" name="albumes" value="Verano 2010" required>
-                            <label for="album1">Verano 2010</label>
-                        <input type="radio" id="album2" name="albumes" value="Barcelona">
-                            <label for="album2">Barcelona</label> 
-                        <input type="radio" id="album3" name="albumes" value="Boda Juan">
-                            <label for="album3">Boda Juan</label>
-                    </div>
+                    <?php   include "inc/listalbums.php"; ?>
                     
                     <label for="frecepcion">Fecha de recepción:</label> <input type="date" name="frecepcion" id="frecepcion">
                     <div>

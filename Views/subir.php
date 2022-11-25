@@ -10,7 +10,7 @@
     <form method="post">
         <label for="titulo">Título:</label> <input type="text" name="titulo" id="titulo" required class="label label-usu">
         <label for="descrip">Descripción:</label> <input type="text" name="descrip" id="descrip" required class="label label-pass">
-        <input type="submit" value="Entrar" class="btn" id="crearA">
+        <input type="submit" value="Crear Álbum" class="btn" id="crearA">
     </form>
     </section>
 

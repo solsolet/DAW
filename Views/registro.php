@@ -25,7 +25,6 @@ if($bool == true){
     hereDOC;
 }
 ?>  
-
     <section>
         <h2>Registro</h2>
         <form method="post" action="regnuevo?pasado=true">

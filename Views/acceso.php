@@ -10,7 +10,7 @@
         setcookie("ultimafecha",$fecha, $tiempo);
         setcookie("ultimahora", $hora, $tiempo);
 
-        $extra = 'perfil/'.$_COOKIE["usuario_login"];         
+        $extra = 'perfilpriv/'.$_COOKIE["usuario_login"];         
         $host = $_SERVER['HTTP_HOST'];
         $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');        
         header("Location: http://$host$uri/$extra");
@@ -20,6 +20,15 @@
     if(isset($_POST['usuario'])){
         $sentencia = 'SELECT * FROM usuarios WHERE "'.$_POST["usuario"].'"= nomUsuario';
         include "inc/request.php";
+
+        $num = $resultado->num_rows;
+        if($num == 0){
+            $host = $_SERVER['HTTP_HOST'];
+            $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+            $extra = 'aviso';
+            header("Location: http://$host$uri/$extra");
+            exit;
+        }
 
         while($fila = $resultado->fetch_assoc()){
             print_r($fila);
@@ -52,7 +61,7 @@
                 $_SESSION['contra'] = $_POST["contra"];
                 $_SESSION['fecha'] = $fecha;
                 $_SESSION['hora'] = $hora;
-                $extra = 'perfil/'.$_POST["usuario"]; 
+                $extra = 'perfilpriv/'.$_POST["usuario"]; 
                 
                 $host = $_SERVER['HTTP_HOST'];
                 $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');

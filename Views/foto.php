@@ -10,6 +10,16 @@
                       WHERE f.pais = idPais AND '.$id.' = idFotos AND album = idAlbum AND a.usuario = idUsuario';
         include "inc/conect.php";
         include "inc/request.php";
+
+        $num = $resultado->num_rows;
+        if($num == 0){
+            $extra = '404';         
+            $host = $_SERVER['HTTP_HOST'];
+            $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');        
+            header("Location: http://$host$uri/$extra");
+            exit; 
+        }
+
         while($fila = $resultado->fetch_assoc()) {
             /* width="272" height="108 */
             echo<<<hereDOC
@@ -19,8 +29,8 @@
                     <h3>{$fila['descripcion']}</h3>
                     <p>Fecha: {$fila['fechaformato']}</p>
                     <p>País: {$fila['nomPais']}</p>
-                    <a href="album/{$fila['nomUsuario']}/{$fila['titulo']}"<p>Álbum: {$fila['titulo']}</p></a>
-                    <p>Usuario: {$fila['nomUsuario']}</p>
+                    <p>Álbum: <a href="album/{$fila['nomUsuario']}/{$fila['titulo']}">{$fila['titulo']}</a></p>
+                    <p>Usuario: <a href="perfil/{$fila['nomUsuario']}">{$fila['nomUsuario']}</a></p>
                 </section>
             hereDOC;
             }

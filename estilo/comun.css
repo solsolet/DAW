@@ -108,7 +108,11 @@ input[type="file"] {
     height: 0;
     padding: 0;
     opacity: 0;
-  }
+}
+
+p > a {
+    text-decoration: underline;
+}
 
 /* Tarifas */
 table {

@@ -9,11 +9,14 @@
                 if($vista == 'foto') {
                     $id = $data;
                 }
-                else if($vista == 'perfil'){
+                else if($vista == 'perfilpriv' || $vista == 'perfil'){
                     $usu = $data;
                 }
                 else if($vista == 'album'){                   
                     $nombre = explode(",",$data);
+                }
+                else if($vista == 'afalbum'){
+                    $nombre = $data;
                 }
                 $vista = 'Views/'.$vista.'.php';                
             }        

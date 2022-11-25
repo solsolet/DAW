@@ -1,15 +1,13 @@
 <?php
-    $titulo = "404";
-    include "inc/registrado.php";
+    $titulo = "Aviso";
+    $lista = 1;
+    include "inc/cabecera.php";
 ?>  
     <section class="aviso">                
         <h2>¡Aviso!</h2>
-        <p class="aviso"><b>Usted no está registrado</b><br>
-        para acceder al contenido de esta página tiene que hacer inicio de sesión o registrarse</p>
-        <div>
-        <a href="principal"><button class="btn">Página Principal</button></a>
-        <a href="registro"><button class="btn">Registro</button></a>
-        </div>
+        <p class="aviso"><b>Fallo la autentificación de datos</b><br>
+        No se han podido encontrar sus datos de registro<br>
+        Debe <a href="principal#mlogin">iniciar sesión</a> o <a href="principal">registrarse</a></p>
     </section> 
        
     <?php

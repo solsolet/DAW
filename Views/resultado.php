@@ -26,7 +26,6 @@
                 echo "<p>País: <b>{$pais}</b></p>";
                 $sentencia = $sentencia .'AND p.nomPais like "%'.$_POST['pais'].'%"';
             }
-
 ?>      
         <h3>Reultados:</h3>
         <div class="image-grid">

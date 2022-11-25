@@ -71,8 +71,9 @@ include "inc/conect.php";
     </div>
     </section>
 
-    <section>        
+    <section>    
         <a href="#mlogin" class="btn" id="log">Loguearse</a> <!-- modal login -->
+                  
         <h2>Las últimas fotos</h2>
         <div class="image-grid"> <!-- podriem llevalo posant per damunt un main o algo del section-->
         <?php

@@ -21,6 +21,14 @@ else if ($pagina == "salbum"){
     while($fila = $resultado->fetch_assoc()) 
     echo '<option value='.$fila["nomPais"].' >'.$fila["nomPais"].'</option>';
 }
+else if($pagina == "misdatos"){
+    while($fila = $resultado->fetch_assoc()) {
+        echo '<option value='.$fila["nomPais"];
+        if($fila['idPais'] == $fila1['pais']) 
+            echo" selected = 'selected'";
+        echo '>'.$fila["nomPais"].'</option>';
+    }
+}
 
 echo '</select>';
 ?>
