@@ -26,6 +26,7 @@
                 <h3>{$fila['total']} fotos</h3>
                 <h4>{$fila['descripcion']}</h4>
                 <p>De {$fila['ultima']} al {$fila['primera']}</p>
+                <p>Álbum de <a href="perfil/{$nombre[0]}">{$nombre[0]}</a></p>
             hereDOC;    
 
             //para sacar paises
