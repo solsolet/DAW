@@ -51,7 +51,7 @@ include "inc/conect.php";
                     <label for="clave">Contraseña:</label> <input type="password" name="contra" id="clave" required class="label label-pass">
                     <!-- recordarme cookie -->
                     <label for="remember"> <input type="checkbox" name="remember" id="remember" > Recordarme en este equipo</label>
-                    <input type="submit" value="Entrar" class="btn" id="pulsame" name="pulsame">
+                    <input type="button" value="Entrar" class="btn" id="pulsame" name="login">
                 hereDOC;
                 }
                 else{
@@ -59,8 +59,7 @@ include "inc/conect.php";
                     <p class="aviso">Hola de vuelta, {$_COOKIE['usuario_login']}, su última <br>
                     visita fue el {$_COOKIE['ultimafecha']} a las {$_COOKIE['ultimahora']}</p>                    
                     <input type="submit" value="Entrar" class="btn" id="pulsame" name="pulsame">
-                    <button value="Salir" class="btn"  formaction="salida">Salir</button>
-                    
+                    <button value="Salir" class="btn"  formaction="salida">Salir</button>  
                 hereDOC;
                 }
                 ?>

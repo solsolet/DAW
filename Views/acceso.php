@@ -1,6 +1,6 @@
 <?php
     include "inc/conect.php";
-
+    print_r($_POST['usuario']);
     $fecha = date("m/d/y");
     $hora = date("H:i:s");
     $tiempo = time()+ 60*60*24*90;

@@ -1,9 +1,11 @@
-/* window.addEventListener("load", function(){
-    
+window.addEventListener("load", function(){
+    console.log(window.location.href.includes("principal") || 
+                window.location.href.includes("#"));
+    console.log(window.location.href);
     boton = document.getElementById("pulsame");
-        console.log(boton);
+        console.log(boton.name);
 
-    if(window.location.href.includes("index.html"))
+    if(boton.name == "login")
         boton.addEventListener("click", login);
       
     else if (window.location.href.includes("registro.html"))
@@ -11,26 +13,32 @@
 });
 
 function login(){
-    var usuario = document.getElementById("usuario");
-    var clave = document.getElementById("clave");
+    console.log("a");
+    var usuario = document.getElementById("usuario").value,
+        clave = document.getElementById("clave").value,
+        mensaje = "",
+        login = true,
+        exp = /[\s|^\t]/gm;
+
     //console.log("De locos");
 
-    mensaje = "";
-
-    if(vacio(usuario)){ //importante el .value si no no funciona
+    if(usuario == exp){ //importante el .value si no no funciona
         mensaje += "Escriba el nombre de usaurio en un formato correcto\n";
+        login = false;
     }
-    if(vacio(clave)){
+    if(clave == exp){
         mensaje += "Escriba la contraseña en un formato correcto\n";
+        login = false;
     }
     if(mensaje){ alert(mensaje); }
     //si todo va bien, enviamos el formulario
     
-    if(!vacio(usuario) && !vacio(clave)){
-        window.location.href = "index2.html";
+    if(login){
+        console.log("a");
+        window.location.href = "acceso";
     }
 }
-
+/*
 function registro(){
     var usu = document.getElementById("usuario"),
         clv = document.getElementById("clave"),
