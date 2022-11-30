@@ -1,44 +1,42 @@
 window.addEventListener("load", function(){
-    console.log(window.location.href.includes("principal") || 
-                window.location.href.includes("#"));
-    console.log(window.location.href);
+    
     boton = document.getElementById("pulsame");
-        console.log(boton.name);
+        console.log(boton);
 
     if(boton.name == "login")
         boton.addEventListener("click", login);
       
-    else if (window.location.href.includes("registro.html"))
+    else if (boton.name == "registro")
          boton.addEventListener("click", registro);    
 });
 
 function login(){
-    console.log("a");
+    
     var usuario = document.getElementById("usuario").value,
         clave = document.getElementById("clave").value,
         mensaje = "",
         login = true,
-        exp = /[\s|^\t]/gm;
+        exp = /[\s|^\t]+$/;
 
     //console.log("De locos");
 
-    if(usuario == exp){ //importante el .value si no no funciona
+    if(exp.test(usuario)){ //importante el .value si no no funciona
         mensaje += "Escriba el nombre de usaurio en un formato correcto\n";
         login = false;
     }
-    if(clave == exp){
+    if(exp.test(clave)){
         mensaje += "Escriba la contraseña en un formato correcto\n";
         login = false;
     }
-    if(mensaje){ alert(mensaje); }
-    //si todo va bien, enviamos el formulario
+    console.log("aaa");
+    if(mensaje){ 
+        alert(mensaje);
+        event.preventDefault();
+     }
     
-    if(login){
-        console.log("a");
-        window.location.href = "acceso";
-    }
+    
 }
-/*
+
 function registro(){
     var usu = document.getElementById("usuario"),
         clv = document.getElementById("clave"),
@@ -47,11 +45,12 @@ function registro(){
         genero = document.getElementsByName("genero"), //en la pract pone sexo
         fnac = new Date(document.getElementById("fdn").value),
         registro = true;
+        exp = /^[a-zA-Z]{3,15}$/;
     console.log("De locos");
 
     mensaje = "";
 
-    if(vacio(usu) || noenglish(usu)  || usu.value.length<3 || usu.value.length>15){ //importante el .value si no no funciona
+    if(exp.test(usu)){ //importante el .value si no no funciona
         mensaje += "Escriba el nombre de usuario en un formato correcto\n";
         registro = false;       
     }
@@ -84,7 +83,7 @@ function registro(){
         window.location.href = "index2.html";
     }
 }
-
+/*
 function vacio(e){
     if(e.value == "" || e.value.includes(' ')) return true;
 }

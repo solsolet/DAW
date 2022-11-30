@@ -48,7 +48,7 @@ if($bool == true){
                 <label for="img">Foto:</label>
                 <label for="img" class="file">Elige una foto</label> <input type="file" id="img" name="img" accept="image/*"  >
                 
-                <input type="submit" value="Registrar" class="btn" id="pulsame">   
+                <input type="submit" value="Registrar" class="btn" id="pulsame" name="registro">   
         </form>
     </section>
         

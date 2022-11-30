@@ -51,7 +51,7 @@ include "inc/conect.php";
                     <label for="clave">Contraseña:</label> <input type="password" name="contra" id="clave" required class="label label-pass">
                     <!-- recordarme cookie -->
                     <label for="remember"> <input type="checkbox" name="remember" id="remember" > Recordarme en este equipo</label>
-                    <input type="button" value="Entrar" class="btn" id="pulsame" name="login">
+                    <input type="submit" value="Entrar" class="btn" id="pulsame" name="login">
                 hereDOC;
                 }
                 else{
