@@ -28,7 +28,16 @@
             }
 ?>      
         <h3>Reultados:</h3>
+        <label for="orden">Ordenar:</label>
+        <select name="orden" id="ordenar">
+            <option value="" disabled selected>Ordenar</option>
+            <option value="titulo">Por título</option>
+            <option value="fecha">Por fecha</option>
+            <option value="autor">Por autor</option>
+            <option value="pais">Por país</option>
+        </select>
         <div class="image-grid">
+            
             <?php
             include "inc/conect.php";
             include "inc/request.php";

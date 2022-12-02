@@ -39,7 +39,7 @@ include "inc/conect.php";
     <section id="mlogin" class="modal">
     <div class="modal-dialog">
         <div class="modal-content">
-        <form action="acceso" method="post">
+        <form action="acceso" method="post" >
             <header>
                 <h2>Login</h2>
                 <a href="#" class="closebtn">×</a>
@@ -59,7 +59,7 @@ include "inc/conect.php";
                     <p class="aviso">Hola de vuelta, {$_COOKIE['usuario_login']}, su última <br>
                     visita fue el {$_COOKIE['ultimafecha']} a las {$_COOKIE['ultimahora']}</p>                    
                     <input type="submit" value="Entrar" class="btn" id="pulsame" name="pulsame">
-                    <button value="Salir" class="btn"  formaction="salida">Salir</button>  
+                    <button value="Salir" class="btn" formaction="salida">Salir</button>  
                 hereDOC;
                 }
                 ?>

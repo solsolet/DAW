@@ -26,7 +26,7 @@
         
         echo '>'.$fila["nombre"].'</option>';
     }
-echo '<input type="submit" value="Configurar" class="btn" id="pulsame">
+echo '<input type="submit" value="Configurar" class="btn" id="pulsame" name="estilo">
     </select></form></section>';
     include "inc/close.php";
     include "inc/footer.php"

@@ -1,24 +1,64 @@
 window.addEventListener("load", function(){
     
-    boton = document.getElementById("pulsame");
-        console.log(boton);
+    style = document.getElementById("style")
+    if(sessionStorage.getItem("estilo") != null)
+        style.setAttribute("href", sessionStorage.getItem("estilo"));
+    else 
+        style.setAttribute("href", "estilo/estilo.css");
 
-    if(boton.name == "login")
+    boton = document.getElementById("pulsame");
+        console.log(boton); 
+        
+    salida = document.getElementById("salir");
+
+    if(salida != null)
+        salida.addEventListener("click", function(){
+            sessionStorage.removeItem("estilo");
+        });
+
+    if(boton != null && boton.hasAttribute("name") && boton.name == "login")
         boton.addEventListener("click", login);
       
-    else if (boton.name == "registro")
-         boton.addEventListener("click", registro);    
-});
+    else if (boton != null && boton.hasAttribute("name") && boton.name == "registro") 
+        boton.addEventListener("click", registro); 
+        
+    else if (boton != null && boton.hasAttribute("name") && boton.name == "estilo") 
+        boton.addEventListener("click", estilo);   
+
+    selector = document.getElementById("ordenar")
+
+    if(selector != null)
+        selector.addEventListener("change", function(){
+            console.log(selector.value);
+            var resultados = document.querySelectorAll("article");
+            var count = resultados.length;
+            if(count != 0)
+            {
+                console.log(count);
+                const sortedList = Array.from(resultados).sort(function(a, b) {
+                const c = a.textContent,
+                d = b.textContent;
+                return c < d ? -1 : c > d ? 1 : 0;
+            });
+            }
+        })
+                
+    });
+
+function estilo(){
+    
+    var estilo = document.getElementById("estilo");
+    console.log("estilo.value")
+    sessionStorage.setItem('estilo', estilo.value);
+    
+}
 
 function login(){
-    
     var usuario = document.getElementById("usuario").value,
         clave = document.getElementById("clave").value,
         mensaje = "",
         login = true,
         exp = /[\s|^\t]+$/;
-
-    //console.log("De locos");
 
     if(exp.test(usuario)){ //importante el .value si no no funciona
         mensaje += "Escriba el nombre de usaurio en un formato correcto\n";
@@ -28,42 +68,43 @@ function login(){
         mensaje += "Escriba la contraseña en un formato correcto\n";
         login = false;
     }
-    console.log("aaa");
+    console.log("aa+"+mensaje);
     if(mensaje){ 
         alert(mensaje);
         event.preventDefault();
      }
-    
-    
 }
 
 function registro(){
-    var usu = document.getElementById("usuario"),
-        clv = document.getElementById("clave"),
-        repe = document.getElementById("clave2"),
-        email = document.getElementById("email"),
+    var usu = document.getElementById("usuario").value,
+        clv = document.getElementById("clave").value,
+        repe = document.getElementById("clave2").value,
+        email = document.getElementById("email").value,
         genero = document.getElementsByName("genero"), //en la pract pone sexo
         fnac = new Date(document.getElementById("fdn").value),
         registro = true;
-        exp = /^[a-zA-Z]{3,15}$/;
-    console.log("De locos");
+        expU = /^[a-zA-Z]{1}[a-zA-Z0-9]{2,14}$/gm; //RegEx per a Usu
+        expC = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]){6,15}$/gm;
+        expE = /^(?!\.)(?!.*\.$)(?!.*\.\.)[a-zA-Z0-9!#$%&'*+\-=\/?^_`{|}.]{1,64}@[a-zA-Z0-9\-]{1,254}$/g;
+    
+    //console.log(usu);
 
     mensaje = "";
 
-    if(exp.test(usu)){ //importante el .value si no no funciona
+    if(!expU.test(usu)){ //importante el .value si no no funciona
         mensaje += "Escriba el nombre de usuario en un formato correcto\n";
         registro = false;       
     }
 
-    if(vacio(clv) || noenglish(clv) || clv.value.length<6 || clv.value.length>15 || cosasContra(clv)){
+    if(!expC.test(clv)){
         mensaje += "Escriba la contraseña en un formato correcto\n";
         registro = false;
     }
-    if(repe.value != clv.value){
+    if(repe != clv){
         mensaje += "Las contraseñas tienen que coincidir\n";
         registro = false;
     }
-    if(vacio(email) || cosasEmail(email)){
+    if(!expC.test(usu)){
         mensaje += "El formato del email no es correcto\n";
         registro = false;
     }
@@ -80,9 +121,24 @@ function registro(){
 
     //si todo va bien, enviamos el formulario   
     if(registro){
-        window.location.href = "index2.html";
+        window.location.href = "principal";
     }
 }
+
+function reorder(opcion){
+    console.log(opcion);
+    var resultados = document.querySelectorAll("article");
+    var count = resultados.length;
+    if(typeof(count) != "undefined")
+    {
+        const sortedList = Array.from(resultados).sort(function(a, b) {
+        const c = a.textContent,
+        d = b.textContent;
+        return c < d ? -1 : c > d ? 1 : 0;
+    });
+    }
+}
+
 /*
 function vacio(e){
     if(e.value == "" || e.value.includes(' ')) return true;
@@ -248,7 +304,7 @@ function cosasEmail(e){
     console.log(bool);
     return bool;
 }
-
+*/
 function tiene18(a, m, d){
     var losTiene = false,
         hoy = new Date();
@@ -268,7 +324,7 @@ function tiene18(a, m, d){
         }
     }
     return losTiene;
-} */
+}
 
 function precios(){
     var tabla = document.getElementById("precios"),
