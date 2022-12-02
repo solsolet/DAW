@@ -59,20 +59,21 @@ function login(){
         mensaje = "",
         login = true,
         exp = /[\s|^\t]+$/;
-
-    if(exp.test(usuario)){ //importante el .value si no no funciona
+    
+    
+    if(exp.test(usuario) || vacio(usuario)){ //importante el .value si no no funciona
         mensaje += "Escriba el nombre de usaurio en un formato correcto\n";
         login = false;
     }
-    if(exp.test(clave)){
+    if(exp.test(clave) || vacio(clave)){
         mensaje += "Escriba la contraseña en un formato correcto\n";
         login = false;
     }
-    console.log("aa+"+mensaje);
+    
     if(mensaje){ 
         alert(mensaje);
         event.preventDefault();
-     }
+    }
 }
 
 function registro(){
@@ -139,11 +140,11 @@ function reorder(opcion){
     }
 }
 
-/*
-function vacio(e){
-    if(e.value == "" || e.value.includes(' ')) return true;
-}
 
+function vacio(e){
+    if(e == "") return true;
+}
+/*
 function noenglish(e){
     var bool = false;
 

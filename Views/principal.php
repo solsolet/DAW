@@ -47,8 +47,8 @@ include "inc/conect.php";
             <fieldset>
                 <?php if(!isset($_COOKIE['usuario_login'])){
                 echo<<<hereDOC
-                    <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" required class="label label-usu">
-                    <label for="clave">Contraseña:</label> <input type="password" name="contra" id="clave" required class="label label-pass">
+                    <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" class="label label-usu">
+                    <label for="clave">Contraseña:</label> <input type="password" name="contra" id="clave" class="label label-pass">
                     <!-- recordarme cookie -->
                     <label for="remember"> <input type="checkbox" name="remember" id="remember" > Recordarme en este equipo</label>
                     <input type="submit" value="Entrar" class="btn" id="pulsame" name="login">
