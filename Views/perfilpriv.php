@@ -66,7 +66,8 @@ if(isset($_SESSION['hora'])){
             <article class="carta"><a href="configuracion"><input type="button" value="Configuración" class="btn grandote"></a></article> 
             <article class="carta"><a href="tusfotos"><input type="button" value="Tus Fotos" class="btn grandote"></a></article> 
             <article class="carta"><a href="afalbum"><input type="button" value="Añadir Foto a Álbum" class="btn grandote"></a></article> 
-            <article class="carta"><a href="misdatos"><input type="button" value="Mis Datos" class="btn grandote"></a></article> 
+            <article class="carta"><a href="misdatos"><input type="button" value="Mis Datos" class="btn grandote"></a></article>
+            <article class="carta"><a href="baja"><input type="button" value="Darse de Baja" class="btn grandote"></a></article>
         </div>
         </div>
     </section>

@@ -175,6 +175,9 @@ tr:hover { background-color: var(--sc1);
     width: 100%;
     height: 100%;
 }
+.baja{
+    background-color: var(--p);
+}
 .par{
     display: flex;
 }

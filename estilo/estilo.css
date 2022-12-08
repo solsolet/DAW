@@ -11,6 +11,7 @@ html{ /*https://www.colorcombos.com/color-schemes/211/ColorCombo211.html*/
     --t: #2c2c2c;
     --s: rgba(255, 255, 255, 0.5); /* sombra */
     --sc1: rgba(255, 174, 174, 0.5);/*sombra rosa*/
+    --p: #eb445a; /* peligro */
 }
 
     body > header, body > footer{
