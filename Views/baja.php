@@ -30,22 +30,47 @@ include "inc/conect.php";
         <h2>Darse de baja</h2>
         <h3>¿Está seguro que quiere darse de baja?</h3>
         <p>Todos los datos asociados a su perfil serán eliminados de PI, y no podrán ser recuperados. Entre los datos se incluye toda la información referente a su perfil, álbumes, fotos...</p>
-        <div class="par">
-            <article class="carta">
-                <h3><?=$_SESSION['usuario']?></h3>
-                <?php
+        <article class="carta">
+            <h3><?=$_SESSION['usuario']?></h3>
+            <?php
                 $sentencia = 'SELECT * FROM `usuarios` u, `paises` p WHERE u.nomUsuario = "'.$_SESSION['usuario'].'" AND p.idPais = u.pais';
                 include "inc/conect.php";
                 include "inc/request.php";
                 $fila = $resultado->fetch_assoc();
                 if(isset($_SESSION['hora']) && isset($_SESSION['fecha']))
+                    echo<<<hereDOC
+                    <img src={$fila['foto']} width=20%>          
+                    <p>{$fila['nomPais']}</p>
+                    hereDOC;
+            ?> 
+        </article>
+        <h4>Álbumes:</h4>
+        <?php
+        $sentencia = 'SELECT a.*, count(idFotos) as nfotos FROM `albumes` as a, `usuarios`, `fotos`
+                        WHERE "'.$_SESSION['usuario'].'" = nomUsuario AND usuario=idUsuario AND idAlbum=album';
+        include "inc/request.php";
+        
+        $num = $resultado->num_rows;
+        
+        if($num > 0){
+            echo "<div class='image-grid'>";
+            while($fila = $resultado->fetch_assoc() ) {
                 echo<<<hereDOC
-                <img src={$fila['foto']} width=20%>          
-                <p>{$fila['nomPais']}</p>  
+                <article class="carta"><a href="album/{$_SESSION['usuario']}/{$fila['titulo']}">
+                    <h3>{$fila['titulo']}</h3>
+                    <h4>Nº fotos: {$fila['nfotos']}</h4>
+                </a></article>
+                
                 hereDOC;
-                ?> 
-            </article>
-        </div>
+                //print_r($fila);
+            }
+            echo "</div>";
+        }
+        else
+            echo "<p class='aviso'>No tienes álbumes</p>";
+        ?>
+        <h4>Total de fotos:</h4>
+        
         <!-- boton para modal baja -->
         <a href="baja#mbaja" class="btn">Darme de Baja</a>
     </section>
