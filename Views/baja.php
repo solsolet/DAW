@@ -6,15 +6,29 @@ include "inc/devolver.php";
 include "inc/cabecera.php";
 include "inc/conect.php";
 
-?>  
+if(isset($_POST['contra']) && $_POST['contra']==$usu['clave']){
+    //borrar usu y salir
+    print_r("holohoohho");
+}
+
+
+//per a traure la contr
+$sentencia = 'SELECT * FROM `usuarios` WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
+include "inc/conect.php";
+include "inc/request.php";
+
+$usu = $resultado->fetch_assoc();
+print_r($usu);
+?>
+
     <!-- modal baja -->
     <section id="mbaja" class="modal">
         <div class="modal-dialog">
             <div class="modal-content">
-            <form action="acceso" method="post" >
+            <form method="post" > <!-- quitar acceso? -->
                 <header>
                     <h2>Confirmar baja</h2>
-                    <a href="#" class="closebtn">×</a>
+                    <a href="baja#" class="closebtn">×</a>
                 </header>
                 <fieldset>
                     <p>Introduzca su contraseña para confirmar la baja en PI</p>
@@ -46,11 +60,13 @@ include "inc/conect.php";
         </article>
         <h4>Álbumes:</h4>
         <?php
+        //muestra lista de albumes asociados al usuario + nº de fotos x album
         $sentencia = 'SELECT a.*, count(idFotos) as nfotos FROM `albumes` as a, `usuarios`, `fotos`
                         WHERE "'.$_SESSION['usuario'].'" = nomUsuario AND usuario=idUsuario AND idAlbum=album';
         include "inc/request.php";
         
         $num = $resultado->num_rows;
+        $tfotos = 0;
         
         if($num > 0){
             echo "<div class='image-grid'>";
@@ -60,17 +76,21 @@ include "inc/conect.php";
                     <h3>{$fila['titulo']}</h3>
                     <h4>Nº fotos: {$fila['nfotos']}</h4>
                 </a></article>
-                
                 hereDOC;
-                //print_r($fila);
+                $tfotos += $fila['nfotos'];
             }
             echo "</div>";
         }
         else
             echo "<p class='aviso'>No tienes álbumes</p>";
-        ?>
-        <h4>Total de fotos:</h4>
         
+        //Total fotos
+        if($tfotos > 0)
+            echo "<h4>Total de fotos: {$tfotos}</h4>";
+        else
+            echo "<p class='aviso'>No tienes fotos</p>";
+        ?>
+
         <!-- boton para modal baja -->
         <a href="baja#mbaja" class="btn">Darme de Baja</a>
     </section>

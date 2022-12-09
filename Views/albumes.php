@@ -22,7 +22,6 @@
                     <h3>{$fila['titulo']}</h3>
                     <p>{$fila['descripcion']}</p>
                 </a></article>
-                
                 hereDOC;
             }
             echo "</div>";

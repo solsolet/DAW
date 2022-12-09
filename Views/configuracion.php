@@ -23,7 +23,6 @@
         if(isset($_SESSION['estilo']) && (strcmp($_SESSION["estilo"],$fila["fichero"]) == 0))
             echo ' selected = "selected"';
             
-        
         echo '>'.$fila["nombre"].'</option>';
     }
 echo '<input type="submit" value="Configurar" class="btn" id="pulsame" name="estilo">
