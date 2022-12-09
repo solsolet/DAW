@@ -3,7 +3,7 @@
     $titulo = "Solicitud";
     $lista = 2; 
     include "inc/cabecera.php";
-    include "inc/debug.php";
+    include "inc/conect.php";
 
     $i = 12;
     $acum;
@@ -43,13 +43,38 @@
     }
 
     $coste *= $_POST["ncopias"];
-    debug($_SERVER['HTTP_REFERER']);
+
+    if($_POST['pais'] == "vacio"){            
+            $pa = 4;
+    }
+    else {
+        $sentencia = 'SELECT idPais FROM paises WHERE nomPais = "'.$_POST['pais'].'"';
+        include "inc/request.php";
+        $pais = $resultado -> fetch_assoc();
+        $pa = $pais['idPais'];
+    }
+
+    $direc = $_POST["calle"].' nº'.$_POST["nportal"].', '.$_POST['cp'];
+    
+    $sentencia = 'SELECT idAlbum FROM albumes WHERE titulo = "'.$_POST['albums'].'"';
+        include "inc/request.php";
+        $album = $resultado -> fetch_assoc();
+
+    $fecha = date("Y-m-d");
+    $hora = date("H:i:s");
+    $sentencia = 'INSERT into solicitudes(album, nombre, titulo, descripcion, email, direccion, color, copias, resolucion, fecha, iColor, coste, fRegistro)
+                    values ("'.$album['idAlbum'].'", "'.$_POST['nombre'].'", "'.$_POST['titulo'].'", 
+                    "'.$_POST['t_adicional'].'", "'.$_POST['email'].'", "'.$direc.'", "'.$_POST['color'].'", "'.$_POST['ncopias'].'", "'.$_POST['resolucion'].'", 
+                    "'.$_POST['frecepcion'].'", "'.$_POST['impresion'].'", "'.$coste.'", "'.$fecha.' '.$hora.'")';
+
+    include "inc/request.php";
+    
     echo <<<hereDOC
     
     <section>                
         <h2>Solicitud confirmada</h2>   
         <p><b>{$_POST["nombre"]}</b>, su solicitud ha sido aceptada y va a ser procesada para imprimir un total de 
-        <b>{$_POST["ncopias"]}</b> copia/s del álbum <b>{$_POST["albumes"]}</b> y se enviará con el título 
+        <b>{$_POST["ncopias"]}</b> copia/s del álbum <b>{$_POST["albums"]}</b> y se enviará con el título 
         <b>{$_POST["titulo"]}</b> a <b>{$_POST["calle"]} nº{$_POST["nportal"]}</b>
 hereDOC;
 
@@ -88,5 +113,6 @@ if(strcmp($_POST["telf"],"") != 0)
         echo "<p>Teléfono: <b> {$_POST["telf"]}</b></p>";
 
     echo"</section>";
+    $mysqli -> close();
     include "inc/footer.php"
 ?>

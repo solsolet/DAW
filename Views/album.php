@@ -61,8 +61,7 @@
 
         //si l'usuari que entra al album es el propietari
         if($nombre[0] == $_SESSION['usuario']){
-            debug("printeame un botón to guapo");
-            echo '<a href="afalbum/'.$nombre[1].'" class="btn">Añadir foto a álbum</a>';
+            echo '<a href="afalbum" class="btn">Añadir foto al álbum</a>';
         }
 
         include "inc/close.php"; 

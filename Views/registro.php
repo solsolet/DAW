@@ -12,7 +12,7 @@
 
 if($bool == true){
     echo<<<hereDOC
-    <section id="mlogin" class="modal2">
+    <section id="mlogin" class="modal3">
     <div class="modal-dialog">
     <div class="modal-content">
                 <h2>Fallos en el registro</h2>          

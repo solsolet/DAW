@@ -140,9 +140,9 @@
                     <label for="frecepcion">Fecha de recepción:</label> <input type="date" name="frecepcion" id="frecepcion">
                     <div>
                         <label>Impresión a color:</label> <br>
-                        <input type="radio" id="byn" name="impresion" value="Blanco y negro">
+                        <input type="radio" id="byn" name="impresion" value="0">
                             <label for="byn">Blanco y negro</label>
-                        <input type="radio" id="acolor" name="impresion" value="A color">
+                        <input type="radio" id="acolor" name="impresion" value="1">
                             <label for="acolor">A color</label>
                     </div>                   
 

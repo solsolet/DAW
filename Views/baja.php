@@ -6,19 +6,20 @@ include "inc/devolver.php";
 include "inc/cabecera.php";
 include "inc/conect.php";
 
-if(isset($_POST['contra']) && $_POST['contra']==$usu['clave']){
+if(isset($_POST['contra'])){
     //borrar usu y salir
-    print_r("holohoohho");
+    $sentencia = 'SELECT * FROM `usuarios` WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
+    include "inc/request.php";
+    
+    $usu = $resultado->fetch_assoc();
+    
+    if($usu['clave'] == $_POST['contra'])
+        $sentencia = 'DELETE FROM `usuarios` WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
+
+    include "inc/request.php";
+    include "salida.php";
 }
 
-
-//per a traure la contr
-$sentencia = 'SELECT * FROM `usuarios` WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
-include "inc/conect.php";
-include "inc/request.php";
-
-$usu = $resultado->fetch_assoc();
-print_r($usu);
 ?>
 
     <!-- modal baja -->

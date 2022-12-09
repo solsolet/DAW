@@ -167,6 +167,7 @@ tr:hover { background-color: var(--sc1);
     font-family: 'Poppins', sans-serif;
 }
 .btn:hover{
+    cursor: pointer;
     background-color: var(--b);
     color: var(--c2);
     border: 1px solid var(--c2);

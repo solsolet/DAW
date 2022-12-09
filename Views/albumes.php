@@ -1,7 +1,7 @@
 <?php
 
     include "inc/devolver.php";
-    
+
     $titulo = "Álbumes";
     $lista = 2;
     include "inc/cabecera.php";
@@ -28,7 +28,7 @@
             echo "</div>";
         }
         else
-            echo "<p class='aviso'>No tienes álbumes, crea tu primer álbum<a href='subir'> aquí</a></p>";
+            echo "<p class='aviso'>No tienes álbumes, crea tu primer álbum <a href='subir'>aquí</a></p>";
 
     echo "</section>";  
     include "inc/close.php"; 

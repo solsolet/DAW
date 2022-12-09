@@ -16,7 +16,6 @@ else if (isset($_SESSION['usuario'])){
     <li><a href="salida" id="salir"><i class="fa-solid fa-right-from-bracket"></i><label>Salir</label></a></li> ';
 }
 
-
 $htmlData3 = '<li><a href="principal"><i class="fa-solid fa-house"></i><label>Inicio</label></a></li>
 <li><a href="busqueda"><i class="fa-solid fa-magnifying-glass"></i><label>Buscar</label></a></li> ';
 
@@ -40,7 +39,17 @@ include "debug.php";
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Poppins&display=swap" rel="stylesheet">
     <title><?=$titulo;?></title>
     <link rel="stylesheet" href="estilo/comun.css" media="screen">
-    <link rel="stylesheet" title="Modo principal" id="style"> <!-- important: sempre va a emplear-se -->
+    <?php
+        if(isset($_SESSION['estilo'])){
+            echo '<link rel="stylesheet" href="'.$_SESSION['estilo'].'" title="Modo principal"> <!-- important: sempre va a emplear-se -->';
+        }
+        else if (isset($_COOKIE['estilo'])) {
+            echo '<link rel="stylesheet" href="'.$COOKIE['estilo'].'" title="Modo principal"> <!-- important: sempre va a emplear-se -->';
+        }
+        else{
+            echo '<link rel="stylesheet" href="estilo/estilo.css" title="Modo principal"> <!-- important: sempre va a emplear-se -->';
+        }
+    ?>
     <link rel="alternate stylesheet" href="estilo/oscuro.css" title="Modo oscuro"> <!-- posar sempre un Title -->
     <link rel="alternate stylesheet" href="estilo/alt_cont.css" title="Alto Contraste">
     <link rel="alternate stylesheet" href="estilo/grande.css" title="Letra Grande">

@@ -10,47 +10,68 @@
     $titulo = "Registro";
     $lista = 2;
     global $usuario; global $clave; global $clave2; global $email; global $genero; global $fecha; global $ciudad; global $pais;   
+    $expU = "/^[a-zA-Z]{1}[a-zA-Z0-9]{2,14}$/";
+    $expC = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*_-]).{6,15}$/";
+    $expE = "/^(?!\.)(?!.*\.$)(?!.*\.\.)[a-zA-Z0-9!#$%&'*+\-=\/?^_`{|}.]{1,64}@[a-zA-Z0-9\-]{1,254}$/";
+
     
-    if (!isset($_POST["usuario"]) || (strcmp($_POST["usuario"],"") == "0")){
+    $mensaje = "";
+
+    if (!isset($_POST["usuario"]) || (strcmp($_POST["usuario"],"") == "0") || preg_match($expU, $_POST['usuario']) == 0){
         $bool = true;
-        $mensaje = "El usuario no puede estar vacío.<br>";
+        $mensaje .= "Formato de usuario incorrecto.<br>";
 
     }
-    if (!isset($_POST["clave"]) || (strcmp($_POST["clave"],"") == "0")){
+    if (preg_match($expC, $_POST['clave']) == 0){
         $bool = true;    
-        $mensaje = $mensaje."La contraseña no puede estar vacía.<br>";
+        $mensaje .= "Formato de contraseña incorrecto.<br>";
         
     }
     else if ((isset($_POST["clave"])) && (!isset($_POST["clave2"]) || (strcmp($_POST["clave2"],$_POST["clave"]) != "0"))){
         $bool = true;
-        $mensaje = $mensaje."Las contraseñas tienen que coincidir.";
+        $mensaje .= "Las contraseñas tienen que coincidir.<br>";
+    }
+
+    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) || !str_contains($_POST['email'], "@")){
+        $bool = true;
+        $mensaje .= "Formato de email incorrecto.<br>";
+    }
+
+    if (!isset($_POST['genero'])){
+        $bool = true;
+        $mensaje .= "Debes elegir un género con el que te identifiques.<br>";
+    }
+
+    if($_POST['fdn'] == "" || $_POST['fdn'] > date('Y-m-d', strtotime('18 years ago'))){
+        $bool = true;
+        $mensaje .= "Debes ser mayor de 18 años";
     }
     
     if($bool == true && $pasado == true){
         $extra = 'registro?mensaje='.$mensaje;
         if (isset($_POST["usuario"]))
-        $extra = $extra."&usu=".$_POST["usuario"];
+        $extra .= "&usu=".$_POST["usuario"];
 
         if (isset($_POST["clave"])) 
-        $extra = $extra."&clv=".$_POST["clave"];
+        $extra .= "&clv=".$_POST["clave"];
 
         if (isset($_POST["clave2"]) )   
-        $extra = $extra."&clv2=".$_POST["clave2"];
+        $extra .= "&clv2=".$_POST["clave2"];
 
         if (isset($_POST["email"]))
-        $extra = $extra."&email=".$_POST["email"]; 
+        $extra .= "&email=".$_POST["email"]; 
 
         if (isset($_POST["genero"]))
-        $extra = $extra."&gen=".$_POST["genero"];
+        $extra .= "&gen=".$_POST["genero"];
 
         if (isset($_POST["fdn"]))
-        $extra = $extra."&fdn=".$_POST["fdn"];
+        $extra .= "&fdn=".$_POST["fdn"];
 
         if (isset($_POST["ciudad"]))
-        $extra = $extra."&ciu=".$_POST["ciudad"];
+        $extra .= "&ciu=".$_POST["ciudad"];
 
         if (isset($_POST["pais"]))
-        $extra = $extra."&pais=".$_POST["pais"];
+        $extra .= "&pais=".$_POST["pais"];
 
         /* Redirecciona a una página diferente que se encuentra en el directorio actual */
         $host = $_SERVER['HTTP_HOST'];
@@ -60,8 +81,41 @@
     }
 
 if($bool == false){
+    session_start();
+    $_SESSION['usuario'] = $_POST['usuario'];
+
     $lista = 2;
     include "inc/cabecera.php"; 
+
+    if($_POST['genero'] == "Hombre"){
+        $gen = 0;
+    }
+    else if ($_POST['genero'] == "Mujer"){
+        $gen = 1;
+    }
+    else if ($_POST['genero'] == "Otro")
+        $gen = 2;
+
+    include "inc/conect.php";
+    if($_POST['pais'] == "vacio"){            
+        $pa = 4;
+    }
+    else {
+        $sentencia = 'SELECT idPais FROM paises WHERE nomPais = "'.$_POST['pais'].'"';
+        include "inc/request.php";
+        $pais = $resultado -> fetch_assoc();
+        $pa = $pais['idPais'];
+    }
+
+    $fecha = date("Y-m-d");
+    $hora = date("H:i:s");
+    $sentencia = 'INSERT into usuarios (nomUsuario, clave, email, sexo, fNacimiento, ciudad, pais, foto, fRegistro, estilo)
+                values ("'.$_POST['usuario'].'", "'.$_POST['clave'].'", "'.$_POST['email'].'", "'.$gen.'", "'.$_POST['fdn'].'", "'.$_POST['ciudad'].'", 
+                '.$pa.', "imagenes/'.$_POST['img'].'", "'.$fecha.' '.$hora.'", 3)';
+    
+    
+    include "inc/request.php";
+
 
 echo <<< hereDOC
 
@@ -88,6 +142,7 @@ echo "<br>País: <b>{$_POST["pais"]}</b>";
 }
     echo "</p></section>";
 
+    $mysqli -> close();
     include "inc/footer.php";
 }
 ?>

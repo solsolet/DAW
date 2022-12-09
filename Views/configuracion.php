@@ -1,10 +1,19 @@
 <?php
 
     include "inc/devolver.php";
-    
+    include "inc/conect.php";
     if(isset($_POST['estilo'])){
-        $_SESSION['estilo'] = $_POST['estilo'];
         
+        $_SESSION['estilo'] = $_POST['estilo'];
+
+        $sentencia = 'SELECT idEstilo FROM estilos WHERE fichero = "'.$_POST['estilo'].'"';
+        include "inc/request.php";
+        $estil = $resultado -> fetch_assoc();
+
+        $sentencia = 'UPDATE usuarios SET estilo = '.$estil['idEstilo'].'';
+        
+        if(isset($_COOKIE['usuario_login']))
+            $_COOKIE['estilo'] = $_POST['estilo'];
     }
 
     $titulo = "Configuración";
@@ -13,7 +22,7 @@
     
     // Ejecuta una sentencia SQL
     $sentencia = 'SELECT * FROM estilos';
-    include "inc/conect.php";
+    
     include "inc/request.php";
     echo '<h2>Configuración</h2><section><form method="POST"><label>Estilo</label>
         <select name="estilo" id="estilo">';   
@@ -26,7 +35,7 @@
             
         echo '>'.$fila["nombre"].'</option>';
     }
-echo '<input type="submit" value="Configurar" class="btn" id="pulsame" name="estilo">
+echo '<input type="submit" value="Configurar" class="btn" id="pulsame" name="estil">
     </select></form></section>';
     include "inc/close.php";
     include "inc/footer.php"

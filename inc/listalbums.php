@@ -5,8 +5,7 @@ include "inc/conect.php";
 include "inc/request.php";
 
 echo '<label for="albums">Álbum:</label>
-        <select name="albums" id="albums">
-        <option value="vacio">Vacío</option>';    
+        <select name="albums" id="albums">';    
 
         while($fila = $resultado->fetch_assoc()) {
             echo '<option value='.$fila["titulo"];

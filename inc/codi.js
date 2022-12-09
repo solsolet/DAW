@@ -22,7 +22,7 @@ window.addEventListener("load", function(){
     else if (boton != null && boton.hasAttribute("name") && boton.name == "registro") 
         boton.addEventListener("click", registro); 
         
-    else if (boton != null && boton.hasAttribute("name") && boton.name == "estilo") 
+    else if (boton != null && boton.hasAttribute("name") && boton.name == "estil") 
         boton.addEventListener("click", estilo);   
 
     selector = document.getElementById("ordenar")
