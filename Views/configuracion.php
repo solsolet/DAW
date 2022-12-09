@@ -4,6 +4,7 @@
     
     if(isset($_POST['estilo'])){
         $_SESSION['estilo'] = $_POST['estilo'];
+        
     }
 
     $titulo = "Configuración";
