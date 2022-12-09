@@ -23,21 +23,7 @@
         $fecha = date("Y-m-d");
         $hora = date("H:i:s");
         $expT = "/^.{10,}$/";
-        $data = array(
-            "imagen",
-            "i have n ikee shoes",
-            "i have nikeeshoes",
-            "i sell i-phone casings",
-            "i sell iphone-casings",
-            "you can have iphone",
-            "rapiD Garment factor",
-            "rosNIK Electronics",
-            "Buy you self N I K E",
-            "B*U*Y I*P*H*O*N*E BABY",
-            "My Phone Is not available");
-
-
-        print_r("a");
+        
         if(preg_match($expT, $_POST['alternativo']) == 0 || filter_var($_POST['alternativo'], FILTER_SANITIZE_STRING, $data)){
             echo<<<hereDOC
             <section id="mlogin" class="modal3">
