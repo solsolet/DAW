@@ -11,6 +11,7 @@ function salir(){
         header("Location: http://$host$uri/$extra");
         exit;
 }
+
 include "inc/conect.php";
 
     /* print_r("a");
@@ -34,7 +35,6 @@ include "inc/conect.php";
     } */   
     
 ?>  
-
     <!--Modal-->
     <section id="mlogin" class="modal">
     <div class="modal-dialog">
@@ -70,8 +70,74 @@ include "inc/conect.php";
     </div>
     </section>
 
+    <!--Modal de foto-->
+    <section id="consejo" class="modal">
+        <div class="modal-dialog">
+            <div class="consejo modal-content">
+                <header>
+                    <h2>Consejo Fotográfico</h2>
+                    <a href="#" class="closebtn">×</a>
+                </header>
+                <fieldset>
+                    <?php                
+                    $json = file_get_contents('inc/consejos.json');
+                    $json_data = json_decode($json,true);       
+                    $r = rand(0,2);
+
+                    echo<<<hereDOC
+                        <p>Categoría: {$json_data['Consejos'][$r]['Categoría']}</p>
+                        <p>Dificultad: {$json_data['Consejos'][$r]['Dificultad']}</p>
+                        <p>Consejo: {$json_data['Consejos'][$r]['Consejo']}</p>
+                    hereDOC;                    
+                    ?>                    
+                </fieldset>            
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <a href="#mlogin" class="btn" id="log">Loguearse</a>
+    </section>
+
+    <section>
+        <h2>Foto Destacada</h2>
+        <div class="image-grid2">
+        <?php
+        $file = file_get_contents("inc/escogida.txt");
+        $filex = explode("idFoto", $file);
+        $r = rand(1,4);
+        $filexx = explode(PHP_EOL, $filex[$r]);
+        
+        $sentencia = 'SELECT *, DATE_FORMAT(fRegistro, "%d-%m-%Y") as fechaformato FROM `fotos`, `paises` WHERE idFotos = '.$filexx[0].' AND pais = idPais';
+        include "inc/request.php";
+        $fila = $resultado -> fetch_assoc();
+        echo<<<hereDOC
+
+        <article class="carta"><a href="foto/{$fila['idFotos']}"><img src={$fila['fichero']} alt={$fila['alternativo']}></a>
+            
+        </article>
+        <article class="carta">
+            <h3>{$fila['titulo']}</h3>
+            <p>{$fila['fechaformato']}</p>
+            <p>{$fila['nomPais']}</p>
+            <h4>Ficha del crítico</h4>
+            <p>Crítico: {$filexx[1]}</p>
+            <p>Crítica: {$filexx[2]}</p>
+        </article>
+        
+        hereDOC;
+
+
+        ?>
+        </div>
+    </section>
+
+    <section>
+        <a href="#consejo" class="btn" id="log">Consejo Fotográfico</a>        
+    </section>
+
     <section>    
-        <a href="#mlogin" class="btn" id="log">Loguearse</a> <!-- modal login -->
+         <!-- modal login -->
                   
         <h2>Las últimas fotos</h2>
         <div class="image-grid"> <!-- podriem llevalo posant per damunt un main o algo del section-->

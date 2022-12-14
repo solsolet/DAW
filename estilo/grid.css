@@ -9,7 +9,7 @@
 	padding: var(--gap);
 }
 
-.image-grid > article {
+.image-grid > article, .image-grid2 > article {
 	width: 100%;
 	height: auto;
 }
@@ -17,5 +17,22 @@
 .image-grid > article > a > img {
 	width: 100%; /* s'ajusta al tamany del article */
 	height: 10em; /* altura fixa */
-    object-fit: cover; /* s'ajusta al contenedor i es veu com en xicotet */
 }
+
+.image-grid2 > article > a > img {
+    width: 50%;
+    height: fit-content;	
+}
+
+.image-grid2 {
+	--gap: 16px;
+	--num-cols: 2;
+
+	display: grid;
+
+	gap: var(--gap);
+	grid-template-columns: repeat(var(--num-cols), 1fr);
+	padding: var(--gap);
+}
+
+

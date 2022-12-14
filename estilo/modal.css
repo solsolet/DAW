@@ -59,14 +59,14 @@
 
 .modal-content > form { background-color: var(--c1); }
 
-.modal-content > form > fieldset{ 
+.modal-content > form > fieldset, .modal-content > fieldset{ 
   display: grid;
   color: var(--b2);
   border-radius: 11px;
   border: solid var(--c7);
 }
 
-.modal-content > form > header{
+.modal-content > form > header, .modal-content > header{
   color: var(--b2);
   display: inline-flex;
   justify-content: space-between;

@@ -133,6 +133,17 @@ tr:hover { background-color: var(--sc1);
     color: var(--c2);
 }
 
+.consejo {
+    background-color: var(--c1);
+    border-radius: 5px;
+    display: grid;
+    margin: 1em auto;
+    padding: 2em;
+    text-align: left;
+    width: 40%; 
+    box-shadow: 0 4px 8px 0  var(--sc1);
+}
+
 .aviso {
     text-align: center;
 }
