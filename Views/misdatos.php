@@ -35,8 +35,32 @@
 
             $sentencia .= ', sexo = '.$gen.' ';
         }
-        if($_POST['img'] != "")
-            $sentencia .= ', foto = "imagenes/'.$_POST['img'].'" ';
+        if(isset($_FILES['img'])) {
+            $target_dir = "imagenes/";
+            $target_file = $target_dir . basename($_FILES["img"]["name"]);
+            $subidaOk = true;
+            $sentencia .= ', foto = "imagenes/'.$_FILES['img']['name'].'" ';
+            $msg = "<p>";
+
+            // Check if file already exists
+            if (file_exists($target_file)) {
+                $msg .= "Esta imagen ya existe<br>";
+                $subidaOk = false;
+            }
+            // Check if error
+            if ($subidaOk == false)
+                $msg .= "Lo sientimos, no se ha podido subir la imagen";
+            else {
+                if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file))
+                    $msg .= "El archivo ". htmlspecialchars( basename( $_FILES["img"]["name"])). " se ha subido";
+                else 
+                    $msg .= "Lo sentimos, ha habido un error en la subida del archivo";
+            }
+            $msg .= "</p>";
+            echo $msg;
+            //print_r($_FILES);
+        }
+           
 
         $sentencia .= 'WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
 
@@ -56,7 +80,7 @@
 ?>  
     <section>
         <h2>Mis Datos</h2>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
                 <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" value="<?=$fila1['nomUsuario']?>">
                 <label for="clave0">Contraseña Actual:</label> <input type="password" name="clave0" id="clave0">
                 <label for="clave">Nueva Contraseña:</label> <input type="password" name="clave" id="clave">
