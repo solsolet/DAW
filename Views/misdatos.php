@@ -6,6 +6,20 @@
 
     include "inc/conect.php";
 
+    if(isset($_POST['borrar'])){       
+        $sentencia = 'SELECT foto FROM usuarios WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
+        include "inc/request.php";
+        $fila1 = $resultado -> fetch_assoc();
+
+        if($fila1['foto'] != "imagenes/predeterminado.jpg"){
+            unlink($fila1['foto']);
+            $sentencia = 'UPDATE `usuarios` SET foto = "imagenes/predeterminado.jpg" WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
+            include "inc/request.php";
+        }
+        
+    }
+
+
     if(isset($_POST['usuario'])){
 
         $sentencia = 'SELECT clave FROM usuarios WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
@@ -35,11 +49,11 @@
 
             $sentencia .= ', sexo = '.$gen.' ';
         }
-        if(isset($_FILES['img'])) {
+        
+        if(isset($_FILES['img']) && !isset($_POST['borrar']) && $_FILES['img']['error'] != 4) {
             $target_dir = "imagenes/";
             $target_file = $target_dir . basename($_FILES["img"]["name"]);
             $subidaOk = true;
-            $sentencia .= ', foto = "imagenes/'.$_FILES['img']['name'].'" ';
             $msg = "<p>";
 
             // Check if file already exists
@@ -51,8 +65,10 @@
             if ($subidaOk == false)
                 $msg .= "Lo sientimos, no se ha podido subir la imagen";
             else {
-                if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file))
+                if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)){
                     $msg .= "El archivo ". htmlspecialchars( basename( $_FILES["img"]["name"])). " se ha subido";
+                    $sentencia .= ', foto = "imagenes/'.$_FILES['img']['name'].'" ';
+                }
                 else 
                     $msg .= "Lo sentimos, ha habido un error en la subida del archivo";
             }
@@ -74,8 +90,8 @@
     $sentencia = 'SELECT * FROM usuarios WHERE nomUsuario = "'.$_SESSION['usuario'].'" ';
     include "inc/request.php";
     $fila1 = $resultado -> fetch_assoc();
-
     $num = $resultado->num_rows;
+    
     if($num > 0){
 ?>  
     <section>
@@ -101,7 +117,7 @@
                 <?php $pagina = "misdatos"; include "inc/listapaises.php"; ?>
                 <label for="img">Foto: </label><div class="aviso"><img src=<?=$fila1['foto']?> width=50%></div><br>
                 <label for="img" class="file">Elige otra foto</label> <input value=<?=$fila1['foto']?> type="file" id="img" name="img" accept="imagenes/*"  >
-                
+                <label for="borrar">Borrar Foto de Perfil:   <input type="checkbox" name="borrar" id="borrar" ></label>
                 <input type="submit" value="Cambiar Datos" class="btn" id="pulsame">   
         </form>
     </section>

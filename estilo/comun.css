@@ -204,6 +204,16 @@ tr:hover { background-color: var(--sc1);
     margin: 0 0 0 -1.2em;
 }
 
+/* Hide default HTML checkbox */
+
+input[type=checkbox]{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: .5rem;
+    background-size: cover;
+}
+
 @media screen and (max-width: 480px){
     body > header > nav > ul{ list-style-type: none; }
 

@@ -17,6 +17,7 @@
 .image-grid > article > a > img {
 	width: 100%; /* s'ajusta al tamany del article */
 	height: 10em; /* altura fixa */
+	object-fit: cover;
 }
 
 .image-grid2 > article > a > img {
