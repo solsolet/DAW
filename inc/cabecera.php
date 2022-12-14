@@ -44,7 +44,15 @@ include "debug.php";
             echo '<link rel="stylesheet" href="'.$_SESSION['estilo'].'" title="Modo principal"> <!-- important: sempre va a emplear-se -->';
         }
         else if (isset($_COOKIE['estilo'])) {
-            echo '<link rel="stylesheet" href="'.$COOKIE['estilo'].'" title="Modo principal"> <!-- important: sempre va a emplear-se -->';
+            echo '<link rel="stylesheet" href="'.$_COOKIE['estilo'].'" title="Modo principal"> <!-- important: sempre va a emplear-se -->';
+        }
+        else if (isset($_SESSION['usuario'])){
+            include "inc/conect.php";
+            $sentencia = 'SELECT fichero FROM estilos, usuarios WHERE estilo = idEstilo AND nomUsuario = "'.$_SESSION['usuario'].'"';
+            include "inc/request.php";
+            $estil = $resultado -> fetch_assoc();
+            include "inc/close.php";
+            echo '<link rel="stylesheet" href="'.$estil['fichero'].'" title="Modo principal"> <!-- important: sempre va a emplear-se -->';
         }
         else{
             echo '<link rel="stylesheet" href="estilo/estilo.css" title="Modo principal"> <!-- important: sempre va a emplear-se -->';

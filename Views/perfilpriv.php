@@ -39,7 +39,7 @@ if(isset($_SESSION['hora'])){
 ?>  
 
     <section>       
-        <h2>Las últimas fotos</h2>
+        <h2>Perfil del usuario</h2>
         <div class="par"> <!-- podriem llevalo posant per damunt un main o algo del section-->
         
             <article class="carta">
@@ -49,13 +49,20 @@ if(isset($_SESSION['hora'])){
                 include "inc/conect.php";
                 include "inc/request.php";
                 $fila = $resultado->fetch_assoc();
-                if(isset($_SESSION['hora']) && isset($_SESSION['fecha']))
+                if($fila['foto'] == "imagenes/"){
+                    $foto = "imagenes/burger.jpg";
+                }
+                else {
+                    $foto = $fila['foto'];
+                }
+                echo "<img src=".$foto ." width=20%>";
+                if(isset($_SESSION['hora']) && isset($_SESSION['fecha'])){                
                 echo<<<hereDOC
-                <img src={$fila['foto']} width=20%>
                 <p>{$_SESSION['hora']}</p>
                 <p>{$_SESSION['fecha']}</p>                
-                <p>{$fila['nomPais']}</p>  
+                <p>{$fila['nomPais']}</p> 
                 hereDOC;
+                }
                 ?> 
             </article>
       

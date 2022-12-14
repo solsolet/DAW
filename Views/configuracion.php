@@ -10,8 +10,8 @@
         include "inc/request.php";
         $estil = $resultado -> fetch_assoc();
 
-        $sentencia = 'UPDATE usuarios SET estilo = '.$estil['idEstilo'].'';
-        
+        $sentencia = 'UPDATE usuarios SET estilo = '.$estil['idEstilo'].' WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
+        include "inc/request.php";  
         if(isset($_COOKIE['usuario_login']))
             $_COOKIE['estilo'] = $_POST['estilo'];
     }
@@ -22,7 +22,7 @@
     
     // Ejecuta una sentencia SQL
     $sentencia = 'SELECT * FROM estilos';
-    
+    include "inc/conect.php";
     include "inc/request.php";
     echo '<h2>Configuración</h2><section><form method="POST"><label>Estilo</label>
         <select name="estilo" id="estilo">';   

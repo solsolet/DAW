@@ -26,8 +26,16 @@
                 include "inc/conect.php";
                 include "inc/request.php";
                 $fila1 = $resultado->fetch_assoc();
+
+                if($fila1['foto'] == "imagenes/"){
+                    $foto = "imagenes/burger.jpg";
+                }
+                else {
+                    $foto = $fila1['foto'];
+                }
+                
                 echo<<<hereDOC
-                <img src={$fila1['foto']} width=20%>
+                <img src={$foto} width=20%>
                 <p>Fecha incorporación: {$fila1['fechaformato']}</p>                 
                 hereDOC;
 

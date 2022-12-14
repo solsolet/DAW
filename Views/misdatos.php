@@ -7,15 +7,22 @@
     include "inc/conect.php";
 
     if(isset($_POST['usuario'])){
+
+        $sentencia = 'SELECT clave FROM usuarios WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
+        include "inc/request.php";
+        $contra = $resultado -> fetch_assoc();
+
         $sentencia = 'UPDATE `usuarios` SET nomUsuario = "'.$_POST['usuario'].'", 
                                             email = "'.$_POST['email'].'",
                                             ciudad = "'.$_POST['ciudad'].'",
                                             pais = '.$_POST['pais'].',
                                             fNacimiento = "'.$_POST['fdn'].'" ';
 
-        if(isset($_POST['clave']) && isset($_POST['clave2']) && $_POST['clave'] == $_POST['clave2'] && $_POST['clave'] != "")
-            $sentencia .= ', clave = "'.$_POST['clave'].'" ';
-        
+        if(isset($_POST['clave0']) && $_POST['clave0'] == $contra){
+            if(isset($_POST['clave']) && isset($_POST['clave2']) && $_POST['clave'] == $_POST['clave2'] && $_POST['clave'] != "")
+                $sentencia .= ', clave = "'.$_POST['clave'].'" ';
+        }
+
         if(isset($_POST['genero'])){
             if($_POST['genero'] == "Hombre"){
                 $gen = 0;
@@ -40,7 +47,7 @@
         echo "<h1>Datos Actualizados</h1>";
     }
 
-    $sentencia = 'SELECT * FROM usuarios WHERE nomUsuario = "'.$_POST['usuario'].'" ';
+    $sentencia = 'SELECT * FROM usuarios WHERE nomUsuario = "'.$_SESSION['usuario'].'" ';
     include "inc/request.php";
     $fila1 = $resultado -> fetch_assoc();
 
@@ -51,6 +58,7 @@
         <h2>Mis Datos</h2>
         <form method="POST">
                 <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" value="<?=$fila1['nomUsuario']?>">
+                <label for="clave0">Contraseña Actual:</label> <input type="password" name="clave0" id="clave0">
                 <label for="clave">Nueva Contraseña:</label> <input type="password" name="clave" id="clave">
                 <label for="clave2">Repetir nueva contraseña:</label> <input type="password" name="clave2" id="clave2" >
                 <label for="email">Email:</label> <input type="email" name="email" id="email" value="<?=$fila1['email']?>">

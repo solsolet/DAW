@@ -24,7 +24,8 @@
         $hora = date("H:i:s");
         $expT = "/^.{10,}$/";
         
-        if(preg_match($expT, $_POST['alternativo']) == 0 || filter_var($_POST['alternativo'], FILTER_SANITIZE_STRING, $data)){
+        if(preg_match($expT, $_POST['alternativo']) == 0 || str_contains($_POST['alternativo'],"imagen") || str_contains($_POST['alternativo'],"foto")
+                        || str_contains($_POST['alternativo'],"alternativo") || str_contains($_POST['alternativo'],"texto")){
             echo<<<hereDOC
             <section id="mlogin" class="modal3">
             <div class="modal-dialog">
