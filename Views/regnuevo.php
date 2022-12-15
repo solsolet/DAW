@@ -83,6 +83,7 @@
 if($bool == false){
     session_start();
     $_SESSION['usuario'] = $_POST['usuario'];
+    $_SESSION['estilo'] = "estilo/estilo.css";
 
     $lista = 2;
     include "inc/cabecera.php"; 
@@ -115,7 +116,6 @@ if($bool == false){
     
     
     include "inc/request.php";
-
 
 echo <<< hereDOC
 
