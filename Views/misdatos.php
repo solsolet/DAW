@@ -50,13 +50,14 @@
             $sentencia .= ', sexo = '.$gen.' ';
         }
         
+        //subir imagen
         if(isset($_FILES['img']) && !isset($_POST['borrar']) && $_FILES['img']['error'] != 4) {
             $target_dir = "imagenes/";
             $target_file = $target_dir . basename($_FILES["img"]["name"]);
             $subidaOk = true;
             $msg = "<p>";
 
-            // Check if file already exists
+            // Checkea si existe (img con mismo nombre)
             if (file_exists($target_file)) {
                 $msg .= "Esta imagen ya existe<br>";
                 $subidaOk = false;
@@ -76,10 +77,8 @@
             echo $msg;
             //print_r($_FILES);
         }
-           
 
         $sentencia .= 'WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
-
         
         include "inc/request.php";
         $_SESSION['usuario'] = $_POST['usuario'];
@@ -117,7 +116,7 @@
                 <?php $pagina = "misdatos"; include "inc/listapaises.php"; ?>
                 <label for="img">Foto: </label><div class="aviso"><img src=<?=$fila1['foto']?> width=50%></div><br>
                 <label for="img" class="file">Elige otra foto</label> <input value=<?=$fila1['foto']?> type="file" id="img" name="img" accept="imagenes/*"  >
-                <label for="borrar">Borrar Foto de Perfil:   <input type="checkbox" name="borrar" id="borrar" ></label>
+                <label for="borrar">Borrar Foto de Perfil: <input type="checkbox" name="borrar" id="borrar" ></label>
                 <input type="submit" value="Cambiar Datos" class="btn" id="pulsame">   
         </form>
     </section>
