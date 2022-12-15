@@ -5,7 +5,31 @@
     include "inc/cabecera.php";
     include "inc/conect.php";
 
-    if(isset($_POST['titulo']) && ($_POST['alternativo'] != "foto" || $_POST['alternativo'] != "imagen") && $_POST['img'] != ""){
+    if(isset($_POST['titulo']) && ($_POST['alternativo'] != "foto" || $_POST['alternativo'] != "imagen") && $isset($_FILES['img']) && $_FILES['img']['error'] != 4){
+        
+        $target_dir = "imagenes/";
+        $target_file = $target_dir . basename($_FILES["img"]["name"]);
+        $subidaOk = true;
+        $msg = "<p>";
+
+        // Checkea si existe (img con mismo nombre)
+        if (file_exists($target_file)) {
+            $msg .= "Esta imagen ya existe<br>";
+            $subidaOk = false;
+        }
+        // Check if error
+        if ($subidaOk == false)
+            $msg .= "Lo sientimos, no se ha podido subir la imagen";
+        else {
+            if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file))
+                $msg .= "El archivo ". htmlspecialchars( basename( $_FILES["img"]["name"])). " se ha subido";
+            else 
+                $msg .= "Lo sentimos, ha habido un error en la subida del archivo";
+        }
+        $msg .= "</p>";
+        echo $msg;
+        //print_r($_FILES);
+        
         if($_POST['pais'] == "vacio"){            
             $pa = 4;
         }
@@ -23,46 +47,20 @@
         $fecha = date("Y-m-d");
         $hora = date("H:i:s");
         $expT = "/^.{10,}$/";
-
-        if(isset($_FILES['img']) && $_FILES['img']['error'] != 4) {
-            $target_dir = "imagenes/";
-            $target_file = $target_dir . basename($_FILES["img"]["name"]);
-            $subidaOk = true;
-            $msg = "<p>";
-
-            // Checkea si existe (img con mismo nombre)
-            if (file_exists($target_file)) {
-                $msg .= "Esta imagen ya existe<br>";
-                $subidaOk = false;
-            }
-            // Check if error
-            if ($subidaOk == false)
-                $msg .= "Lo sientimos, no se ha podido subir la imagen";
-            else {
-                if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)){
-                    $msg .= "El archivo ". htmlspecialchars( basename( $_FILES["img"]["name"])). " se ha subido";
-                    $sentencia .= ', foto = "imagenes/'.$_FILES['img']['name'].'" ';
-                }
-                else 
-                    $msg .= "Lo sentimos, ha habido un error en la subida del archivo";
-            }
-            $msg .= "</p>";
-            echo $msg;
-            //print_r($_FILES);
-        }
+        
         
         if(preg_match($expT, $_POST['alternativo']) == 0 || str_contains($_POST['alternativo'],"imagen") || str_contains($_POST['alternativo'],"foto")
                         || str_contains($_POST['alternativo'],"alternativo") || str_contains($_POST['alternativo'],"texto")){
             echo<<<hereDOC
             <section id="mlogin" class="modal3">
-            <div class="modal-dialog">
-            <div class="modal-content">
+                <div class="modal-dialog">
+                    <div class="modal-content">
                         <h2>Fallos en la subida</h2>          
-                    <fieldset>
-                        <p>Formato de texto alternativo incorrecto.</p>
-                    </fieldset>        
-            </div>
-            </div>
+                        <fieldset>
+                            <p>Formato de texto alternativo incorrecto.</p>
+                        </fieldset>        
+                    </div>
+                </div>
             </section>
             hereDOC;
         }
