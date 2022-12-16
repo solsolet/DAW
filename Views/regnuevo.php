@@ -14,7 +14,6 @@
     $expC = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*_-]).{6,15}$/";
     $expE = "/^(?!\.)(?!.*\.$)(?!.*\.\.)[a-zA-Z0-9!#$%&'*+\-=\/?^_`{|}.]{1,64}@[a-zA-Z0-9\-]{1,254}$/";
 
-    
     $mensaje = "";
 
     if (!isset($_POST["usuario"]) || (strcmp($_POST["usuario"],"") == "0") || preg_match($expU, $_POST['usuario']) == 0){
@@ -81,6 +80,18 @@
     }
 
 if($bool == false){
+    
+    $foto = "predeterminado.jpg";
+    if(isset($_FILES['img']) && !isset($_POST['borrar']) && $_FILES['img']['error'] != 4) {
+        $target_dir = "imagenes/";
+        $target_file = $target_dir . basename($_FILES["img"]["name"]);
+        $foto = $_FILES["img"]["name"];
+        move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+        // Checkea si existe (img con mismo nombre)
+        
+        
+        //print_r($_FILES);
+    }   
     session_start();
     $_SESSION['usuario'] = $_POST['usuario'];
     $_SESSION['estilo'] = "estilo/estilo.css";
@@ -112,7 +123,7 @@ if($bool == false){
     $hora = date("H:i:s");
     $sentencia = 'INSERT into usuarios (nomUsuario, clave, email, sexo, fNacimiento, ciudad, pais, foto, fRegistro, estilo)
                 values ("'.$_POST['usuario'].'", "'.$_POST['clave'].'", "'.$_POST['email'].'", "'.$gen.'", "'.$_POST['fdn'].'", "'.$_POST['ciudad'].'", 
-                '.$pa.', "imagenes/'.$_POST['img'].'", "'.$fecha.' '.$hora.'", 3)';
+                '.$pa.', "imagenes/'.$foto.'", "'.$fecha.' '.$hora.'", 3)';
     
     
     include "inc/request.php";

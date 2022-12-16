@@ -7,6 +7,19 @@ include "inc/cabecera.php";
 include "inc/conect.php";
 
 if(isset($_POST['contra'])){
+
+    //borramos las fotos de la BD
+    $sentencia = 'SELECT * FROM `usuarios`,`fotos`,`albumes` WHERE idUsuario = usuario AND album = idAlbum AND nomUsuario = "'.$_SESSION['usuario'].'"';
+    include "inc/request.php";
+
+    while($foto = $resultado -> fetch_assoc()) {
+        if($foto['fichero'] != "imagenes/predeterminado.jpg")
+            unlink($foto['fichero']);
+    }
+
+    if($foto['foot'] != "imagenes/predeterminado.jpg")
+        unlink($foto['foto']);
+
     //borrar usu y salir
     $sentencia = 'SELECT * FROM `usuarios` WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
     include "inc/request.php";

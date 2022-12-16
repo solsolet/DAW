@@ -27,7 +27,7 @@ if($bool == true){
 ?>  
     <section>
         <h2>Registro</h2>
-        <form method="post" action="regnuevo?pasado=true">
+        <form method="post" action="regnuevo?pasado=true" enctype="multipart/form-data">
                 <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" <?php if($bool == true && isset($_GET['usu'])) echo"value = {$_GET['usu']}"?>>
                 <label for="clave">Contraseña:</label> <input type="password" name="clave" id="clave" <?php if($bool == true && isset($_GET['clv'])) echo"value = {$_GET['clv']}"?>>
                 <label for="clave2">Repetir contraseña:</label> <input type="password" name="clave2" id="clave2" <?php if($bool == true && isset($_GET['clv2'])) echo"value = {$_GET['clv2']}"?>>

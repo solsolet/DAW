@@ -4,8 +4,8 @@
     $lista = 2;
     include "inc/cabecera.php";
     include "inc/conect.php";
-
-    if(isset($_POST['titulo']) && ($_POST['alternativo'] != "foto" || $_POST['alternativo'] != "imagen") && $isset($_FILES['img']) && $_FILES['img']['error'] != 4){
+print_r($_FILES);
+    if(isset($_POST['titulo']) && ($_POST['alternativo'] != "foto" || $_POST['alternativo'] != "imagen") && isset($_FILES['img']) && $_FILES['img']['error'] != 4){
         
         $target_dir = "imagenes/";
         $target_file = $target_dir . basename($_FILES["img"]["name"]);
@@ -27,7 +27,6 @@
                 $msg .= "Lo sentimos, ha habido un error en la subida del archivo";
         }
         $msg .= "</p>";
-        echo $msg;
         //print_r($_FILES);
         
         if($_POST['pais'] == "vacio"){            
@@ -57,6 +56,7 @@
                     <div class="modal-content">
                         <h2>Fallos en la subida</h2>          
                         <fieldset>
+                            {$msg}
                             <p>Formato de texto alternativo incorrecto.</p>
                         </fieldset>        
                     </div>
@@ -67,7 +67,7 @@
         else{
             $sentencia = 'INSERT into fotos(titulo, descripcion, fecha, pais, album, fichero, alternativo, fRegistro)
             values ("'.$_POST['titulo'].'", "'.$_POST['descripcion'].'", "'.$_POST['fecha'].'", 
-            '.$pa.', '.$album['idAlbum'].', "imagenes/'.$_POST['img'].'", "'.$_POST['alternativo'].'", "'.$fecha.' '.$hora.'")';
+            '.$pa.', '.$album['idAlbum'].', "imagenes/'.$_FILES['img']['name'].'", "'.$_POST['alternativo'].'", "'.$fecha.' '.$hora.'")';
 
             include "inc/request.php";
 
@@ -83,7 +83,7 @@
 
 <section>
     <h2>Añadir foto a álbum</h2>
-    <form method="post" >
+    <form method="post" enctype="multipart/form-data">
         <fieldset>
             <label for="titulo">Título:</label> <input type="text" name="titulo" id="titulo" required><br>
             <label for="descripcion">Descripción:</label> <input type="text" name="descripcion" id="descripcion"><br>

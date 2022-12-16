@@ -16,9 +16,7 @@
             $sentencia = 'UPDATE `usuarios` SET foto = "imagenes/predeterminado.jpg" WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
             include "inc/request.php";
         }
-        
     }
-
 
     if(isset($_POST['usuario'])){
 
@@ -96,28 +94,28 @@
     <section>
         <h2>Mis Datos</h2>
         <form method="POST" enctype="multipart/form-data">
-                <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" value="<?=$fila1['nomUsuario']?>">
-                <label for="clave0">Contraseña Actual:</label> <input type="password" name="clave0" id="clave0">
-                <label for="clave">Nueva Contraseña:</label> <input type="password" name="clave" id="clave">
-                <label for="clave2">Repetir nueva contraseña:</label> <input type="password" name="clave2" id="clave2" >
-                <label for="email">Email:</label> <input type="email" name="email" id="email" value="<?=$fila1['email']?>">
-                <div>
-                    <label>Género:</label> <br>
-                    <input type="radio" id="generoh" name="genero" value="Hombre" <?php if($fila1['sexo'] == 0) echo"checked = 'checked'"?>>
-                        <label for="generoh">Hombre</label>
-                    <input type="radio" id="generom" name="genero" value="Mujer" <?php if($fila1['sexo'] == 1) echo"checked = 'checked'"?>>
-                        <label for="generom">Mujer</label> 
-                    <input type="radio" id="generoo" name="genero" value="Otro" <?php if($fila1['sexo'] == 2) echo"checked = 'checked'"?>>
-                        <label for="generoo">Otro</label>
-                </div>
+            <label for="usuario">Usuario:</label> <input type="text" name="usuario" id="usuario" value="<?=$fila1['nomUsuario']?>">
+            <label for="clave0">Contraseña Actual:</label> <input type="password" name="clave0" id="clave0">
+            <label for="clave">Nueva Contraseña:</label> <input type="password" name="clave" id="clave">
+            <label for="clave2">Repetir nueva contraseña:</label> <input type="password" name="clave2" id="clave2" >
+            <label for="email">Email:</label> <input type="email" name="email" id="email" value="<?=$fila1['email']?>">
+            <div>
+                <label>Género:</label> <br>
+                <input type="radio" id="generoh" name="genero" value="Hombre" <?php if($fila1['sexo'] == 0) echo"checked = 'checked'"?>>
+                    <label for="generoh">Hombre</label>
+                <input type="radio" id="generom" name="genero" value="Mujer" <?php if($fila1['sexo'] == 1) echo"checked = 'checked'"?>>
+                    <label for="generom">Mujer</label> 
+                <input type="radio" id="generoo" name="genero" value="Otro" <?php if($fila1['sexo'] == 2) echo"checked = 'checked'"?>>
+                    <label for="generoo">Otro</label>
+            </div>
 
-                <label for="fdn">Fecha de nacimiento:</label> <input type="date" name="fdn" id="fdn" value="<?=$fila1['fNacimiento']?>">
-                <label for="ciudad">Ciudad:</label> <input type="text" name="ciudad" id="ciudad"  value="<?=$fila1['ciudad']?>">
-                <?php $pagina = "misdatos"; include "inc/listapaises.php"; ?>
-                <label for="img">Foto: </label><div class="aviso"><img src=<?=$fila1['foto']?> width=50%></div><br>
-                <label for="img" class="file">Elige otra foto</label> <input value=<?=$fila1['foto']?> type="file" id="img" name="img" accept="imagenes/*"  >
-                <label for="borrar">Borrar Foto de Perfil: <input type="checkbox" name="borrar" id="borrar" ></label>
-                <input type="submit" value="Cambiar Datos" class="btn" id="pulsame">   
+            <label for="fdn">Fecha de nacimiento:</label> <input type="date" name="fdn" id="fdn" value="<?=$fila1['fNacimiento']?>">
+            <label for="ciudad">Ciudad:</label> <input type="text" name="ciudad" id="ciudad"  value="<?=$fila1['ciudad']?>">
+            <?php $pagina = "misdatos"; include "inc/listapaises.php"; ?>
+            <label for="img">Foto: </label><div class="aviso"><img src=<?=$fila1['foto']?> width=50%></div><br>
+            <label for="img" class="file">Elige otra foto</label> <input value=<?=$fila1['foto']?> type="file" id="img" name="img" accept="imagenes/*"  >
+            <label for="borrar">Borrar Foto de Perfil: <input type="checkbox" name="borrar" id="borrar" ></label>
+            <input type="submit" value="Cambiar Datos" class="btn" id="pulsame">   
         </form>
     </section>
         
