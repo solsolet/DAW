@@ -59,9 +59,16 @@
 
 .modal-content > form { background-color: var(--c1); }
 
-.modal-content > form > fieldset, .modal-content > fieldset{ 
+.modal-content > form > fieldset { 
   display: grid;
   color: var(--b2);
+  border-radius: 11px;
+  border: solid var(--c7);
+}
+
+.modal-content > fieldset { 
+  display: grid;
+  color: var(--t);
   border-radius: 11px;
   border: solid var(--c7);
 }
@@ -71,6 +78,8 @@
   display: inline-flex;
   justify-content: space-between;
 }
+
+
 
 .closebtn {
   float: right;

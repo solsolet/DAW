@@ -8,29 +8,50 @@ include "inc/conect.php";
 
 if(isset($_POST['contra'])){
 
-    //borramos las fotos de la BD
-    $sentencia = 'SELECT * FROM `usuarios`,`fotos`,`albumes` WHERE idUsuario = usuario AND album = idAlbum AND nomUsuario = "'.$_SESSION['usuario'].'"';
-    include "inc/request.php";
-
-    while($foto = $resultado -> fetch_assoc()) {
-        if($foto['fichero'] != "imagenes/predeterminado.jpg")
-            unlink($foto['fichero']);
-    }
-
-    if($foto['foot'] != "imagenes/predeterminado.jpg")
-        unlink($foto['foto']);
-
     //borrar usu y salir
     $sentencia = 'SELECT * FROM `usuarios` WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
     include "inc/request.php";
     
     $usu = $resultado->fetch_assoc();
     
-    if($usu['clave'] == $_POST['contra'])
-        $sentencia = 'DELETE FROM `usuarios` WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
+    if($usu['clave'] == $_POST['contra']){
 
-    include "inc/request.php";
-    include "salida.php";
+        //borramos las fotos de la BD
+        $sentencia = 'SELECT * FROM `usuarios`,`fotos`,`albumes` WHERE idUsuario = usuario AND album = idAlbum AND nomUsuario = "'.$_SESSION['usuario'].'"';
+        include "inc/request.php";
+
+        while($foto = $resultado -> fetch_assoc()) {
+            if($foto['fichero'] != "imagenes/predeterminado.jpg")
+                unlink($foto['fichero']);
+        }
+
+        if($foto['foto'] != "imagenes/predeterminado.jpg")
+            unlink($foto['foto']);
+
+        $sentencia = 'DELETE FROM `usuarios` WHERE nomUsuario = "'.$_SESSION['usuario'].'"';
+        include "inc/request.php";
+        include "inc/close.php";
+        include "salida.php";
+    } 
+    else{
+        echo<<<hereDOC
+        <section id="minco" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <form method="post" > <!-- quitar acceso? -->
+                <header>
+                    <h2>Contraseña incorrecta</h2>
+                    <a href="inco#" class="closebtn">×</a>
+                </header>
+                <fieldset>
+                    <p>Contraseña incorrecta</p>   
+                </fieldset>
+            </form>
+            </div>
+        </div>
+    </section>
+    hereDOC;
+    }
 }
 
 ?>

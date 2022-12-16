@@ -43,7 +43,7 @@
 
     if($_POST['fdn'] == "" || $_POST['fdn'] > date('Y-m-d', strtotime('18 years ago'))){
         $bool = true;
-        $mensaje .= "Debes ser mayor de 18 años";
+        $mensaje .= "Debes ser mayor de 18 años.";
     }
     
     if($bool == true && $pasado == true){

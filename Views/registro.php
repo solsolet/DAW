@@ -16,7 +16,7 @@ if($bool == true){
     <div class="modal-dialog">
     <div class="modal-content">
                 <h2>Fallos en el registro</h2>          
-            <fieldset>
+            <fieldset class="blanco">
                 <p>{$_GET['mensaje']}</p>
             </fieldset>        
     </div>
