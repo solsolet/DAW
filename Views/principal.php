@@ -126,8 +126,6 @@ include "inc/conect.php";
         </article>
         
         hereDOC;
-
-
         ?>
         </div>
     </section>

@@ -1,15 +1,15 @@
 idFoto 1
-Ignacio Pedrín
+zIgnacio Pedrín
 Esta foto me recuerda a mi gato
 
 idFoto 2
-Pedrisco Aramendía
+zPedrisco Aramendía
 Esta es una foto para la eternidad
 
 idFoto 3
-Messi
+zMessi
 Ché *golea*
 
 idFoto 4
-El Bicho
+zEl Bicho
 SUUUUUUUUUUUUUU
